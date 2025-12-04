@@ -14,6 +14,19 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GetInputs();
+
+        if (isBuilding && !GetComponentInChildren<BuildMode>().enabled)
+        {
+            GetComponentInChildren<BuildMode>().enabled = true; 
+        }
+    }
+    private void GetInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Debug.Log("Input pressed!");
+            isBuilding = true;
+        }
     }
 }

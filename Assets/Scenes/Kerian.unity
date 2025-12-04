@@ -366,14 +366,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943825955}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 757bca4b755fb1f47a762422423340f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myCamera: {fileID: 1979688232}
-  BuildableMaterial: {fileID: 2100000, guid: fbf03c31bc571774da6120fae77001eb, type: 2}
+  buildableMaterial: {fileID: 2100000, guid: fbf03c31bc571774da6120fae77001eb, type: 2}
   notBuildableMaterial: {fileID: 2100000, guid: de3d75f8f3e2b69458a95150ac99d769, type: 2}
+  building: {fileID: 8454553970553006538, guid: 9538a9cac42e61849bec84dd12fc145a, type: 3}
 --- !u!1001 &1115681658
 PrefabInstance:
   m_ObjectHideFlags: 0
