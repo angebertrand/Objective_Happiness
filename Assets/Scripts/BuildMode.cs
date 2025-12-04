@@ -4,22 +4,35 @@ using UnityEngine;
 
 public class BuildMode : MonoBehaviour
 {
-    public PlayerScript PlayerScript;
-    public GameObject PrevisualisationBuild;
-    public string futureBuildType = "farm";
+    public Camera myCamera;
+    public Material BuildableMaterial;
+    public Material notBuildableMaterial;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 Mouse_Position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (PlayerScript.isBuilding == true)
+        Vector3 mousePosition = Input.mousePosition;
+
+        Ray myRay = myCamera.ScreenPointToRay(mousePosition);
+
+        RaycastHit hit;
+
+        bool weHitSomething = Physics.Raycast(myRay, out hit);
+
+        if (weHitSomething && hit.transform.tag == "Tile")
         {
-            PrevisualisationBuild.transform.position = new Vector3 (Mouse_Position.x, 2, Mouse_Position.z);
+            if (hit.transform.GetComponent<TileSettings>().isBuildableOn)
+            {
+                hit.transform.GetComponentInChildren<MeshRenderer>().material = BuildableMaterial; 
+            }
+        }
+        else
+        {
+
         }
     }
 }

@@ -130,9 +130,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: isBuildableOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_Name
       value: HexagoneTile (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -189,32 +201,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 179111495}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
---- !u!1 &179111494 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-  m_PrefabInstance: {fileID: 121288397}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &179111495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179111494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4776f33065d2224d8c2209de904cebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBuildableOn: 0
-  tileType: 
-  xPos: 0
-  yPos: 2
 --- !u!1001 &367401126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,9 +211,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_Name
       value: HexagoneTile (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -282,74 +278,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 442065036}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
---- !u!1 &391733508 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-  m_PrefabInstance: {fileID: 1115681658}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &391733509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391733508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4776f33065d2224d8c2209de904cebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBuildableOn: 0
-  tileType: 
-  xPos: 1
-  yPos: 1
---- !u!1 &442065035 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-  m_PrefabInstance: {fileID: 367401126}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &442065036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442065035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4776f33065d2224d8c2209de904cebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBuildableOn: 0
-  tileType: 
-  xPos: 1
-  yPos: 0
---- !u!1 &683658563 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-  m_PrefabInstance: {fileID: 1336353106}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &683658564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 683658563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4776f33065d2224d8c2209de904cebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBuildableOn: 0
-  tileType: 
-  xPos: 1
-  yPos: 2
 --- !u!1 &704878118
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,9 +371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757bca4b755fb1f47a762422423340f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerScript: {fileID: 704878119}
-  PrevisualisationBuild: {fileID: 2014522860}
-  futureBuildType: 
+  myCamera: {fileID: 1979688232}
+  BuildableMaterial: {fileID: 2100000, guid: fbf03c31bc571774da6120fae77001eb, type: 2}
+  notBuildableMaterial: {fileID: 2100000, guid: de3d75f8f3e2b69458a95150ac99d769, type: 2}
 --- !u!1001 &1115681658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -452,9 +382,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: isBuildableOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_Name
       value: HexagoneTile (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -511,10 +457,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 391733509}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
 --- !u!1001 &1226807797
 PrefabInstance:
@@ -524,9 +467,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: isBuildableOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_Name
       value: HexagoneTile (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -583,10 +542,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1783336999}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
 --- !u!1001 &1281947835
 PrefabInstance:
@@ -600,6 +556,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HexagoneTile
       objectReference: {fileID: 0}
+    - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: m_TagString
+      value: Tile
+      objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.17
@@ -655,10 +615,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1664189446}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
 --- !u!1001 &1336353106
 PrefabInstance:
@@ -668,9 +625,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: isBuildableOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_Name
       value: HexagoneTile (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -727,32 +696,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 683658564}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
---- !u!1 &1419911698 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-  m_PrefabInstance: {fileID: 1673332786}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1419911699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419911698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4776f33065d2224d8c2209de904cebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBuildableOn: 0
-  tileType: 
-  xPos: 2
-  yPos: 0
 --- !u!1001 &1526582036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -761,9 +706,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_Name
       value: HexagoneTile (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -820,10 +773,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1692171949}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
 --- !u!1001 &1653093620
 PrefabInstance:
@@ -882,27 +832,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b960c8cc1cd444f41a1f237463caf176, type: 3}
---- !u!1 &1664189445 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-  m_PrefabInstance: {fileID: 1281947835}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1664189446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1664189445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4776f33065d2224d8c2209de904cebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBuildableOn: 0
-  tileType: 
-  xPos: 0
-  yPos: 0
 --- !u!1001 &1673332786
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -911,9 +840,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_Name
       value: HexagoneTile (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -970,53 +907,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1419911699}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
---- !u!1 &1692171948 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-  m_PrefabInstance: {fileID: 1526582036}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1692171949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692171948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4776f33065d2224d8c2209de904cebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBuildableOn: 0
-  tileType: 
-  xPos: 0
-  yPos: 1
---- !u!1 &1783336998 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-  m_PrefabInstance: {fileID: 1226807797}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1783336999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783336998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4776f33065d2224d8c2209de904cebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBuildableOn: 0
-  tileType: 
-  xPos: 0
-  yPos: 4
 --- !u!1001 &1804009600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1131,27 +1023,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d63e1952338dbcd45b6403a1354c0f88, type: 3}
---- !u!1 &1854878856 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-  m_PrefabInstance: {fileID: 1992878853}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1854878857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854878856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4776f33065d2224d8c2209de904cebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isBuildableOn: 0
-  tileType: 
-  xPos: 0
-  yPos: 3
 --- !u!1001 &1856895555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1309,9 +1180,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 119335827058174419, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: isBuildableOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_Name
       value: HexagoneTile (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: m_TagString
+      value: Tile
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -1368,10 +1251,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1854878857}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
 --- !u!1 &2014522860
 GameObject:
