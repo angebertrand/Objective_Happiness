@@ -9,8 +9,8 @@ public class ShowCharacterSchool : MonoBehaviour
     public GameManagerScript gameManager;
     public GameObject characterItemPrefab;
     public Transform container;
-    public AudioSource wrongSFX;
-    public AudioSource goodSFX;
+
+    public SchoolScript SchoolScript;
 
     void Start()
     {
@@ -37,8 +37,6 @@ public class ShowCharacterSchool : MonoBehaviour
             if (character != null)
             {
                 GameObject item = Instantiate(characterItemPrefab, container);
-                character.wrongSFX = wrongSFX;
-                character.goodSFX = goodSFX;
                 // element
                 Image icon = item.transform.Find("Icon").GetComponent<Image>();
                 TMP_Text nameText = item.transform.Find("Name").GetComponent<TMP_Text>();
@@ -50,17 +48,33 @@ public class ShowCharacterSchool : MonoBehaviour
                 // Assign value
                 icon.sprite = character.icon;        
                 nameText.text = character.name;
-            
-                btnFarm.onClick.AddListener(() => character.GoToSchool(GameObject.FindGameObjectWithTag("School"), "Farmer"));
-                btnMiner.onClick.AddListener(() => character.GoToSchool(GameObject.FindGameObjectWithTag("School"), "Miner"));
-                btnWoods.onClick.AddListener(() => character.GoToSchool(GameObject.FindGameObjectWithTag("School"), "Woods"));
-                btnMason.onClick.AddListener(() => character.GoToSchool(GameObject.FindGameObjectWithTag("School"),"Mason"));
+
+                btnFarm.onClick.AddListener(() => Clicking("Farmer", character));
+                btnMiner.onClick.AddListener(() => Clicking("Miner", character));
+                btnWoods.onClick.AddListener(() => Clicking("Woods", character));
+                btnMason.onClick.AddListener(() => Clicking("Mason", character));
             }
                       
         }
 
-        Invoke("RefreshList", 0.8f);
+        Invoke("RefreshList", 1f);
     }
 
-
+    public void Clicking(string job, CharacterScript character)
+    {
+        
+        if (job != character.currentJob && character.isLearning == false)
+        {
+            Debug.Log("YAHOUU");
+            SchoolScript.goodSFX.Play();
+            character.GoToSchool(SchoolScript.gameObject, job);
+            SchoolScript.isSomeoneLearning = true;
+            SchoolScript.HideSchoolCanva();
+        }
+        else
+        {
+            SchoolScript.wrongSFX.Play();
+        }
+        
+    }
 }

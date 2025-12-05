@@ -8,12 +8,14 @@ public class SchoolScript : MonoBehaviour
     public GameObject NextJob;
     public float learningProgress = 0f; // Progress from 0 to 100
     public float learningRate = 20f;    // % per second
-    
+
+    public AudioSource wrongSFX;
+    public AudioSource goodSFX;
+
     public ProgressBarScript progressBar;
     public GameObject canvasProgress;
     public GameObject canvasUI;
-    
-    
+    public bool isSomeoneLearning;
 
     private bool isLearning = false;
 
@@ -64,6 +66,7 @@ public class SchoolScript : MonoBehaviour
 
     private void FinishLearning()
     {
+        isSomeoneLearning = false;
         canvasProgress.SetActive(false);
         Debug.Log(currentCharacter.name + " has finished learning!");
         // Example: change character's job
@@ -84,7 +87,7 @@ public class SchoolScript : MonoBehaviour
         }
         
     }
-
+    
     public void ShowSchoolCanva()
     {
         canvasUI.SetActive(true);
