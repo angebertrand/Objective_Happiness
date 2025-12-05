@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MasonScript : CharacterScript
 {
@@ -8,6 +9,12 @@ public class MasonScript : CharacterScript
     void Start()
     {
         
+    }
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        currentJob = "Mason";
+        Register();
     }
 
     // Update is called once per frame

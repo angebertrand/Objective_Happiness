@@ -1,0 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ProgressBarScript : MonoBehaviour
+{
+    public Image progressBar;
+    public void UpdateProgress(float number)
+    {
+        progressBar.fillAmount = number;
+    }
+}

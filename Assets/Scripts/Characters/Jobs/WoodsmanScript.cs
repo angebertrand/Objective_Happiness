@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class WoodsmanScript : CharacterScript
 {
@@ -8,6 +9,12 @@ public class WoodsmanScript : CharacterScript
     void Start()
     {
         
+    }
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        currentJob = "Woods";
+        Register();
     }
 
     // Update is called once per frame

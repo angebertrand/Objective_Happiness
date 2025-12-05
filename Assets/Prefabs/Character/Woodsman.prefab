@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 5342841433060755809}
   - component: {fileID: 3188654333355898926}
   - component: {fileID: 3845218577499171431}
-  - component: {fileID: 5511499455064401764}
   - component: {fileID: 5547892435781011500}
   - component: {fileID: -1219741260820670187}
+  - component: {fileID: 7480118364610929316}
+  - component: {fileID: 5290884894211689862}
   m_Layer: 0
   m_Name: Woodsman
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,31 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5511499455064401764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4533931857633977052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa44bdfca29bc6845a49cbed4c1ccaaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sleepiness: 0
-  age: 0
-  hasEaten: 0
-  hasAJob: 0
-  enoughFood: 0
-  isWandering: 0
-  isWorking: 0
-  agent: {fileID: 0}
-  Farmer: {fileID: 4533931857633977052, guid: 63a3bace20ca1264a83dc1fde72fa835, type: 3}
-  Wanderer: {fileID: 4533931857633977052, guid: e4d8b1af03219cd40989a0f5fa2b50d1, type: 3}
-  Miner: {fileID: 4533931857633977052, guid: 26306901e46929949825b312ca8e4a24, type: 3}
-  Mason: {fileID: 4533931857633977052, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
-  Woodsman: {fileID: 4533931857633977052}
 --- !u!136 &5547892435781011500
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -156,3 +132,64 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7480118364610929316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533931857633977052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 663631e2df113d843a969f515a1b3cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  sleepiness: 0
+  age: 0
+  hasEaten: 0
+  hasAJob: 0
+  enoughFood: 0
+  isWandering: 0
+  isWorking: 0
+  ID: -1
+  canLearn: 0
+  nextJob: 
+  isHappy: 0
+  currentJob: 
+  wrongSFX: {fileID: 0}
+  agent: {fileID: 0}
+  manager: {fileID: 0}
+  Farmer: {fileID: 4533931857633977052, guid: 63a3bace20ca1264a83dc1fde72fa835, type: 3}
+  Wanderer: {fileID: 4533931857633977052, guid: e4d8b1af03219cd40989a0f5fa2b50d1, type: 3}
+  Miner: {fileID: 4533931857633977052, guid: 26306901e46929949825b312ca8e4a24, type: 3}
+  Mason: {fileID: 4533931857633977052, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+  Woodsman: {fileID: 4533931857633977052}
+  NextBuilding: {fileID: 0}
+--- !u!54 &5290884894211689862
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533931857633977052}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

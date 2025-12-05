@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5547892435781011500}
   - component: {fileID: -6254385624589035253}
   - component: {fileID: 7583614063001848308}
+  - component: {fileID: 393704409802465721}
   m_Layer: 0
   m_Name: Farmer
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1848b756d64634aab180ac4f5278c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: b4dc508086ac28f46b91879a0995fc63, type: 3}
   sleepiness: 0
   age: 0
   hasEaten: 0
@@ -128,12 +130,20 @@ MonoBehaviour:
   enoughFood: 0
   isWandering: 0
   isWorking: 0
+  ID: -1
+  canLearn: 0
+  nextJob: 
+  isHappy: 0
+  currentJob: 
+  wrongSFX: {fileID: 0}
   agent: {fileID: 0}
+  manager: {fileID: 0}
   Farmer: {fileID: 4533931857633977052}
   Wanderer: {fileID: 4533931857633977052, guid: e4d8b1af03219cd40989a0f5fa2b50d1, type: 3}
   Miner: {fileID: 4533931857633977052, guid: 26306901e46929949825b312ca8e4a24, type: 3}
   Mason: {fileID: 4533931857633977052, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
   Woodsman: {fileID: 4533931857633977052, guid: 4cf6f4394e8198a4aa1c0cb5031054ab, type: 3}
+  NextBuilding: {fileID: 0}
 --- !u!195 &7583614063001848308
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -156,3 +166,30 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &393704409802465721
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533931857633977052}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
