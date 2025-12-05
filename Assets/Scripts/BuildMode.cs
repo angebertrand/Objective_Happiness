@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,22 @@ public class BuildMode : MonoBehaviour
     public Material buildableMaterial;
     public Material notBuildableMaterial;
     public GameObject building;
+    private List<Material> lastHexaMaterials;
     private Material lastHexaMaterial;
+    public List<GameObject> lastHexas;
     private GameObject lastHexa;
+    private bool bigBuilding;
+
+    void Start()
+    {
+        lastHexaMaterials.Add(lastHexaMaterial);
+
+        lastHexas.Add(lastHexa);
+    }
+    void OnEnable()
+    {
+        bigBuilding = building.GetComponent<BuildingParameter>().bigBuilding;
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,8 +44,20 @@ public class BuildMode : MonoBehaviour
                 //Identify the tile your pointing
                 if (lastHexa != null)
                 {
-                    lastHexa.transform.GetComponentInChildren<MeshRenderer>().material = lastHexaMaterial;
-                    lastHexa = hit.transform.gameObject;
+                    foreach (GameObject hexa in lastHexas)
+                    {
+                        hexa.transform.GetComponentInChildren<MeshRenderer>().material = lastHexaMaterials[lastHexas.IndexOf(hexa)];
+                    }
+                    lastHexas.Clear();
+                    lastHexaMaterials.Clear();
+                    lastHexas.Add(hit.transform.gameObject);
+                    if (bigBuilding)
+                    {
+                        foreach (GameObject sisterTile in lastHexas[0].GetComponent<TileSettings>().sisterTiles)
+                        {
+                            lastHexas.Add(sisterTile);
+                        }
+                    }
                 }
                 else
                 {
@@ -48,6 +75,13 @@ public class BuildMode : MonoBehaviour
                 {
                     lastHexaMaterial = hit.transform.GetComponentInChildren<MeshRenderer>().material;
                     hit.transform.GetComponentInChildren<MeshRenderer>().material = notBuildableMaterial;
+                }
+                if (bigBuilding)
+                {
+                    foreach (GameObject sisterTile in lastHexas[0].GetComponent<TileSettings>().sisterTiles)
+                    {
+                        lastHexas.Add(sisterTile);
+                    }
                 }
             }
             //If a tile is clicked and buildable
@@ -70,5 +104,21 @@ public class BuildMode : MonoBehaviour
         lastHexa.transform.GetComponentInChildren<MeshRenderer>().material = lastHexaMaterial;
         GetComponentInParent<PlayerScript>().isBuilding = false;
         this.enabled = false;
+    }
+    private List<GameObject> GetGameObjects(int buildingSize, List<GameObject> lastHexas, RaycastHit hit)
+    {
+        if (lastHexas[1] != null)
+        {
+            for (int i = 0; i < buildingSize; i++)
+            {
+                lastHexa.transform.GetComponentInChildren<MeshRenderer>().material = lastHexaMaterial;
+                lastHexa = hit.transform.gameObject;
+            }
+        }
+        else
+        {
+            lastHexa = hit.transform.gameObject;
+        }
+        return new List<GameObject>();
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class TileSettings : MonoBehaviour
 {
@@ -14,15 +16,22 @@ public class TileSettings : MonoBehaviour
     [Header("Réglage de la tile")]
     public int xPos;
     public int yPos;
+    public List<GameObject> sisterTiles;
+    private Vector3 position;
 
     private float hexRadius;
 
-    void Start()
+    void Awake()
     {
         // Calcule automatiquement le rayon du mesh attaché
         hexRadius = DetectHexRadius();
+        position = PlacerHexaDansWorld(xPos, yPos, DetectHexRadius());
+        transform.position = position;
+    }
 
-        transform.position = PlacerHexaDansWorld(xPos, yPos, DetectHexRadius());
+    void Start()
+    {
+        sisterTiles = SetSisterTiles(xPos, yPos);
     }
 
     float DetectHexRadius()
@@ -57,5 +66,44 @@ public class TileSettings : MonoBehaviour
     public void ressourceIsExtracted()
     {
         ressourceAmount--;
+    }
+    private List<GameObject> SetSisterTiles(int XPos, int YPos)
+    {
+        Debug.Log("enter of the first foreach reached");
+        List<GameObject> sisterTiles = new List<GameObject>();
+        Debug.Log(GetComponentInParent<TilemapScript>().gameObjects.Length);
+        foreach (GameObject go in GetComponentInParent<TilemapScript>().gameObjects)
+        {
+            Debug.Log("first foreach reached");
+            int goXPos = go.GetComponent<TileSettings>().xPos;
+            int goYPos = go.GetComponent<TileSettings>().yPos;
+            if (goXPos == XPos)
+            {
+                for (int i = 1; i < 3; i++)
+                {
+                    Debug.Log("for statement is reached");
+                    if (goYPos == YPos - i)
+                    {
+                        sisterTiles.Add(go);
+                        Debug.Log("sisterTile should have been added");
+                    }
+                }
+            }
+            int xScan = 0;
+            switch (goYPos%2)
+            {
+                case 0:
+                    xScan = 1;
+                    break;
+                case 1:
+                    xScan = -1;
+                    break;
+            }
+            if (goXPos == XPos + xScan && goYPos == YPos - 1)
+            {
+                sisterTiles.Add(go);
+            }
+        }
+        return (sisterTiles);
     }
 }
