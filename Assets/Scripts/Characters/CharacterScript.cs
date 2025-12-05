@@ -27,9 +27,8 @@ public class CharacterScript : MonoBehaviour
     public string nextJob;
     public bool isHappy;
     public string currentJob;
+    public bool isLearning = false;
 
-    public AudioSource wrongSFX;
-    public AudioSource goodSFX;
 
     public NavMeshAgent agent;
     public GameManagerScript manager;
@@ -130,6 +129,7 @@ public class CharacterScript : MonoBehaviour
         newChara.ID = oldChara.ID;
         newChara.transform.position = oldChara.transform.position;
         newChara.transform.rotation = oldChara.transform.rotation;
+        newChara.isHappy = oldChara.isHappy;
         newChara.canLearn = false;
         
 
@@ -173,19 +173,14 @@ public class CharacterScript : MonoBehaviour
     {
         if (NextJob != currentJob)
         {
-            goodSFX.Play();
-            canLearn = true;
-            this.nextJob = NextJob;
-            agent.SetDestination(Building.transform.position);
+            
             this.canLearn = true;
+            this.nextJob = NextJob;
+            this.isLearning = true;
+            agent.SetDestination(Building.transform.position);
+            
         }
-        else
-        {
-            if (wrongSFX != null)
-            {
-                wrongSFX.Play();
-            }
-        }
+
         
         
     }
