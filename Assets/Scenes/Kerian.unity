@@ -146,6 +146,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -237,6 +245,10 @@ PrefabInstance:
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -394,7 +406,10 @@ MonoBehaviour:
   myCamera: {fileID: 1979688232}
   buildableMaterial: {fileID: 2100000, guid: fbf03c31bc571774da6120fae77001eb, type: 2}
   notBuildableMaterial: {fileID: 2100000, guid: de3d75f8f3e2b69458a95150ac99d769, type: 2}
-  building: {fileID: 8454553970553006538, guid: 9538a9cac42e61849bec84dd12fc145a, type: 3}
+  building: {fileID: 8454553970553006538, guid: 0dae9d2ea9b63b24ebd1f74e70b7cb13, type: 3}
+  lastHexaMaterials: []
+  lastHexas: []
+  bigBuilding: 0
 --- !u!1001 &1115681658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -422,6 +437,14 @@ PrefabInstance:
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -507,6 +530,14 @@ PrefabInstance:
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -716,6 +747,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -792,6 +827,10 @@ PrefabInstance:
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -874,6 +913,14 @@ PrefabInstance:
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
@@ -1062,6 +1109,14 @@ PrefabInstance:
     - target: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_TagString
       value: Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: xPos
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6880520694858067995, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+      propertyPath: yPos
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
       propertyPath: m_LocalScale.x
