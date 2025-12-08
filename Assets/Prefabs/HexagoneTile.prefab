@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4776f33065d2224d8c2209de904cebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBuildableOn: 0
+  isBuildableOn: 1
   tileType: 1
   xPos: 0
   yPos: 0

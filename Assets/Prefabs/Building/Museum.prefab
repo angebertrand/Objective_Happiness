@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 8026254351798378039}
   - component: {fileID: 3862643131455553555}
   - component: {fileID: 8702897620509286351}
-  - component: {fileID: 4620226704072939005}
   - component: {fileID: 4356720315261216475}
-  - component: {fileID: 6883961820497723581}
   m_Layer: 0
   m_Name: Museum
   m_TagString: Museum
@@ -29,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8373111937849534192}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
   m_LocalPosition: {x: -7.23, y: 1.24, z: -4.13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!33 &3862643131455553555
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -43,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8373111937849534192}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 5679357219156013056, guid: d23d82a8774e309479bbd0839205f185, type: 3}
 --- !u!23 &8702897620509286351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -86,27 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4620226704072939005
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8373111937849534192}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4356720315261216475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,15 +101,3 @@ MonoBehaviour:
   tileType: 0
   bigBuilding: 1
   manager: {fileID: 0}
---- !u!114 &6883961820497723581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8373111937849534192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bced2215d7d6e74aa752198f15cb66c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

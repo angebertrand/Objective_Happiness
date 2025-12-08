@@ -30,7 +30,10 @@ public class TileSettings : MonoBehaviour
         position = PlacerHexaDansWorld(xPos, yPos, DetectHexRadius());
         transform.position = position;
         myMeshRenderer = GetComponentInChildren<MeshRenderer>();
-        buildingOnTile = GetComponentInChildren<Building>();
+        if (buildingOnTile != null)
+        {
+            Instantiate(buildingOnTile, position, this.transform.rotation);
+        }
     }
 
     void Start()
