@@ -10,13 +10,14 @@ public class BuildMode : MonoBehaviour
     public Material buildableMaterial;
     public Material notBuildableMaterial;
     public GameObject building;
+    public GameObject construction;
     private CharacterScript character;
 
     // Lists to track hovered hexagons and their original materials
-    public List<Material> lastHexaMaterials = new List<Material>();
-    public List<GameObject> lastHexas = new List<GameObject>();
+    public List<Material> lastHexaMaterials = new();
+    public List<GameObject> lastHexas = new();
 
-    public bool bigBuilding; // 1 hexagon if false, multiple (e.g., 4) hexagons if true
+    public bool bigBuilding; // 1 hexagon if false, multiple hexagons if true
     private int buildableCount;
     private GameObject school;
 
@@ -26,18 +27,18 @@ public class BuildMode : MonoBehaviour
     void Start()
     {
         // Ensure BuildingParameter is on the 'building' object
-        if (building != null && building.GetComponent<BuildingParameter>() != null)
+        if (building != null && building.GetComponent<Building>() != null)
         {
-            bigBuilding = building.GetComponent<BuildingParameter>().bigBuilding;
+            bigBuilding = building.GetComponent<Building>().bigBuilding;
         }
     }
 
     void OnEnable()
     {
         // Reset building size on each activation
-        if (building != null && building.GetComponent<BuildingParameter>() != null)
+        if (building != null && building.GetComponent<Building>() != null)
         {
-            bigBuilding = building.GetComponent<BuildingParameter>().bigBuilding;
+            bigBuilding = building.GetComponent<Building>().bigBuilding;
         }
         // Ensure lists are empty upon activation
         lastHexas.Clear();
@@ -100,15 +101,12 @@ public class BuildMode : MonoBehaviour
 
                 }
 
-               
+                //If a school is clicked and no one is learning in it
                 if (Input.GetKeyDown(KeyCode.Mouse0) && !(school.transform.GetComponent<SchoolScript>().isSomeoneLearning))
                 {
-                    
-                    Debug.Log(school.transform.GetComponent<SchoolScript>().isSomeoneLearning);
+                    //Show up the school UI
                     SchoolScript schoolScript = school.transform.GetComponent<SchoolScript>();
                     schoolScript.ShowSchoolCanva();
-
-
                 }
 
             }
@@ -143,7 +141,7 @@ public class BuildMode : MonoBehaviour
             }
 
             // Check if the area is large enough for the building
-            bool isSizeCorrect = true;
+            bool isSizeCorrect;
             if (bigBuilding)
             {
                 // For a big building, we MUST have exactly BIG_BUILDING_SIZE (e.g., 4) hexagons in the list
@@ -173,9 +171,10 @@ public class BuildMode : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0) && isFullyBuildable)
             {
                 // Instantiate the building at the position of the main hexagon
-                Instantiate(building,
-                    new Vector3(lastHexas[0].transform.position.x, lastHexas[0].transform.position.y, lastHexas[0].transform.position.z),
-                    lastHexas[0].transform.rotation);
+                construction.GetComponent<ConstructionScript>().futureBuilding = building;
+                Instantiate(construction,
+                    new Vector3(lastHexas[0].transform.position.x, lastHexas[0].transform.position.y + 2, lastHexas[0].transform.position.z),
+                    building.transform.rotation);
 
                 // Disable buildability on ALL used hexagons
                 foreach (GameObject builtHexa in lastHexas)
@@ -239,5 +238,9 @@ public class BuildMode : MonoBehaviour
         // Disable building mode
         GetComponentInParent<PlayerScript>().isBuilding = false;
         this.enabled = false;
+    }
+    public void SelectBuilding(GameObject Building)
+    {
+        building = Building;
     }
 }

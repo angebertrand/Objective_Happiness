@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public bool isBuilding = false;
+    public GameObject buildInterface;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +19,13 @@ public class PlayerScript : MonoBehaviour
 
         if (isBuilding && !GetComponentInChildren<BuildMode>().enabled)
         {
-            GetComponentInChildren<BuildMode>().enabled = true; 
+            buildInterface.SetActive(true);
         }
     }
     private void GetInputs()
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            Debug.Log("Input pressed!");
             isBuilding = true;
         }
     }

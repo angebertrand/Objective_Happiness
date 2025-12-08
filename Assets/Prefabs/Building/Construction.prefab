@@ -279,12 +279,12 @@ GameObject:
   - component: {fileID: 7312601302647256322}
   - component: {fileID: 1574965242903936146}
   - component: {fileID: 397255330719830281}
-  - component: {fileID: 7299352582045645381}
   - component: {fileID: -5490760046903961586}
   - component: {fileID: 248045864305459840}
+  - component: {fileID: 7507942583082843009}
   m_Layer: 0
-  m_Name: Bush
-  m_TagString: Bush
+  m_Name: Construction
+  m_TagString: Construction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,9 +298,9 @@ Transform:
   m_GameObject: {fileID: 3104478571469802216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.23, y: 1.24, z: -4.13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9173431312897015575}
   m_Father: {fileID: 0}
@@ -312,7 +312,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3104478571469802216}
-  m_Mesh: {fileID: 5958362384829529401, guid: 193a23250733c8942be869d6c2e30b2b, type: 3}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &397255330719830281
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -333,7 +333,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0d9a6e7da798e304a8abacd4eceb4042, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -355,26 +355,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7299352582045645381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3104478571469802216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 752fe8ac359d2cb4699eba1b99a7b7bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManagerScript: {fileID: 0}
-  isSomeoneWorkingOnIt: 0
-  percentUntilFood: 0
-  percentOnFoodRate: 10
-  currentCharacter: {fileID: 0}
-  isMining: 0
-  progressBar: {fileID: 7993501308631759144}
-  canvasProgress: {fileID: 1884882877207536572}
 --- !u!114 &-5490760046903961586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +393,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.83
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7507942583082843009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104478571469802216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e01fb9ac130094ca17357aa8ae8fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildIsFinished: 0
+  futureBuilding: {fileID: 8584152553191704120, guid: 94bd473273a5ff540bdf5834fa01085d, type: 3}
 --- !u!1 &4216686421447199648
 GameObject:
   m_ObjectHideFlags: 0
