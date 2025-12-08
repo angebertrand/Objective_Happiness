@@ -10,6 +10,7 @@ public class BuildMode : MonoBehaviour
     public Material buildableMaterial;
     public Material notBuildableMaterial;
     public GameObject building;
+    private CharacterScript character;
 
     // Lists to track hovered hexagons and their original materials
     public List<Material> lastHexaMaterials = new List<Material>();
@@ -88,6 +89,45 @@ public class BuildMode : MonoBehaviour
                             lastHexaMaterials.Add(sisterTile.GetComponentInChildren<MeshRenderer>().material);
                         }
                     }
+                }
+            }
+            else if (weHitSomething && hit.transform.CompareTag("School"))
+            {
+
+                if (school != hit.transform.gameObject)
+                {
+                    school = hit.transform.gameObject;
+
+                }
+
+                //If a tile is clicked and buildable
+                if (Input.GetKeyDown(KeyCode.Mouse0) && !(school.transform.GetComponent<SchoolScript>().isSomeoneLearning))
+                {
+                    //Generate building, change isBuildableOn of the targeted tile to false and exit building mode
+                    Debug.Log(school.transform.GetComponent<SchoolScript>().isSomeoneLearning);
+                    SchoolScript schoolScript = school.transform.GetComponent<SchoolScript>();
+                    schoolScript.ShowSchoolCanva();
+
+
+                }
+
+            }
+            else if (weHitSomething && hit.transform.CompareTag("Character"))
+            {
+
+                if (character != hit.transform.gameObject)
+                {
+                    character = hit.transform.gameObject.GetComponent<CharacterScript>();
+
+                }
+                character.BeingHover();
+
+            }
+            else
+            {
+                if (character != null)
+                {
+                    character.StopBeingHover();
                 }
             }
 
