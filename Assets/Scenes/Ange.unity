@@ -838,15 +838,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3965498035116852785, guid: 94bd473273a5ff540bdf5834fa01085d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.33
+      value: 9.2
       objectReference: {fileID: 0}
     - target: {fileID: 3965498035116852785, guid: 94bd473273a5ff540bdf5834fa01085d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.49999905
+      value: 13.59
       objectReference: {fileID: 0}
     - target: {fileID: 3965498035116852785, guid: 94bd473273a5ff540bdf5834fa01085d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.71
+      value: 16.2
       objectReference: {fileID: 0}
     - target: {fileID: 3965498035116852785, guid: 94bd473273a5ff540bdf5834fa01085d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2234,7 +2234,7 @@ Transform:
   m_GameObject: {fileID: 1099475864}
   serializedVersion: 2
   m_LocalRotation: {x: 0.340342, y: -0, z: -0, w: 0.9403018}
-  m_LocalPosition: {x: -1.7, y: 16, z: -18.5}
+  m_LocalPosition: {x: 2.26, y: 30.3, z: -16.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3038,7 +3038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1826098330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3052,6 +3052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBuilding: 0
+  buildInterface: {fileID: 0}
 --- !u!4 &1826098331
 Transform:
   m_ObjectHideFlags: 0

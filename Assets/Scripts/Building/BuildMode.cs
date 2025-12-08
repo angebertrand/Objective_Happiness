@@ -92,42 +92,6 @@ public class BuildMode : MonoBehaviour
                     }
                 }
             }
-            else if (weHitSomething && hit.transform.CompareTag("School"))
-            {
-
-                if (school != hit.transform.gameObject)
-                {
-                    school = hit.transform.gameObject;
-
-                }
-
-                //If a school is clicked and no one is learning in it
-                if (Input.GetKeyDown(KeyCode.Mouse0) && !(school.transform.GetComponent<SchoolScript>().isSomeoneLearning))
-                {
-                    //Show up the school UI
-                    SchoolScript schoolScript = school.transform.GetComponent<SchoolScript>();
-                    schoolScript.ShowSchoolCanva();
-                }
-
-            }
-            else if (weHitSomething && hit.transform.CompareTag("Character"))
-            {
-
-                if (character != hit.transform.gameObject)
-                {
-                    character = hit.transform.gameObject.GetComponent<CharacterScript>();
-
-                }
-                character.BeingHover();
-
-            }
-            else
-            {
-                if (character != null)
-                {
-                    character.StopBeingHover();
-                }
-            }
 
             // --- 3. Global buildability check AND SIZE CHECK ---
 
@@ -195,22 +159,39 @@ public class BuildMode : MonoBehaviour
             }
         }
         // --- HOVER MANAGEMENT OUTSIDE A TILE ---
+        else if (weHitSomething && hit.transform.CompareTag("School"))
+        {
+            school = hit.transform.gameObject;
+            Debug.Log("qegsd");
+            if (Input.GetKeyDown(KeyCode.Mouse0) && school.transform.GetComponent<SchoolScript>() != null)
+            {
+                
+                SchoolScript schoolScript = school.transform.GetComponent<SchoolScript>();
+                // Check the learning condition before displaying the Canvas
+                if (!schoolScript.isSomeoneLearning)
+                {
+                    schoolScript.ShowSchoolCanva();
+                }
+            }
+            
+        }
+
+        else if (weHitSomething && hit.transform.CompareTag("Character"))
+        {
+
+            if (character != hit.transform.gameObject)
+            {
+                character = hit.transform.gameObject.GetComponent<CharacterScript>();
+
+            }
+            character.BeingHover();
+
+        }
         else
         {
-            // --- SCHOOL INTERACTION MANAGEMENT ---
-            if (weHitSomething && hit.transform.CompareTag("School"))
+            if (character != null)
             {
-                school = hit.transform.gameObject;
-
-                if (Input.GetKeyDown(KeyCode.Mouse0) && school.transform.GetComponent<SchoolScript>() != null)
-                {
-                    SchoolScript schoolScript = school.transform.GetComponent<SchoolScript>();
-                    // Check the learning condition before displaying the Canvas
-                    if (!schoolScript.isSomeoneLearning)
-                    {
-                        schoolScript.ShowSchoolCanva();
-                    }
-                }
+                character.StopBeingHover();
             }
         }
     }
