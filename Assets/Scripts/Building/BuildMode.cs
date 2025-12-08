@@ -137,7 +137,7 @@ public class BuildMode : MonoBehaviour
                 // Instantiate the building at the position of the main hexagon
                 construction.GetComponent<ConstructionScript>().futureBuilding = building;
                 Instantiate(construction,
-                    new Vector3(lastHexas[0].transform.position.x, lastHexas[0].transform.position.y + 2, lastHexas[0].transform.position.z),
+                    lastHexas[0].transform.position + building.transform.position,
                     building.transform.rotation);
 
                 // Disable buildability on ALL used hexagons

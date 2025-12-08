@@ -298,9 +298,9 @@ Transform:
   m_GameObject: {fileID: 3104478571469802216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.23, y: 1.24, z: -4.13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9173431312897015575}
   m_Father: {fileID: 0}
@@ -375,6 +375,7 @@ MonoBehaviour:
   isMining: 0
   progressBar: {fileID: 7993501308631759144}
   canvasProgress: {fileID: 1884882877207536572}
+  buildingScript: {fileID: 0}
 --- !u!114 &-5490760046903961586
 MonoBehaviour:
   m_ObjectHideFlags: 0
