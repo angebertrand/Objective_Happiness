@@ -14,7 +14,10 @@ public class WandererScript : CharacterScript
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        buildingManager = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingManager>();
         currentJob = "Wander";
+        isWandering = true;
+        cameraMain = Camera.main;
         Register();
         //NextBuilding = GameObject.FindGameObjectWithTag("School");
         //GoToBuilding(NextBuilding);
@@ -23,6 +26,19 @@ public class WandererScript : CharacterScript
     // Update is called once per frame
     void Update()
     {
-        
+        if (isWandering && !isLearning && !isWorking)
+        {
+
+            if (!IsWalking())
+            {
+                Wandering();
+            }
+
+        }
+
+        if (nameText.gameObject.activeSelf)
+        {
+            StopBeingHover();
+        }
     }
 }

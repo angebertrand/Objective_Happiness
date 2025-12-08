@@ -1,5 +1,6 @@
 ﻿
 using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.TextCore.Text;
@@ -28,7 +29,10 @@ public class CharacterScript : MonoBehaviour
     public bool isHappy;
     public string currentJob;
     public bool isLearning = false;
+    public bool isBeingHover = false;
 
+    public Camera cameraMain;
+    public TMP_Text nameText;
 
     public NavMeshAgent agent;
     public GameManagerScript manager;
@@ -39,7 +43,10 @@ public class CharacterScript : MonoBehaviour
     public GameObject Mason;
     public GameObject Woodsman;
     public GameObject NextBuilding;
+    public GameObject JobBuilding;
 
+    public BuildingManager buildingManager;
+    
 
     GameObject newCharacter;
 
@@ -97,14 +104,38 @@ public class CharacterScript : MonoBehaviour
 
     public void Die()
     {
-
+        manager.UnregisterCharacter(this);
+        Destroy(gameObject);
     }
 
     public void GoToWork()
     {
+        if (isLearning) return;
 
+        Building b = buildingManager.GetBuildingForJob(currentJob);
+
+        if (b == null)
+        {
+            Debug.Log("No free building for job: " + currentJob);
+
+            isWandering = true;
+            Invoke("GoToWork", 1f);
+
+            return;
+        }
+        
+        JobBuilding = b.gameObject;
+        agent.SetDestination(b.transform.position);
+        isWorking = true;
+        NextBuilding = b.gameObject;
     }
-    
+
+    public void FinishWork()
+    {
+        isWorking = false;
+        buildingManager.ReleaseBuilding(JobBuilding.GetComponent<Building>());
+    }
+
 
     public void ChangeCharacter(GameObject prefab)
     {
@@ -131,6 +162,7 @@ public class CharacterScript : MonoBehaviour
         newChara.transform.rotation = oldChara.transform.rotation;
         newChara.isHappy = oldChara.isHappy;
         newChara.canLearn = false;
+        newChara.name = oldChara.name;
         
 
         newChara.Wandering();
@@ -166,22 +198,62 @@ public class CharacterScript : MonoBehaviour
 
     public void GoToBuilding(GameObject Building)
     {
+        NextBuilding = Building;
         agent.SetDestination(Building.transform.position);
     }
 
     public void GoToSchool(GameObject Building, string NextJob)
     {
+        
         if (NextJob != currentJob)
         {
-            
+            if (isWorking)
+            {
+                FinishWork();
+            }
+            NextBuilding = Building;
             this.canLearn = true;
             this.nextJob = NextJob;
             this.isLearning = true;
             agent.SetDestination(Building.transform.position);
             
-        }
+        } 
+        
+    }
 
-        
-        
+    public void BeingHover()
+    {
+        nameText.text = this.name;
+        nameText.gameObject.SetActive(true);
+        // faire que le texte regarde la camera :
+        nameText.gameObject.transform.LookAt(transform.position + cameraMain.transform.rotation * Vector3.forward, cameraMain.transform.rotation * Vector3.up);
+
+    }
+
+    public void StopBeingHover()
+    {
+        nameText.gameObject.SetActive(false);
+    }
+
+    public void BeSleepy()
+    {
+        sleepiness = true;
+    }
+
+    public void EndOfTheDay()
+    {
+
+    }
+
+    public void Eat()
+    {
+        if (manager.ConsumeFood(1))
+        {
+            hasEaten = true;
+        }
+        else
+        {
+            Die();
+        }
     }
 }

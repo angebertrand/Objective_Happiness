@@ -8,6 +8,14 @@ TagManager:
   - GameManager
   - School
   - Character
+  - Bush
+  - Forest
+  - House
+  - Stone
+  - Farm
+  - Museum
+  - Library
+  - BuildingManager
   layers:
   - Default
   - TransparentFX

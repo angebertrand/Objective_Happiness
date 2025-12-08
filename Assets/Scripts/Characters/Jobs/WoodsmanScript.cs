@@ -6,20 +6,34 @@ using UnityEngine.AI;
 public class WoodsmanScript : CharacterScript
 {
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        GoToWork();
     }
     private void Awake()
     {
+
         agent = GetComponent<NavMeshAgent>();
+        buildingManager = FindObjectOfType<BuildingManager>();
         currentJob = "Woods";
+        cameraMain = Camera.main;
         Register();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isWandering && !isLearning && !isWorking)
+        {
+
+            if (!IsWalking())
+            {
+                Wandering();
+            }
+
+        }
+
+
     }
 }

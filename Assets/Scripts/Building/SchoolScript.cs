@@ -25,8 +25,10 @@ public class SchoolScript : MonoBehaviour
         {
             Debug.Log("AA");
             currentCharacter = other.GetComponent<CharacterScript>();
-            if (currentCharacter.canLearn)
+            Debug.Log(currentCharacter.NextBuilding);
+            if (currentCharacter.canLearn && currentCharacter.NextBuilding == this.gameObject)
             {
+                
                 isLearning = true;
             }
             

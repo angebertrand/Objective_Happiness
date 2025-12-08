@@ -6,6 +6,7 @@ public class GameManagerUIScript : MonoBehaviour
     public TMP_Text popText;
     public TMP_Text woodText;
     public TMP_Text foodText;
+    public TMP_Text stoneText;
     public GameManagerScript gameManagerScript;
     // Start is called before the first frame update
     void Start()
@@ -19,5 +20,6 @@ public class GameManagerUIScript : MonoBehaviour
         popText.text = gameManagerScript.nPopulation.ToString();
         woodText.text = gameManagerScript.nWood.ToString();
         foodText.text = gameManagerScript.nFood.ToString();
+        stoneText.text = gameManagerScript.nStone.ToString();
     }
 }

@@ -13,13 +13,24 @@ public class MasonScript : CharacterScript
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        buildingManager = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingManager>();
         currentJob = "Mason";
+        cameraMain = Camera.main;
         Register();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isWandering && !isLearning && !isWorking)
+        {
+
+            if (!IsWalking())
+            {
+                Wandering();
+            }
+
+        }
+
     }
 }

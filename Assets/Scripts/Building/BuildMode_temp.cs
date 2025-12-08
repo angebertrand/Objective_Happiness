@@ -13,6 +13,7 @@ public class BuildMode_temp : MonoBehaviour
     private Material lastHexaMaterial;
     public List<GameObject> lastHexas;
     private GameObject school;
+    private CharacterScript character;
     private bool bigBuilding;
 
     void Start()
@@ -52,6 +53,24 @@ public class BuildMode_temp : MonoBehaviour
 
             }
 
+        }
+        else if (weHitSomething && hit.transform.CompareTag("Character"))
+        {
+
+            if (character != hit.transform.gameObject)
+            {
+                character = hit.transform.gameObject.GetComponent<CharacterScript>();
+
+            }
+            character.BeingHover();
+
+        }
+        else
+        {
+            if (character != null)
+            {
+                character.StopBeingHover();
+            }
         }
     }
 }

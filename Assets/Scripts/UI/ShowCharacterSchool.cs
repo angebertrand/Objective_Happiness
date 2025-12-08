@@ -67,7 +67,7 @@ public class ShowCharacterSchool : MonoBehaviour
         {
             Debug.Log("YAHOUU");
             SchoolScript.goodSFX.Play();
-            character.GoToSchool(SchoolScript.gameObject, job);
+            character.GoToSchool(this.SchoolScript.gameObject, job);
             SchoolScript.isSomeoneLearning = true;
             SchoolScript.HideSchoolCanva();
         }
