@@ -29,8 +29,7 @@ public class BuildingManager : MonoBehaviour
 
         buildings[b.buildingType].Add(b);
 
-        Debug.Log("Registered building: " + b.gameObject.name + " | type: " + b.buildingType +
-             " | total " + buildings[b.buildingType].Count + " of this type");
+        
     }
 
 
@@ -38,7 +37,7 @@ public class BuildingManager : MonoBehaviour
     {
         if (!jobToBuilding.ContainsKey(jobName))
         {
-            Debug.LogWarning("No building mapped for job: " + jobName);
+            
             return null;
         }
 

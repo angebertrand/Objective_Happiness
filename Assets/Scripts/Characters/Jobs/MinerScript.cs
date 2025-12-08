@@ -8,7 +8,7 @@ public class MinerScript : CharacterScript
     // Start is called before the first frame update
     void Start()
     {
-        GoToWork();
+        
     }
     private void Awake()
     {

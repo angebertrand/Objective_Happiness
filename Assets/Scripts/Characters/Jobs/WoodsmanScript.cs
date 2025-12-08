@@ -8,7 +8,7 @@ public class WoodsmanScript : CharacterScript
     // Start is called before the first frame update
     private void Start()
     {
-        GoToWork();
+        
     }
     private void Awake()
     {
@@ -33,7 +33,6 @@ public class WoodsmanScript : CharacterScript
             }
 
         }
-
 
     }
 }

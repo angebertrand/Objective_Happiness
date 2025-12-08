@@ -3748,10 +3748,12 @@ MonoBehaviour:
   nStones: 0
   nBushes: 0
   nForests: 0
+  timeOfDay: 0
+  day: 0
   PausedSound: {fileID: 1712840394}
   UnPausedSound: {fileID: 1712840393}
   nWood: 0
-  nFood: 0
+  nFood: 1
   nStone: 0
   isPaused: 0
   pauseDuration: 0.6

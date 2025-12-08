@@ -23,9 +23,9 @@ public class SchoolScript : MonoBehaviour
     {
         if (other.CompareTag("Character"))
         {
-            Debug.Log("AA");
+            
             currentCharacter = other.GetComponent<CharacterScript>();
-            Debug.Log(currentCharacter.NextBuilding);
+            
             if (currentCharacter.canLearn && currentCharacter.NextBuilding == this.gameObject)
             {
                 
@@ -61,6 +61,7 @@ public class SchoolScript : MonoBehaviour
                 FinishLearning();
                 learningProgress = 0f;
                 isLearning = false;
+                currentCharacter.isJobless = false;
                 progressBar.UpdateProgress(learningProgress/100);
             }
         }
@@ -68,25 +69,30 @@ public class SchoolScript : MonoBehaviour
 
     private void FinishLearning()
     {
+        
         isSomeoneLearning = false;
         canvasProgress.SetActive(false);
         Debug.Log(currentCharacter.name + " has finished learning!");
         // Example: change character's job
-        switch (currentCharacter.nextJob)
+        if (!currentCharacter.isJobless)
         {
-            case "Farmer":
-                currentCharacter.ChangeCharacter(currentCharacter.Farmer);
-                break;
-            case "Miner":
-                currentCharacter.ChangeCharacter(currentCharacter.Miner);
-                break;
-            case "Woods":
-                currentCharacter.ChangeCharacter(currentCharacter.Woodsman);
-                break;
-            case "Mason":
-                currentCharacter.ChangeCharacter(currentCharacter.Mason);
-                break;
+            switch (currentCharacter.nextJob)
+            {
+                case "Farmer":
+                    currentCharacter.ChangeCharacter(currentCharacter.Farmer);
+                    break;
+                case "Miner":
+                    currentCharacter.ChangeCharacter(currentCharacter.Miner);
+                    break;
+                case "Woods":
+                    currentCharacter.ChangeCharacter(currentCharacter.Woodsman);
+                    break;
+                case "Mason":
+                    currentCharacter.ChangeCharacter(currentCharacter.Mason);
+                    break;
+            }
         }
+
         
     }
     

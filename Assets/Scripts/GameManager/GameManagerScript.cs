@@ -27,7 +27,9 @@ public class GameManagerScript : MonoBehaviour
     public int nBushes = 0;
     public int nForests = 0;
 
-   
+    public float timeOfDay;
+    public bool day;
+    public bool canGoToNextDay = false;
 
     public AudioSource PausedSound;
     public AudioSource UnPausedSound;
@@ -69,6 +71,7 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         StartCoroutine(CharacterListIntegrityCheck());
+        StartCoroutine(dayCoroutine());
     }
 
     // Update is called once per frame
@@ -100,8 +103,45 @@ public class GameManagerScript : MonoBehaviour
         }
 
 
-
     }
+
+    IEnumerator dayCoroutine()
+    {
+        GameObject sun = GameObject.FindGameObjectWithTag("Sun");
+
+        day = true;
+        sun.GetComponent<Light>().color = new Color(0.9849057f, 0.8108497f, 0.3400711f);
+        Debug.Log("Il fait jour.");
+
+        List<CharacterScript> charactersCopy = new List<CharacterScript>(characters);
+
+        foreach (CharacterScript c in charactersCopy)
+        {
+            c.isSleeping = false;
+            c.sleepiness = false;
+
+            if (c.isJobless)
+            {
+                c.GoToSchool(c.JobBuilding, c.nextJob);
+            }
+            else
+            {
+                c.GoToWork();
+            }
+
+        }
+
+
+        yield return new WaitForSeconds(6f);
+
+        day = false;
+        sun.GetComponent<Light>().color = new Color(0.1071307f, 0.09558551f, 0.6754716f);
+        Debug.Log("Il fait nuit.");
+        FinishDay();
+        
+        
+    }
+
     private IEnumerator CharacterListIntegrityCheck()
     {
         while (true)
@@ -151,6 +191,8 @@ public class GameManagerScript : MonoBehaviour
         isPaused = false;
     }
 
+
+
     private void CleanCharacterList()
     {
         // Liste des personnages réellement présents dans la scène
@@ -177,15 +219,13 @@ public class GameManagerScript : MonoBehaviour
         {
             characters[i].ID = i;
         }
-
-        Debug.Log("✔ Character list cleaned. Count = " + characters.Count);
     }
 
 
     public string GetRandomName()
     {
         int index = Random.Range(0, names.Count);
-        Debug.Log(names[index]);
+        
         return names[index];
     }
 
@@ -238,7 +278,7 @@ public class GameManagerScript : MonoBehaviour
             case "Bush": bushes.Add(structure); break;
             case "Forest": forests.Add(structure); break;
             default:
-                Debug.LogWarning("Structure with unrecognized tag: " + structure.name);
+                
                 break;
         }
     }
@@ -264,6 +304,98 @@ public class GameManagerScript : MonoBehaviour
             return false;
 
         nFood -= amount;
+        return true;
+    }
+
+    private void StartDayCicle()
+    {
+        StartCoroutine(dayCoroutine());
+    }
+
+    private void FinishDay()
+    {
+        List<CharacterScript> charactersCopy = new List<CharacterScript>(characters); 
+        foreach (CharacterScript character in charactersCopy) 
+        { 
+            if (character != null) 
+                character.EndOfTheDay(); 
+        }
+
+        // Ensuite on attend que la condition soit vraie
+        StartCoroutine(WaitForSleepingOrHousesFull());
+    }
+
+
+    private IEnumerator WaitForSleepingOrHousesFull()
+    {
+        while (true)
+        {
+            bool everyoneSleeping = true;
+
+            List<CharacterScript> charactersCopy = new List<CharacterScript>(characters);
+            foreach (CharacterScript character in charactersCopy)
+
+                foreach (CharacterScript c in charactersCopy)
+                {
+                    if (c.isSleeping == false)
+                    {
+                        
+                        everyoneSleeping = false;
+                        break;
+                    }
+                }
+            
+            bool allHousesOccupied = AreAllHousesOccupied();
+
+            // Condition OK ?
+            if (everyoneSleeping || allHousesOccupied)
+            {
+                Debug.Log("✔ Conditions remplies : passage au jour suivant.");
+                
+
+                yield return new WaitForSeconds(4f);
+
+                
+
+                StartCoroutine(dayCoroutine());
+                yield break;
+            }
+
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    private bool AreAllHousesOccupied()
+    {
+        foreach (GameObject house in houses)
+        {
+            
+            if (house != null)
+            {
+                HouseScript h = house.GetComponent<HouseScript>();
+
+                if (h == null)
+                {
+                    h = house.GetComponentInChildren<HouseScript>();
+                    
+                }
+                    
+
+                if (!h.isOccupied)
+                {
+                    
+                    return false;
+                }
+                    
+
+                // if h == null, we consider the house as NOT occupied (or log)
+                if (h == null)
+                {
+                    Debug.LogWarning("Maison sans HouseScript détectée : " + house.name);
+                    return false;
+                }
+            }
+        }
         return true;
     }
 }

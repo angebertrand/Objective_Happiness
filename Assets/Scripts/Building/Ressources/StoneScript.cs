@@ -14,6 +14,8 @@ public class StoneScript : MonoBehaviour
     public ProgressBarScript progressBar;
     public GameObject canvasProgress;
 
+    public Building buildingScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,9 @@ public class StoneScript : MonoBehaviour
     private void Awake()
     {
         gameManagerScript = FindObjectOfType<GameManagerScript>();
+
+        buildingScript = this.gameObject.GetComponent<Building>();
+
         
     }
 
@@ -48,19 +53,39 @@ public class StoneScript : MonoBehaviour
         }
     }
 
+
+    private IEnumerator CheckMiningState()
+    {
+        while (isMining)
+        {
+            // Le character existe toujours ?
+            if (currentCharacter == null)
+            {
+                isMining = false;
+                buildingScript.isUsed = false;
+                canvasProgress.SetActive(false);
+                yield break;
+            }
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+
+        
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Character") && !isMining)
         {
-            Debug.Log("AA");
+            
             currentCharacter = other.GetComponent<CharacterScript>();
             
             if (currentCharacter.NextBuilding == this.gameObject)
             {
                 isMining = true;
+                StartCoroutine(CheckMiningState());
             }
-            
-            
 
         }
     }
@@ -76,7 +101,7 @@ public class StoneScript : MonoBehaviour
           
             isMining = false;
             canvasProgress.SetActive(false);
-                
+            buildingScript.isUsed = false;
 
         }
 

@@ -100,10 +100,10 @@ public class BuildMode : MonoBehaviour
 
                 }
 
-                //If a tile is clicked and buildable
+               
                 if (Input.GetKeyDown(KeyCode.Mouse0) && !(school.transform.GetComponent<SchoolScript>().isSomeoneLearning))
                 {
-                    //Generate building, change isBuildableOn of the targeted tile to false and exit building mode
+                    
                     Debug.Log(school.transform.GetComponent<SchoolScript>().isSomeoneLearning);
                     SchoolScript schoolScript = school.transform.GetComponent<SchoolScript>();
                     schoolScript.ShowSchoolCanva();

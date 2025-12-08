@@ -1,6 +1,7 @@
 ﻿
 using JetBrains.Annotations;
 using TMPro;
+using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.TextCore.Text;
@@ -26,7 +27,11 @@ public class CharacterScript : MonoBehaviour
     public int ID = -1;
     public bool canLearn;
     public string nextJob;
-    public bool isHappy;
+    public bool isSleeping = false;
+    public bool isJobless = false;
+
+    public int isHappy;
+
     public string currentJob;
     public bool isLearning = false;
     public bool isBeingHover = false;
@@ -110,14 +115,16 @@ public class CharacterScript : MonoBehaviour
 
     public void GoToWork()
     {
-        if (isLearning) return;
+        
+        if (isLearning || manager.day == false) return;
 
         Building b = buildingManager.GetBuildingForJob(currentJob);
+     
 
         if (b == null)
         {
-            Debug.Log("No free building for job: " + currentJob);
-
+            
+           
             isWandering = true;
             Invoke("GoToWork", 1f);
 
@@ -207,11 +214,13 @@ public class CharacterScript : MonoBehaviour
         
         if (NextJob != currentJob)
         {
+            isJobless = true;
             if (isWorking)
             {
                 FinishWork();
             }
             NextBuilding = Building;
+            JobBuilding = Building;
             this.canLearn = true;
             this.nextJob = NextJob;
             this.isLearning = true;
@@ -242,16 +251,51 @@ public class CharacterScript : MonoBehaviour
 
     public void EndOfTheDay()
     {
+        
+        sleepiness = true;
+        Eat();
+
+        
+
+        if (currentJob != "Wander")
+        {
+            
+            Building house = buildingManager.GetFreeBuilding("House");
+
+            if (house == null)
+            { 
+                isWandering = true;
+                isHappy = -1;
+                return;
+            }
+
+            agent.isStopped = false;     
+            agent.ResetPath();
+            HouseScript houseScript = house.gameObject.GetComponent<HouseScript>();
+            if (houseScript == null) return;
+            
+            houseScript.currentCharacter = this;
+            agent.SetDestination(house.transform.position);
+            isWorking = false;
+            isWandering = false;
+            isLearning = false;
+            NextBuilding = house.gameObject;
+            isHappy = 1;
+                
+            
+
+        }
+        else
+        {
+            isHappy = 0;
+            isSleeping = true;
+        }
 
     }
 
     public void Eat()
-    {
-        if (manager.ConsumeFood(1))
-        {
-            hasEaten = true;
-        }
-        else
+    {  
+        if (!manager.ConsumeFood(1))
         {
             Die();
         }
