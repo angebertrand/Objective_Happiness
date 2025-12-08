@@ -73,7 +73,6 @@ public class BushScript : MonoBehaviour
 
             isMining = false;
             canvasProgress.SetActive(false);
-            Debug.Log("NOOOOOOOOOOOOOOOOO");
 
         }
     }

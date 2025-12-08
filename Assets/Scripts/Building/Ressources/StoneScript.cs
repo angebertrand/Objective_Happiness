@@ -50,7 +50,7 @@ public class StoneScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Character"))
+        if (other.CompareTag("Character") && !isMining)
         {
             Debug.Log("AA");
             currentCharacter = other.GetComponent<CharacterScript>();
