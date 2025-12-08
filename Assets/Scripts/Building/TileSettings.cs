@@ -69,23 +69,18 @@ public class TileSettings : MonoBehaviour
     }
     private List<GameObject> SetSisterTiles(int XPos, int YPos)
     {
-        Debug.Log("enter of the first foreach reached");
         List<GameObject> sisterTiles = new List<GameObject>();
-        Debug.Log(GetComponentInParent<TilemapScript>().gameObjects.Length);
         foreach (GameObject go in GetComponentInParent<TilemapScript>().gameObjects)
         {
-            Debug.Log("first foreach reached");
             int goXPos = go.GetComponent<TileSettings>().xPos;
             int goYPos = go.GetComponent<TileSettings>().yPos;
             if (goXPos == XPos)
             {
                 for (int i = 1; i < 3; i++)
                 {
-                    Debug.Log("for statement is reached");
                     if (goYPos == YPos - i)
                     {
                         sisterTiles.Add(go);
-                        Debug.Log("sisterTile should have been added");
                     }
                 }
             }
