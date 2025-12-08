@@ -10,14 +10,16 @@ using UnityEngine.UIElements;
 public class TileSettings : MonoBehaviour
 {
     public bool isBuildableOn = false;
-    public string tileType;
-    private int ressourceAmount = 5;
+    public int tileType;                //0 = plain, 1 = Bush, 2 = Stone, 3 = Forest
+    private MeshRenderer myMeshRenderer;
 
     [Header("Réglage de la tile")]
     public int xPos;
     public int yPos;
     public List<GameObject> sisterTiles;
     private Vector3 position;
+    public Building buildingOnTile;
+    public List<Material> materials;
 
     private float hexRadius;
 
@@ -27,11 +29,47 @@ public class TileSettings : MonoBehaviour
         hexRadius = DetectHexRadius();
         position = PlacerHexaDansWorld(xPos, yPos, DetectHexRadius());
         transform.position = position;
+        myMeshRenderer = GetComponentInChildren<MeshRenderer>();
+        buildingOnTile = GetComponentInChildren<Building>();
     }
 
     void Start()
     {
         sisterTiles = SetSisterTiles(xPos, yPos);
+    }
+
+    private void Update()
+    {
+        if (buildingOnTile.tileType != tileType)
+        {
+            tileType = buildingOnTile.tileType;
+            switch (tileType)
+            {
+                case 0:
+                    //Plain
+                    if (buildingOnTile.buildingType == "Empty")
+                    {
+                        isBuildableOn = true;
+                    }
+                    myMeshRenderer.material = materials[0];
+                    break;
+
+                case 1:
+                    //Bush
+                    myMeshRenderer.material = materials[1];
+                    break;
+
+                case 2:
+                    //Stone
+                    myMeshRenderer.material = materials[2];
+                    break;
+
+                case 3:
+                    // Forest
+                    myMeshRenderer.material = materials[3];
+                    break;
+            }
+        }
     }
 
     float DetectHexRadius()
@@ -63,10 +101,6 @@ public class TileSettings : MonoBehaviour
         return new Vector3(worldX, 0f, -worldZ); 
     }
 
-    public void ressourceIsExtracted()
-    {
-        ressourceAmount--;
-    }
     private List<GameObject> SetSisterTiles(int XPos, int YPos)
     {
         List<GameObject> sisterTiles = new List<GameObject>();

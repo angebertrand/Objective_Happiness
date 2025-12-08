@@ -120,3 +120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingType: 
   isUsed: 0
+  tileType: 0
+  bigBuilding: 0
+  manager: {fileID: 0}

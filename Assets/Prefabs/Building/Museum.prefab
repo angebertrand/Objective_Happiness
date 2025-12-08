@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3862643131455553555}
   - component: {fileID: 8702897620509286351}
   - component: {fileID: 4620226704072939005}
-  - component: {fileID: 3918663819893407150}
+  - component: {fileID: 4356720315261216475}
+  - component: {fileID: 6883961820497723581}
   m_Layer: 0
   m_Name: Museum
   m_TagString: Museum
@@ -106,7 +107,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3918663819893407150
+--- !u!114 &4356720315261216475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,6 +116,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 8373111937849534192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3907700f84a58ff4eb53856a62acd43a, type: 3}
+  m_Script: {fileID: 11500000, guid: 73e7ab5ab13eb7c4aa7609c760c823e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingType: 
+  isUsed: 0
+  tileType: 0
+  bigBuilding: 1
+  manager: {fileID: 0}
+--- !u!114 &6883961820497723581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8373111937849534192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bced2215d7d6e74aa752198f15cb66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

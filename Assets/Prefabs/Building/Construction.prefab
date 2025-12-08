@@ -281,10 +281,10 @@ GameObject:
   - component: {fileID: 397255330719830281}
   - component: {fileID: -5490760046903961586}
   - component: {fileID: 248045864305459840}
-  - component: {fileID: -2884773584638051850}
+  - component: {fileID: 7507942583082843009}
   m_Layer: 0
-  m_Name: Forest
-  m_TagString: Forest
+  m_Name: Construction
+  m_TagString: Construction
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,9 +298,9 @@ Transform:
   m_GameObject: {fileID: 3104478571469802216}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.23, y: 1.24, z: -4.13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9173431312897015575}
   m_Father: {fileID: 0}
@@ -333,7 +333,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0d9a6e7da798e304a8abacd4eceb4042, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -369,7 +369,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingType: 
   isUsed: 0
-  tileType: Forest
+  tileType: 0
+  bigBuilding: 0
   manager: {fileID: 0}
 --- !u!135 &248045864305459840
 SphereCollider:
@@ -381,7 +382,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -392,7 +393,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1.83
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-2884773584638051850
+--- !u!114 &7507942583082843009
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -401,17 +402,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3104478571469802216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6b64f8b789a967478ea5ba0f9f234f3, type: 3}
+  m_Script: {fileID: 11500000, guid: 20e01fb9ac130094ca17357aa8ae8fcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManagerScript: {fileID: 0}
-  isSomeoneWorkingOnIt: 0
-  percentUntilWood: 0
-  percentOnWoodRate: 20
-  currentCharacter: {fileID: 0}
-  isMining: 0
-  progressBar: {fileID: 7993501308631759144}
-  canvasProgress: {fileID: 1884882877207536572}
+  buildIsFinished: 0
+  futureBuilding: {fileID: 8584152553191704120, guid: 94bd473273a5ff540bdf5834fa01085d, type: 3}
 --- !u!1 &4216686421447199648
 GameObject:
   m_ObjectHideFlags: 0

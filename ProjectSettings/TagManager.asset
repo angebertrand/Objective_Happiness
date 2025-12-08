@@ -16,6 +16,8 @@ TagManager:
   - Museum
   - Library
   - BuildingManager
+  - Sun
+  - Construction
   layers:
   - Default
   - TransparentFX

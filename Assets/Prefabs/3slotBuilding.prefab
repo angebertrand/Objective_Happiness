@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7417690000841828524}
   - component: {fileID: 7389594296910655811}
   - component: {fileID: 2045696171849494396}
-  - component: {fileID: 3192950998761525178}
   - component: {fileID: 9084827245224789756}
   m_Layer: 0
   m_Name: 3slotBuilding
@@ -107,20 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3192950998761525178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8454553970553006538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aef6c8f9b47c7146afa51b6168a9bdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bigBuilding: 1
-  interactable: 0
 --- !u!114 &9084827245224789756
 MonoBehaviour:
   m_ObjectHideFlags: 0
