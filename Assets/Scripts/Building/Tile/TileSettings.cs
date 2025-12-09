@@ -106,7 +106,7 @@ public class TileSettings : MonoBehaviour
 
     private List<GameObject> SetSisterTiles(int XPos, int YPos)
     {
-        List<GameObject> sisterTiles = new List<GameObject>();
+        List<GameObject> sisterTiles = new();
         foreach (GameObject go in GetComponentInParent<TilemapScript>().gameObjects)
         {
             int goXPos = go.GetComponent<TileSettings>().xPos;
