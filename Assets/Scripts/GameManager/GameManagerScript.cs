@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public List<CharacterScript> characters = new List<CharacterScript>();
+    public GameObject spawnpoint;
 
     // Buildings :
     public List<GameObject> houses = new List<GameObject>();
@@ -113,6 +114,7 @@ public class GameManagerScript : MonoBehaviour
         GameObject sun = GameObject.FindGameObjectWithTag("Sun");
 
         day = true;
+        spawnpoint.GetComponent<SpawnpointScript>().InstanciateWanderer();
         sun.GetComponent<Light>().color = new Color(0.9849057f, 0.8108497f, 0.3400711f);
         Debug.Log("Il fait jour.");
 

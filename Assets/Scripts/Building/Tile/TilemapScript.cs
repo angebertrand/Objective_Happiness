@@ -8,6 +8,7 @@ public class TilemapScript : MonoBehaviour
     public int yGridSize = 0;
     public GameObject[] gameObjects;
     public GameObject Tile;
+    public GameObject spawnpoint;
     private GameObject currentTile;
     // Start is called before the first frame update
     void Awake()
@@ -19,6 +20,27 @@ public class TilemapScript : MonoBehaviour
                 currentTile = Instantiate(Tile, Vector3.zero, Tile.transform.rotation, this.transform);
                 currentTile.GetComponent<TileSettings>().xPos = x;
                 currentTile.GetComponent<TileSettings>().yPos = y;
+                if (x == xGridSize/2 && y == yGridSize/2)
+                {
+                    currentTile.GetComponent<TileSettings>().tileType = 0;
+                    currentTile.GetComponent<TileSettings>().isBuildableOn = false;
+                }
+                else
+                {
+                    int seed = Random.Range(0, 101);
+                    if (seed < 10)
+                    {
+                        currentTile.GetComponent<TileSettings>().tileType = 1;
+                    }
+                    else if (seed >= 10 && seed < 20)
+                    {
+                        currentTile.GetComponent<TileSettings>().tileType = 2;
+                    }
+                    else if (seed >= 20 && seed < 30)
+                    {
+                        currentTile.GetComponent<TileSettings>().tileType = 3;
+                    }
+                }
                 currentTile.GetComponent<TileSettings>().enabled = true;
             }
         }
