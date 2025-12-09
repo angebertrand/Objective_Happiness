@@ -218,10 +218,15 @@ public class BuildMode : MonoBehaviour
 
         // Disable building mode
         GetComponentInParent<PlayerScript>().isBuilding = false;
+        GetComponentInParent<DefaultMode>().enabled = true;
         this.enabled = false;
     }
     public void SelectBuilding(GameObject Building)
     {
         building = Building;
+    }
+    public void getBuildingRessources()
+    {
+
     }
 }

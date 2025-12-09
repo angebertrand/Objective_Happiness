@@ -299,6 +299,9 @@ MonoBehaviour:
   tileType: 0
   bigBuilding: 0
   manager: {fileID: 0}
+  woodCost: 3
+  stoneCost: 0
+  foodCost: 0
 --- !u!114 &730092541973329669
 MonoBehaviour:
   m_ObjectHideFlags: 0
