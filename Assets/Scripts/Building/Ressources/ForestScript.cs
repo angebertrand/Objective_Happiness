@@ -16,12 +16,6 @@ public class ForestScript : MonoBehaviour
 
     public Building buildingScript;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void Awake()
     {
         gameManagerScript = FindObjectOfType<GameManagerScript>();

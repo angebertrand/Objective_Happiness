@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &30146948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1773,6 +1773,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620164572}
   m_CullTransparentMesh: 1
+--- !u!1001 &669507763
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4533931857633977052, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_Name
+      value: Mason
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342841433060755809, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.13632
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342841433060755809, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.12379551
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342841433060755809, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.618906
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342841433060755809, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342841433060755809, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342841433060755809, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342841433060755809, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342841433060755809, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342841433060755809, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342841433060755809, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e7748d1cc0e7e824eaacf2817953a6d0, type: 3}
 --- !u!1 &687143151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1854,7 +1911,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 687143154}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 704878119}
+        m_TargetAssemblyTypeName: PlayerScript, Assembly-CSharp
+        m_MethodName: GetInputs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &687143154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,7 +1999,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuilding: 0
   buildInterface: {fileID: 30146947}
-  defaultMode: {fileID: 0}
+  defaultMode: {fileID: 943825958}
+  gameManagerScript: {fileID: 1712840395}
 --- !u!4 &704878120
 Transform:
   m_ObjectHideFlags: 0
@@ -2311,7 +2381,7 @@ MonoBehaviour:
   notBuildableMaterial: {fileID: 2100000, guid: de3d75f8f3e2b69458a95150ac99d769, type: 2}
   building: {fileID: 3104478571469802216, guid: a6b6e3e1ef6a8d54a8b247068464b653, type: 3}
   construction: {fileID: 3104478571469802216, guid: a6b6e3e1ef6a8d54a8b247068464b653, type: 3}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 1712840392}
   lastHexaMaterials: []
   lastHexas: []
   bigBuilding: 0
@@ -5669,9 +5739,9 @@ MonoBehaviour:
   canGoToNextDay: 0
   PausedSound: {fileID: 1712840394}
   UnPausedSound: {fileID: 1712840393}
-  nWood: 0
-  nFood: 1
-  nStone: 0
+  nWood: 30
+  nFood: 30
+  nStone: 30
   isPaused: 0
   pauseDuration: 0.6
   Joy: 0
@@ -6911,6 +6981,7 @@ SceneRoots:
   - {fileID: 704878120}
   - {fileID: 824961957}
   - {fileID: 240678577}
+  - {fileID: 30146951}
   - {fileID: 1712840396}
   - {fileID: 1942920665}
   - {fileID: 2016778975}
@@ -6918,7 +6989,7 @@ SceneRoots:
   - {fileID: 251696376}
   - {fileID: 749952822}
   - {fileID: 983133851}
-  - {fileID: 30146951}
   - {fileID: 371783302}
   - {fileID: 1414372623}
   - {fileID: 1815103943}
+  - {fileID: 669507763}
