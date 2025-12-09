@@ -85,7 +85,7 @@ public class ConstructionScript : MonoBehaviour
 
             if (mason != null)
             {
-                if (!mason.isWorking && !mason.isLearning && mason.isJobless == false)
+                if (!mason.isWorking && !mason.isLearning && mason.isJobless == false && mason.isBuildingSomething == false)
                 {
                     return mason;
                 }
