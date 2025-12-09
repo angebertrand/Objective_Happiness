@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GameManagerScript : MonoBehaviour
     public List<GameObject> bushes = new List<GameObject>();
     public List<GameObject> forests = new List<GameObject>();
 
-    
+    GameManagerUIScript gameManagerUIScript;
 
     public int nPopulation = 0;
     
@@ -70,6 +71,7 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManagerUIScript = FindAnyObjectByType<GameManagerUIScript>();
         StartCoroutine(CharacterListIntegrityCheck());
         StartCoroutine(dayCoroutine());
     }
@@ -148,14 +150,15 @@ public class GameManagerScript : MonoBehaviour
         }
 
 
-        yield return new WaitForSeconds(50f);  // Lenght of a day //////////
+        yield return new WaitForSeconds(15f);  // Lenght of a day //////////
 
         day = false;
         sun.GetComponent<Light>().color = new Color(0.1071307f, 0.09558551f, 0.6754716f);
         Debug.Log("Il fait nuit.");
         ResetBuildingsUsage();
         FinishDay();
-        
+        UpdateJoy();
+        gameManagerUIScript.happinessReset(Joy/100);
         
     }
 
@@ -227,6 +230,32 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+    public void UpdateJoy()
+    {
+        bool AllDead = true;
+
+        List<CharacterScript> charactersCopy = new List<CharacterScript>(characters);
+        foreach (CharacterScript character in charactersCopy)
+        {
+            if (character != null)
+            {
+                Joy += character.isHappy;
+                AllDead = false;
+            }
+                
+        }
+
+        if (AllDead)
+        {
+            SceneManager.LoadScene("EndScene_loose");
+        }
+
+        if (Joy >= 100)
+        {
+            SceneManager.LoadScene("EndScene_win");
+        }
+        
+    }
     private void CleanCharacterList()
     {
         // Liste des personnages réellement présents dans la scène

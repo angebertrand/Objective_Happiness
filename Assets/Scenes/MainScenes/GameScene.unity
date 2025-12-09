@@ -371,14 +371,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 105633961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3cc3372d3992ba4aba32002041e8bbc, type: 3}
+  m_Script: {fileID: 11500000, guid: 757bca4b755fb1f47a762422423340f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myCamera: {fileID: 0}
   buildableMaterial: {fileID: 0}
   notBuildableMaterial: {fileID: 0}
   building: {fileID: 0}
+  construction: {fileID: 0}
+  gameManager: {fileID: 0}
+  lastHexaMaterials: []
   lastHexas: []
+  bigBuilding: 0
 --- !u!1 &127282861
 GameObject:
   m_ObjectHideFlags: 0
