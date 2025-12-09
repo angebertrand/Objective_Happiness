@@ -49,6 +49,7 @@ public class TileSettings : MonoBehaviour
                 //Bush
                 Debug.Log("This Tile is a bush!");
                 Instantiate(Bush, position + Bush.transform.position, Bush.transform.rotation);
+                isBuildableOn = false;
                 myMeshRenderer.material = materials[1];
 
                 break;
@@ -56,12 +57,14 @@ public class TileSettings : MonoBehaviour
             case 2:
                 //Stone
                 Instantiate(Stone, position + Stone.transform.position, Stone.transform.rotation);
+                isBuildableOn = false;
                 myMeshRenderer.material = materials[2];
                 break;
 
             case 3:
                 // Forest
                 Instantiate(Wood, position + Wood.transform.position, Wood.transform.rotation);
+                isBuildableOn = false;
                 myMeshRenderer.material = materials[3];
                 break;
         }
