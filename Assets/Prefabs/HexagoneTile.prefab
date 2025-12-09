@@ -138,12 +138,11 @@ MonoBehaviour:
   xPos: 0
   yPos: 0
   sisterTiles: []
-  buildingOnTile: {fileID: 0}
   materials:
-  - {fileID: 2100000, guid: 1d8521df6c71ca742a7bfe113325df96, type: 2}
-  - {fileID: 2100000, guid: d40ebeb1b7bb5fb40b09dea419b50c54, type: 2}
-  - {fileID: 2100000, guid: 175d5914cc28a194da3d804272260ae1, type: 2}
-  - {fileID: 2100000, guid: 717213efb9cc93b4b8ff6345b9a47204, type: 2}
+  - {fileID: 2100000, guid: aa616aaf5c23e9945b23b3f1d4f4e24d, type: 2}
+  - {fileID: 2100000, guid: cd6a14772e83d9b409cda282a8f95f23, type: 2}
+  - {fileID: 2100000, guid: 74eb6fd7e6d16a44ca8126f9e7daa4bc, type: 2}
+  - {fileID: 2100000, guid: f17dd37ff3dc9544e938f1b4ebc22cfb, type: 2}
   Bush: {fileID: 3104478571469802216, guid: 4d0168137e5c4934bbe120454f8379c2, type: 3}
   Stone: {fileID: 3104478571469802216, guid: f55eb9d09f7b45849974f9d85ea42eb7, type: 3}
   Wood: {fileID: 3104478571469802216, guid: db473411173a7e94088fa84dd3d270ef, type: 3}

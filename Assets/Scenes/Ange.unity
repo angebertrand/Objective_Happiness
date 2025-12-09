@@ -1533,6 +1533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characters: []
+  spawnpoint: {fileID: 0}
   houses: []
   farms: []
   libraries: []
@@ -1548,6 +1549,7 @@ MonoBehaviour:
   nStones: 0
   nBushes: 0
   nForests: 0
+  dayCount: 0
   timeOfDay: 0
   day: 1
   canGoToNextDay: 0
@@ -2079,8 +2081,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSpeed: 20
-  BorderThickness: 10
-  CameraLimit: {x: 100, y: 100}
+  BorderThickness: 150
+  CameraLimit: {x: 400, y: 400}
   scrollSpeed: 20
   yLowLimit: 20
   yHighLimit: 70
