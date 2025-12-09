@@ -9,6 +9,7 @@ public class HouseScript : MonoBehaviour
     public bool isOccupied;
     GameManagerScript gameManagerScript;
     public Building buildingScript;
+    public GameObject textZZZ;
 
 
     // Start is called before the first frame update
@@ -38,6 +39,7 @@ public class HouseScript : MonoBehaviour
 
                 if (cs == currentCharacter)
                 {
+                    textZZZ.SetActive(true);
                     isOccupied = true;
                     currentCharacter.isSleeping = true;
                 }
@@ -50,9 +52,14 @@ public class HouseScript : MonoBehaviour
 
         if (other.CompareTag("Character"))
         {
-            isOccupied = false;
-            currentCharacter.isSleeping = false;
-            buildingScript.isUsed = false;
+            if (currentCharacter != null)
+            {
+                isOccupied = false;
+                currentCharacter.isSleeping = false;
+                buildingScript.isUsed = false;
+                textZZZ.SetActive(false);
+            }
+            
         }
         
     }

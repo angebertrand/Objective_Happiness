@@ -124,14 +124,20 @@ public class CharacterScript : MonoBehaviour
         if (b == null)
         {
             
-           
+            isWorking = false;
             isWandering = true;
+            
             Invoke("GoToWork", 1f);
 
             return;
         }
-        
+        isWandering = false;
+        b.isUsed = true;
         JobBuilding = b.gameObject;
+        
+        agent.isStopped = false;
+        agent.ResetPath();
+
         agent.SetDestination(b.transform.position);
         isWorking = true;
         NextBuilding = b.gameObject;
@@ -170,9 +176,9 @@ public class CharacterScript : MonoBehaviour
         newChara.isHappy = oldChara.isHappy;
         newChara.canLearn = false;
         newChara.name = oldChara.name;
-        
 
-        newChara.Wandering();
+
+        newChara.GoToWork();
 
         // Replace old character in the manager
         if (manager != null)
@@ -182,6 +188,8 @@ public class CharacterScript : MonoBehaviour
         }
 
         // Destroy old "job"
+        CancelInvoke();
+        StopAllCoroutines();
         Destroy(gameObject);
     }
 
@@ -273,6 +281,8 @@ public class CharacterScript : MonoBehaviour
             agent.ResetPath();
             HouseScript houseScript = house.gameObject.GetComponent<HouseScript>();
             if (houseScript == null) return;
+            houseScript.currentCharacter = this;
+            
             
             houseScript.currentCharacter = this;
             agent.SetDestination(house.transform.position);

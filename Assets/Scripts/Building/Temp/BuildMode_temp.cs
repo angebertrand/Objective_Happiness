@@ -14,11 +14,12 @@ public class BuildMode_temp : MonoBehaviour
     public List<GameObject> lastHexas;
     private GameObject school;
     private CharacterScript character;
+    private GameManagerScript gameManager;
     private bool bigBuilding;
 
     void Start()
     {
-        
+        gameManager = FindAnyObjectByType<GameManagerScript>();
 
         
     }
@@ -46,9 +47,13 @@ public class BuildMode_temp : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0) && !(school.transform.GetComponent<SchoolScript>().isSomeoneLearning))
             {
                 //Generate building, change isBuildableOn of the targeted tile to false and exit building mode
-                Debug.Log(school.transform.GetComponent<SchoolScript>().isSomeoneLearning);
-                SchoolScript schoolScript = school.transform.GetComponent<SchoolScript>();
-                schoolScript.ShowSchoolCanva();
+                if (gameManager.day)
+                {
+                    SchoolScript schoolScript = school.transform.GetComponent<SchoolScript>();
+                    schoolScript.ShowSchoolCanva();
+                }
+                
+                
 
 
             }

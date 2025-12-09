@@ -62,19 +62,22 @@ public class ShowCharacterSchool : MonoBehaviour
 
     public void Clicking(string job, CharacterScript character)
     {
-        
-        if (job != character.currentJob && character.isLearning == false)
+        if (gameManager.day)
         {
-            Debug.Log("YAHOUU");
-            SchoolScript.goodSFX.Play();
-            character.GoToSchool(this.SchoolScript.gameObject, job);
-            SchoolScript.isSomeoneLearning = true;
-            SchoolScript.HideSchoolCanva();
+            if (job != character.currentJob && character.isLearning == false)
+            {
+                Debug.Log("YAHOUU");
+                SchoolScript.goodSFX.Play();
+                character.GoToSchool(this.SchoolScript.gameObject, job);
+                SchoolScript.isSomeoneLearning = true;
+                SchoolScript.HideSchoolCanva();
+            }
+            else
+            {
+                SchoolScript.wrongSFX.Play();
+            }
         }
-        else
-        {
-            SchoolScript.wrongSFX.Play();
-        }
+
         
     }
 }

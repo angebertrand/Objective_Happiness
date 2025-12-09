@@ -17,7 +17,7 @@ public class MinerScript : CharacterScript
         currentJob = "Miner";
         cameraMain = Camera.main;
         Register();
-        
+
     }
 
     // Update is called once per frame

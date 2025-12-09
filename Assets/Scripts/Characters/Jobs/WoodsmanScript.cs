@@ -19,6 +19,7 @@ public class WoodsmanScript : CharacterScript
         cameraMain = Camera.main;
         Register();
         
+
     }
 
     // Update is called once per frame

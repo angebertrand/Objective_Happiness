@@ -74,7 +74,7 @@ public class SchoolScript : MonoBehaviour
         canvasProgress.SetActive(false);
         Debug.Log(currentCharacter.name + " has finished learning!");
         // Example: change character's job
-        if (!currentCharacter.isJobless)
+        if (currentCharacter.isJobless)
         {
             switch (currentCharacter.nextJob)
             {

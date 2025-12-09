@@ -15,12 +15,9 @@ public class FarmerScript : CharacterScript
         agent = GetComponent<NavMeshAgent>();
         buildingManager = FindObjectOfType<BuildingManager>();
         currentJob = "Farmer";
-
-        
         cameraMain = Camera.main;
-
         Register();
-        
+
     }
 
     // Update is called once per frame
@@ -36,6 +33,6 @@ public class FarmerScript : CharacterScript
 
         }
 
-
+        
     }
 }

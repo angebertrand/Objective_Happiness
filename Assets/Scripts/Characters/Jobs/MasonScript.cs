@@ -17,6 +17,7 @@ public class MasonScript : CharacterScript
         currentJob = "Mason";
         cameraMain = Camera.main;
         Register();
+
     }
 
     // Update is called once per frame

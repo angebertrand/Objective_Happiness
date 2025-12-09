@@ -53,14 +53,20 @@ public class BuildingManager : MonoBehaviour
         {
             if (!b.isUsed)
             {
+                // Si c'est une maison, vérifier si elle est occupée
+                if (type == "House")
+                {
+                    HouseScript hs = b.GetComponent<HouseScript>();
+                    if (hs != null && hs.isOccupied)
+                        continue;
+                }
+
                 b.isUsed = true;
                 return b;
             }
         }
-        
         return null;
     }
-
 
     public void ReleaseBuilding(Building b)
     {

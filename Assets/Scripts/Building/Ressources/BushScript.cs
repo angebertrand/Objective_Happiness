@@ -31,6 +31,8 @@ public class BushScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+  
+
         if (isMining && currentCharacter != null)
         {
             canvasProgress.SetActive(true);

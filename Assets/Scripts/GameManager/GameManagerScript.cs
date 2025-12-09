@@ -113,6 +113,17 @@ public class GameManagerScript : MonoBehaviour
         sun.GetComponent<Light>().color = new Color(0.9849057f, 0.8108497f, 0.3400711f);
         Debug.Log("Il fait jour.");
 
+        // ← AJOUT : réinitialiser toutes les maisons
+        foreach (GameObject house in houses)
+        {
+            if (house == null) continue;
+            HouseScript hs = house.GetComponent<HouseScript>();
+            if (hs != null)
+            {
+                hs.isOccupied = false;
+            }
+        }
+
         List<CharacterScript> charactersCopy = new List<CharacterScript>(characters);
 
         foreach (CharacterScript c in charactersCopy)
@@ -126,17 +137,22 @@ public class GameManagerScript : MonoBehaviour
             }
             else
             {
-                c.GoToWork();
+                if (!c.isWorking)
+                {
+                    c.GoToWork();
+                }
+                
             }
 
         }
 
 
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(8f);  // Lenght of a day //////////
 
         day = false;
         sun.GetComponent<Light>().color = new Color(0.1071307f, 0.09558551f, 0.6754716f);
         Debug.Log("Il fait nuit.");
+        ResetBuildingsUsage();
         FinishDay();
         
         
@@ -191,7 +207,24 @@ public class GameManagerScript : MonoBehaviour
         isPaused = false;
     }
 
+    private void ResetBuildingsUsage()
+    {
+        // Toutes les listes de bâtiments sauf maisons
+        List<GameObject>[] buildingLists = new List<GameObject>[] { stones, bushes, forests };
 
+        foreach (var list in buildingLists)
+        {
+            foreach (GameObject b in list)
+            {
+                if (b == null) continue;
+                Building buildingScript = b.GetComponent<Building>();
+                if (buildingScript != null)
+                {
+                    buildingScript.isUsed = false;
+                }
+            }
+        }
+    }
 
     private void CleanCharacterList()
     {
@@ -369,33 +402,27 @@ public class GameManagerScript : MonoBehaviour
     {
         foreach (GameObject house in houses)
         {
-            
-            if (house != null)
+            if (house == null) continue;
+
+            HouseScript h = house.GetComponent<HouseScript>();
+            if (h == null)
             {
-                HouseScript h = house.GetComponent<HouseScript>();
+                h = house.GetComponentInChildren<HouseScript>();
+            }
 
-                if (h == null)
-                {
-                    h = house.GetComponentInChildren<HouseScript>();
-                    
-                }
-                    
+            if (h == null)
+            {
+                Debug.LogWarning("Maison sans HouseScript détectée : " + house.name);
+                return false;
+            }
 
-                if (!h.isOccupied)
-                {
-                    
-                    return false;
-                }
-                    
-
-                // if h == null, we consider the house as NOT occupied (or log)
-                if (h == null)
-                {
-                    Debug.LogWarning("Maison sans HouseScript détectée : " + house.name);
-                    return false;
-                }
+            if (!h.isOccupied)
+            {
+                return false;
             }
         }
+
         return true;
     }
+
 }
