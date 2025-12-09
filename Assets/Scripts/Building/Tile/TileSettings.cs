@@ -28,7 +28,7 @@ public class TileSettings : MonoBehaviour
 
     private float hexRadius;
 
-    void Awake()
+    private void OnEnable()
     {
         // Calcule automatiquement le rayon du mesh attaché
         hexRadius = DetectHexRadius();
@@ -36,7 +36,6 @@ public class TileSettings : MonoBehaviour
         transform.position = position;
         myMeshRenderer = GetComponentInChildren<MeshRenderer>();
     }
-
     void Start()
     {
         sisterTiles = SetSisterTiles(xPos, yPos);

@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Awake()
     {
-        defaultMode = GetComponent<DefaultMode>();
+        defaultMode = GetComponentInChildren<DefaultMode>();
         gameManagerScript = GetComponent<GameManagerScript>();
     }
 
