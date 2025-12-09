@@ -24,20 +24,22 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetInputs();
-
         if (isBuilding && !GetComponentInChildren<BuildMode>().enabled)
         {
             buildInterface.SetActive(true);
         }
     }
-    private void GetInputs()
+    public void GetInputs()
     {
-        if (Input.GetKeyDown(KeyCode.B) && GetAvailableMason() != null)
+        if (GetAvailableMason() != null)
         {
-            
             isBuilding = true;
             defaultMode.enabled = false;
+            Debug.Log("Input registered");
+        }
+        else
+        {
+            Debug.Log("No available Mason");
         }
     }
 

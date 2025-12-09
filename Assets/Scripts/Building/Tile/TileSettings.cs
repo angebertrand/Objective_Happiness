@@ -9,7 +9,7 @@ using UnityEngine.UIElements;
 
 public class TileSettings : MonoBehaviour
 {
-    public bool isBuildableOn = false;
+    public bool isBuildableOn = true;
     public int tileType;                //0 = plain, 1 = Bush, 2 = Stone, 3 = Forest
     private MeshRenderer myMeshRenderer;
 
@@ -21,6 +21,11 @@ public class TileSettings : MonoBehaviour
     public Building buildingOnTile;
     public List<Material> materials;
 
+    //Different initial buildings
+    public GameObject Bush;
+    public GameObject Stone;
+    public GameObject Wood;
+
     private float hexRadius;
 
     void Awake()
@@ -30,48 +35,36 @@ public class TileSettings : MonoBehaviour
         position = PlacerHexaDansWorld(xPos, yPos, DetectHexRadius());
         transform.position = position;
         myMeshRenderer = GetComponentInChildren<MeshRenderer>();
-        if (buildingOnTile != null)
-        {
-            Instantiate(buildingOnTile, position + buildingOnTile.transform.position, buildingOnTile.transform.rotation);
-        }
     }
 
     void Start()
     {
         sisterTiles = SetSisterTiles(xPos, yPos);
-    }
-
-    private void Update()
-    {
-        if (buildingOnTile.tileType != tileType)
+        switch (tileType)
         {
-            tileType = buildingOnTile.tileType;
-            switch (tileType)
-            {
-                case 0:
-                    //Plain
-                    if (buildingOnTile.buildingType == "Empty")
-                    {
-                        isBuildableOn = true;
-                    }
-                    myMeshRenderer.material = materials[0];
-                    break;
+            case 0:
+                //Plain
+                myMeshRenderer.material = materials[0];
+                break;
 
-                case 1:
-                    //Bush
-                    myMeshRenderer.material = materials[1];
-                    break;
+            case 1:
+                //Bush
+                Instantiate(Bush, position + buildingOnTile.transform.position, buildingOnTile.transform.rotation);
+                myMeshRenderer.material = materials[1];
 
-                case 2:
-                    //Stone
-                    myMeshRenderer.material = materials[2];
-                    break;
+                break;
 
-                case 3:
-                    // Forest
-                    myMeshRenderer.material = materials[3];
-                    break;
-            }
+            case 2:
+                //Stone
+                Instantiate(Stone, position + buildingOnTile.transform.position, buildingOnTile.transform.rotation);
+                myMeshRenderer.material = materials[2];
+                break;
+
+            case 3:
+                // Forest
+                Instantiate(Wood, position + buildingOnTile.transform.position, buildingOnTile.transform.rotation);
+                myMeshRenderer.material = materials[3];
+                break;
         }
     }
 
