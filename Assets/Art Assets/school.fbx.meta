@@ -3,7 +3,22 @@ guid: 23479651104f1044b89826b3d2c17769
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plain Tile
+    second: {fileID: 2100000, guid: 209dc27c265772d49a891480b2fd8c9a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: School
+    second: {fileID: 2100000, guid: d79fd1782ceb5554894df9783d09781f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: School Door
+    second: {fileID: 2100000, guid: 7b9cb2a916f8e0542aee322ea8c6e98e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

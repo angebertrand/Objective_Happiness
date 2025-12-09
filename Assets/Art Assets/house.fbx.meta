@@ -3,7 +3,22 @@ guid: 2da3bb1603d7084489ca8061cc792c5c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Door
+    second: {fileID: 2100000, guid: e5183cb7d79f2344eb2a6db2c79582c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: House
+    second: {fileID: 2100000, guid: 1fd0aee78b7b153488fc79fa258d296b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plain Tile
+    second: {fileID: 2100000, guid: 42a94185200610543bb75c3b80211630, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
