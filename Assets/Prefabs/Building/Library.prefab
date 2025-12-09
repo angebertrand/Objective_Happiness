@@ -123,3 +123,6 @@ MonoBehaviour:
   tileType: 0
   bigBuilding: 1
   manager: {fileID: 0}
+  woodCost: 10
+  stoneCost: 5
+  foodCost: 0

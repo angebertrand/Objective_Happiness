@@ -9,6 +9,9 @@ public class Building : MonoBehaviour
     public bool bigBuilding = false;
     public BuildingManager manager;
     GameManagerScript gm;
+    public int woodCost = 0;
+    public int stoneCost = 0;
+    public int foodCost = 0;
 
     private void Awake()
     {
@@ -20,9 +23,6 @@ public class Building : MonoBehaviour
 
         gm = FindAnyObjectByType<GameManagerScript>();
         gm.RegisterStructure(this.gameObject);
-
-  
-
     }
 
 

@@ -1701,6 +1701,9 @@ MonoBehaviour:
   tileType: 0
   bigBuilding: 0
   manager: {fileID: 0}
+  woodCost: 2
+  stoneCost: 2
+  foodCost: 0
 --- !u!33 &6262402293934111998
 MeshFilter:
   m_ObjectHideFlags: 0
