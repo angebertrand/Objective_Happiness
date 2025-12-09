@@ -132,6 +132,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d40ebeb1b7bb5fb40b09dea419b50c54, type: 2}
   - {fileID: 2100000, guid: 175d5914cc28a194da3d804272260ae1, type: 2}
   - {fileID: 2100000, guid: 717213efb9cc93b4b8ff6345b9a47204, type: 2}
+  Bush: {fileID: 3104478571469802216, guid: 4d0168137e5c4934bbe120454f8379c2, type: 3}
+  Stone: {fileID: 3104478571469802216, guid: f55eb9d09f7b45849974f9d85ea42eb7, type: 3}
+  Wood: {fileID: 3104478571469802216, guid: db473411173a7e94088fa84dd3d270ef, type: 3}
 --- !u!4 &6903918201638670130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 90733e3d70f0c0244b14cc4df02aa4b7, type: 3}
