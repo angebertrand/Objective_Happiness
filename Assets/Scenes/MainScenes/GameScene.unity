@@ -2397,7 +2397,7 @@ Transform:
   m_GameObject: {fileID: 1243645768}
   serializedVersion: 2
   m_LocalRotation: {x: 0.340342, y: -0, z: -0, w: 0.9403018}
-  m_LocalPosition: {x: 2.26, y: 30.3, z: -16.34}
+  m_LocalPosition: {x: 225, y: 30.3, z: -173.2051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2838,7 +2838,7 @@ Transform:
   m_GameObject: {fileID: 1411824947}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 214.8, y: 0, z: -191}
+  m_LocalPosition: {x: 225.00002, y: 0, z: -173.2051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3184,6 +3184,7 @@ MonoBehaviour:
   yGridSize: 32
   gameObjects: []
   Tile: {fileID: 6090121969212495240, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
+  spawnpoint: {fileID: 0}
 --- !u!4 &1703555145
 Transform:
   m_ObjectHideFlags: 0

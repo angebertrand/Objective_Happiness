@@ -24,6 +24,7 @@ public class TilemapScript : MonoBehaviour
                 {
                     currentTile.GetComponent<TileSettings>().tileType = 0;
                     currentTile.GetComponent<TileSettings>().isBuildableOn = false;
+                    currentTile.name = "spawnpointTile";
                 }
                 else
                 {
