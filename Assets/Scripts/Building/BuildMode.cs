@@ -11,6 +11,7 @@ public class BuildMode : MonoBehaviour
     public Material notBuildableMaterial;
     public GameObject building;
     public GameObject construction;
+    public GameObject gameManager;
     private CharacterScript character;
 
     // Lists to track hovered hexagons and their original materials
@@ -19,7 +20,6 @@ public class BuildMode : MonoBehaviour
 
     public bool bigBuilding; // 1 hexagon if false, multiple hexagons if true
     private int buildableCount;
-    private GameObject school;
 
     // Define the required size for a big building (assuming 4 hexagons)
     private const int BIG_BUILDING_SIZE = 4;
@@ -131,8 +131,9 @@ public class BuildMode : MonoBehaviour
             }
 
             // --- BUILDING LOGIC (Left Click) ---
-            // Clicking is allowed only if isFullyBuildable is true
-            if (Input.GetKeyDown(KeyCode.Mouse0) && isFullyBuildable)
+            // Clicking is allowed only if isFullyBuildable is true & the player has the requiered ressources
+            // Ressources are also removed from inventory in the EnoughRessources function
+            if (Input.GetKeyDown(KeyCode.Mouse0) && isFullyBuildable && EnoughRessources(building, gameManager))
             {
                 // Instantiate the building at the position of the main hexagon
                 construction.GetComponent<ConstructionScript>().futureBuilding = building;
@@ -158,24 +159,6 @@ public class BuildMode : MonoBehaviour
                 ExitBuildingMode();
             }
         }
-        // --- HOVER MANAGEMENT OUTSIDE A TILE ---
-        else if (weHitSomething && hit.transform.CompareTag("School"))
-        {
-            school = hit.transform.gameObject;
-            Debug.Log("qegsd");
-            if (Input.GetKeyDown(KeyCode.Mouse0) && school.transform.GetComponent<SchoolScript>() != null)
-            {
-                
-                SchoolScript schoolScript = school.transform.GetComponent<SchoolScript>();
-                // Check the learning condition before displaying the Canvas
-                if (!schoolScript.isSomeoneLearning)
-                {
-                    schoolScript.ShowSchoolCanva();
-                }
-            }
-            
-        }
-
         else if (weHitSomething && hit.transform.CompareTag("Character"))
         {
 
@@ -225,8 +208,23 @@ public class BuildMode : MonoBehaviour
     {
         building = Building;
     }
-    public void getBuildingRessources()
+    public bool EnoughRessources(GameObject building, GameObject gameManager)
     {
+        bool enoughRessources;
+        if (building.GetComponent<Building>().woodCost <= gameManager.GetComponent<GameManagerScript>().nWood &&
+            building.GetComponent<Building>().stoneCost <= gameManager.GetComponent<GameManagerScript>().nStone &&
+            building.GetComponent<Building>().foodCost <= gameManager.GetComponent<GameManagerScript>().nFood)
+        {
+            enoughRessources = true;
+            gameManager.GetComponent<GameManagerScript>().nWood -= building.GetComponent<Building>().woodCost;
+            gameManager.GetComponent<GameManagerScript>().nStone -= building.GetComponent<Building>().stoneCost;
+            gameManager.GetComponent<GameManagerScript>().nFood -= building.GetComponent<Building>().foodCost;
 
+        }
+        else
+        {
+            enoughRessources= false;
+        }
+        return enoughRessources; 
     }
 }
