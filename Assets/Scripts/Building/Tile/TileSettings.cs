@@ -18,7 +18,6 @@ public class TileSettings : MonoBehaviour
     public int yPos;
     public List<GameObject> sisterTiles;
     private Vector3 position;
-    public Building buildingOnTile;
     public List<Material> materials;
 
     //Different initial buildings
@@ -48,20 +47,21 @@ public class TileSettings : MonoBehaviour
 
             case 1:
                 //Bush
-                Instantiate(Bush, position + buildingOnTile.transform.position, buildingOnTile.transform.rotation);
+                Debug.Log("This Tile is a bush!");
+                Instantiate(Bush, position + Bush.transform.position, Bush.transform.rotation);
                 myMeshRenderer.material = materials[1];
 
                 break;
 
             case 2:
                 //Stone
-                Instantiate(Stone, position + buildingOnTile.transform.position, buildingOnTile.transform.rotation);
+                Instantiate(Stone, position + Stone.transform.position, Stone.transform.rotation);
                 myMeshRenderer.material = materials[2];
                 break;
 
             case 3:
                 // Forest
-                Instantiate(Wood, position + buildingOnTile.transform.position, buildingOnTile.transform.rotation);
+                Instantiate(Wood, position + Wood.transform.position, Wood.transform.rotation);
                 myMeshRenderer.material = materials[3];
                 break;
         }

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float cameraSpeed = 50f;
+    public float cameraSpeed = 250f;
     public float BorderThickness = 10f;
-    public Vector2 CameraLimit = new Vector2(100f,100f);
+    public Vector2 CameraLimit = new Vector2(400f,400f);
 
     public float scrollSpeed = 20f;
     public float yLowLimit = 20f;
@@ -42,8 +42,8 @@ public class CameraController : MonoBehaviour
         pos.y -= scroll * scrollSpeed * 100f * Time.deltaTime;
         pos.y = Mathf.Clamp(pos.y, yLowLimit, yHighLimit);
 
-        pos.x = Mathf.Clamp(pos.x, -CameraLimit.x, CameraLimit.x);
-        pos.z = Mathf.Clamp(pos.z, -CameraLimit.y, CameraLimit.y);
+        pos.x = Mathf.Clamp(pos.x, 0, CameraLimit.x);
+        pos.z = Mathf.Clamp(pos.z, -CameraLimit.y, 0);
         transform.position = pos;
     }
 }
