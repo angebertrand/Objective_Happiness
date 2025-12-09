@@ -20,8 +20,11 @@ public class SpawnpointScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void InstanciateWanderer()
+    public void InstanciateWanderer(int dayCount)
     {
-        Instantiate(Wanderer, transform.position, Wanderer.transform.rotation);
+        if (dayCount > 1)
+        {
+            Instantiate(Wanderer, transform.position, Wanderer.transform.rotation);
+        }
     }
 }
