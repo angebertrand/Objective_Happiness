@@ -32,7 +32,7 @@ public class TileSettings : MonoBehaviour
         myMeshRenderer = GetComponentInChildren<MeshRenderer>();
         if (buildingOnTile != null)
         {
-            Instantiate(buildingOnTile, position, this.transform.rotation);
+            Instantiate(buildingOnTile, position + buildingOnTile.transform.position, buildingOnTile.transform.rotation);
         }
     }
 
