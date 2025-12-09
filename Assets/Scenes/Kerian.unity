@@ -401,8 +401,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 23.4
+  m_fontSizeBase: 23.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1496,8 +1496,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 23.4
+  m_fontSizeBase: 23.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1635,8 +1635,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 23.4
+  m_fontSizeBase: 23.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1722,6 +1722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isBuilding: 0
   buildInterface: {fileID: 30146947}
+  defaultMode: {fileID: 0}
 --- !u!4 &704878120
 Transform:
   m_ObjectHideFlags: 0
@@ -1748,9 +1749,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 704878118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb2a525400a44a408489b6c470b7172, type: 3}
+  m_Script: {fileID: 11500000, guid: bd52382ef2abd28499cd6241be8e2163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characters: []
   houses: []
   farms: []
   libraries: []
@@ -1766,13 +1768,17 @@ MonoBehaviour:
   nStones: 0
   nBushes: 0
   nForests: 0
+  timeOfDay: 0
+  day: 0
+  canGoToNextDay: 0
+  PausedSound: {fileID: 0}
+  UnPausedSound: {fileID: 0}
   nWood: 0
   nFood: 0
   nStone: 0
+  isPaused: 0
+  pauseDuration: 0.6
   Joy: 0
-  timeOfDay: 0
-  day: 0
-  characters: []
 --- !u!1001 &749952822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2057,6 +2063,7 @@ GameObject:
   m_Component:
   - component: {fileID: 943825956}
   - component: {fileID: 943825957}
+  - component: {fileID: 943825958}
   m_Layer: 0
   m_Name: Cursor
   m_TagString: Untagged
@@ -2099,6 +2106,20 @@ MonoBehaviour:
   lastHexaMaterials: []
   lastHexas: []
   bigBuilding: 0
+--- !u!114 &943825958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943825955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6656ee76e44b1264095e82d1e18ad21e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCamera: {fileID: 0}
+  building: {fileID: 0}
 --- !u!1001 &983133851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2326,8 +2347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 130}
+  m_AnchoredPosition: {x: 93.320526, y: -50.000008}
+  m_SizeDelta: {x: 99.9946, y: 63.9076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1016226720
 MonoBehaviour:
@@ -2629,8 +2650,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 23.4
+  m_fontSizeBase: 23.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3150,8 +3171,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 75
-  m_fontSizeBase: 75
+  m_fontSize: 23.4
+  m_fontSizeBase: 23.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3698,8 +3719,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 700, y: 0}
-  m_SizeDelta: {x: 300, y: 130}
+  m_AnchoredPosition: {x: 326.64114, y: -50.000008}
+  m_SizeDelta: {x: 99.9946, y: 63.9076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401515684
 MonoBehaviour:
@@ -3855,8 +3876,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: 0}
-  m_SizeDelta: {x: 300, y: 130}
+  m_AnchoredPosition: {x: -23.339752, y: -50.000008}
+  m_SizeDelta: {x: 99.9946, y: 63.9076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1402094033
 MonoBehaviour:
@@ -4737,8 +4758,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 0}
-  m_SizeDelta: {x: 300, y: 130}
+  m_AnchoredPosition: {x: 209.98093, y: -50.000008}
+  m_SizeDelta: {x: 99.9946, y: 63.9076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1676009342
 MonoBehaviour:
@@ -5524,8 +5545,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -700, y: 0}
-  m_SizeDelta: {x: 300, y: 130}
+  m_AnchoredPosition: {x: -140, y: -50}
+  m_SizeDelta: {x: 99.9946, y: 63.9076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1878528868
 MonoBehaviour:
@@ -5825,6 +5846,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916564555}
   m_CullTransparentMesh: 1
+--- !u!1 &1942920664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1942920665}
+  m_Layer: 0
+  m_Name: +------+
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1942920665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942920664}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 607.5628, y: 72.87831, z: -3.2741904}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1971410709 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6903918201638670130, guid: dd6df9f268989154e89f7f84ba1c0a30, type: 3}
@@ -6354,15 +6406,16 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1979688233}
-  - {fileID: 2016778975}
   - {fileID: 704878120}
+  - {fileID: 824961957}
+  - {fileID: 240678577}
+  - {fileID: 1712840396}
+  - {fileID: 1942920665}
+  - {fileID: 2016778975}
   - {fileID: 1270255308}
   - {fileID: 251696376}
   - {fileID: 749952822}
   - {fileID: 983133851}
-  - {fileID: 824961957}
-  - {fileID: 240678577}
-  - {fileID: 1712840396}
   - {fileID: 30146951}
   - {fileID: 371783302}
   - {fileID: 1414372623}

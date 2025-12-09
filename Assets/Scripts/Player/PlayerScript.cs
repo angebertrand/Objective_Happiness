@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     public bool isBuilding = false;
     public GameObject buildInterface;
+    public DefaultMode defaultMode;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
         {
             isBuilding = true;
+            defaultMode.enabled = false;
         }
     }
 }
