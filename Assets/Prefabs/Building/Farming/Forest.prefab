@@ -333,6 +333,9 @@ MonoBehaviour:
   tileType: 0
   bigBuilding: 0
   manager: {fileID: 0}
+  woodCost: 0
+  stoneCost: 0
+  foodCost: 0
 --- !u!135 &248045864305459840
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -477,6 +480,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7312601302647256322}
     m_Modifications:
+    - target: {fileID: 258323100517647180, guid: a81e351fce575af409bccfcd9083d1ba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d81cf2349e111f47a1b91af550ca057, type: 2}
     - target: {fileID: 2052061849542287033, guid: a81e351fce575af409bccfcd9083d1ba, type: 3}
       propertyPath: m_LocalScale.x
       value: 5.25
@@ -623,6 +630,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6756770635595557344, guid: 1b0e3ebc8291b0840bdaf2f1833a6600, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d81cf2349e111f47a1b91af550ca057, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -705,6 +716,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7147987174527717197, guid: a7e72b2595ed63b4c9827c7e71723e1f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d81cf2349e111f47a1b91af550ca057, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

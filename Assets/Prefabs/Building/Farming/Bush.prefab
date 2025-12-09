@@ -355,6 +355,9 @@ MonoBehaviour:
   tileType: 0
   bigBuilding: 0
   manager: {fileID: 0}
+  woodCost: 0
+  stoneCost: 0
+  foodCost: 0
 --- !u!135 &248045864305459840
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -478,6 +481,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7312601302647256322}
     m_Modifications:
+    - target: {fileID: 173127572115747918, guid: c031871855b678e4b87070a5853c5bd3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60254679fa833ab498f9eceeadeda982, type: 2}
     - target: {fileID: 7844888948225897229, guid: c031871855b678e4b87070a5853c5bd3, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.47
@@ -556,6 +563,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7312601302647256322}
     m_Modifications:
+    - target: {fileID: 3780487899780950500, guid: 977496d4b9ac6704f8f4b0b8b887289e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60254679fa833ab498f9eceeadeda982, type: 2}
     - target: {fileID: 8069113767087932955, guid: 977496d4b9ac6704f8f4b0b8b887289e, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.47
@@ -634,6 +645,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7312601302647256322}
     m_Modifications:
+    - target: {fileID: 1261616161481001786, guid: 34f62c6df43dc914faea2cd9aa10d845, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60254679fa833ab498f9eceeadeda982, type: 2}
     - target: {fileID: 1583684204510973714, guid: 34f62c6df43dc914faea2cd9aa10d845, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.47
@@ -772,6 +787,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush
       objectReference: {fileID: 0}
+    - target: {fileID: 6520764616599755006, guid: 5c7633fa8f183084a9e1a70d50b354c5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60254679fa833ab498f9eceeadeda982, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

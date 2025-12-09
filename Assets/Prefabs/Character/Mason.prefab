@@ -36,6 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5645728947990101742}
+  - {fileID: 8590057732931894672}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3188654333355898926
@@ -53,7 +54,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4533931857633977052}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -152,6 +153,7 @@ MonoBehaviour:
   NextBuilding: {fileID: 0}
   JobBuilding: {fileID: 7645745654320128234, guid: 1888b2dec2a8edd43ba1d560e8e3c890, type: 3}
   buildingManager: {fileID: 0}
+  isBuildingSomething: 0
 --- !u!195 &4257355852632599087
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -437,3 +439,65 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &4796684062245210155
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5342841433060755809}
+    m_Modifications:
+    - target: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4534260539850206977, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+      propertyPath: m_Name
+      value: astronaut_Mason
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+--- !u!4 &8590057732931894672 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3866126164811052475, guid: c8eafb3997dd99340a7281ccbfe7329b, type: 3}
+  m_PrefabInstance: {fileID: 4796684062245210155}
+  m_PrefabAsset: {fileID: 0}
