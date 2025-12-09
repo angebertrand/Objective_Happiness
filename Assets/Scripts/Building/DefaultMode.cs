@@ -15,7 +15,10 @@ public class DefaultMode : MonoBehaviour
     
     private GameObject school;
 
-    
+    private void Start()
+    {
+        myCamera = Camera.main;
+    }
 
 
     // Update is called once per frame

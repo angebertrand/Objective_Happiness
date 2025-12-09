@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class MasonScript : CharacterScript
 {
+
+    public bool isBuildingSomething = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class MasonScript : CharacterScript
     // Update is called once per frame
     void Update()
     {
-        if (isWandering && !isLearning && !isWorking)
+        if (isWandering && !isLearning && !isWorking && !isBuildingSomething)
         {
 
             if (!IsWalking())
@@ -33,5 +36,14 @@ public class MasonScript : CharacterScript
 
         }
 
+    }
+
+    public void StartBuilding(GameObject Building)
+    {
+        isBuildingSomething = true;
+        JobBuilding = Building;
+        isWorking = true;
+        isWandering = false;
+        agent.SetDestination(Building.transform.position);
     }
 }

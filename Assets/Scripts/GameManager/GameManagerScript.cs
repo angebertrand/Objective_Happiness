@@ -107,6 +107,7 @@ public class GameManagerScript : MonoBehaviour
 
     IEnumerator dayCoroutine()
     {
+        
         GameObject sun = GameObject.FindGameObjectWithTag("Sun");
 
         day = true;
@@ -147,7 +148,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
 
-        yield return new WaitForSeconds(8f);  // Lenght of a day //////////
+        yield return new WaitForSeconds(50f);  // Lenght of a day //////////
 
         day = false;
         sun.GetComponent<Light>().color = new Color(0.1071307f, 0.09558551f, 0.6754716f);
@@ -162,9 +163,9 @@ public class GameManagerScript : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(3f);
 
             CleanCharacterList();
+            yield return new WaitForSeconds(3f);
         }
     }
     private IEnumerator SmoothPauseCoroutine()

@@ -18,6 +18,7 @@ TagManager:
   - BuildingManager
   - Sun
   - Construction
+  - Mason
   layers:
   - Default
   - TransparentFX

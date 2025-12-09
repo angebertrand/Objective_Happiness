@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3406599290667753823}
   m_Layer: 0
   m_Name: Mason
-  m_TagString: Character
+  m_TagString: Mason
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,6 +134,8 @@ MonoBehaviour:
   ID: -1
   canLearn: 0
   nextJob: 
+  isSleeping: 0
+  isJobless: 0
   isHappy: 0
   currentJob: 
   isLearning: 0

@@ -7,10 +7,16 @@ public class PlayerScript : MonoBehaviour
     public bool isBuilding = false;
     public GameObject buildInterface;
     public DefaultMode defaultMode;
+    
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    private void Awake()
+    {
+        defaultMode = GetComponent<DefaultMode>();
     }
 
     // Update is called once per frame
