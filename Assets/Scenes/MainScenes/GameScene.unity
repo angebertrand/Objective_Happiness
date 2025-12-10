@@ -2125,7 +2125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &788279678
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3226,12 +3226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757bca4b755fb1f47a762422423340f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCamera: {fileID: 1243645771}
   buildableMaterial: {fileID: 2100000, guid: fbf03c31bc571774da6120fae77001eb, type: 2}
   notBuildableMaterial: {fileID: 2100000, guid: de3d75f8f3e2b69458a95150ac99d769, type: 2}
   building: {fileID: 3104478571469802216, guid: a6b6e3e1ef6a8d54a8b247068464b653, type: 3}
   construction: {fileID: 3104478571469802216, guid: a6b6e3e1ef6a8d54a8b247068464b653, type: 3}
-  gameManager: {fileID: 38453185}
   lastHexaMaterials: []
   lastHexas: []
   bigBuilding: 0
@@ -3259,7 +3257,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1411824949}
-  - component: {fileID: 1411824948}
+  - component: {fileID: 1411824950}
   m_Layer: 0
   m_Name: Spawn Point
   m_TagString: Untagged
@@ -3267,7 +3265,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1411824948
+--- !u!4 &1411824949
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411824947}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 168.75002, y: 0, z: -75.77723}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1411824950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3284,21 +3297,6 @@ MonoBehaviour:
   Miner: {fileID: 4533931857633977052, guid: 26306901e46929949825b312ca8e4a24, type: 3}
   Woodsman: {fileID: 4533931857633977052, guid: 4cf6f4394e8198a4aa1c0cb5031054ab, type: 3}
   Wanderer: {fileID: 4533931857633977052, guid: e4d8b1af03219cd40989a0f5fa2b50d1, type: 3}
---- !u!4 &1411824949
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411824947}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 168.75002, y: 0, z: -75.77723}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1431628715
 GameObject:
   m_ObjectHideFlags: 0
@@ -3729,7 +3727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1720819029
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5073,7 +5071,7 @@ GameObject:
   - component: {fileID: 2126076579}
   - component: {fileID: 2126076580}
   m_Layer: 5
-  m_Name: BuildModeMessages
+  m_Name: WarningMessages
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

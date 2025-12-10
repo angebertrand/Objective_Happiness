@@ -6,12 +6,15 @@ using UnityEngine;
 public class BuildMode : MonoBehaviour
 {
     // Initialize variables
-    public Camera myCamera;
+    private Camera myCamera;
     public Material buildableMaterial;
     public Material notBuildableMaterial;
     public GameObject building;
+    private Building buildingScript;
     public GameObject construction;
-    public GameObject gameManager;
+    private GameManagerScript gameManager;
+    private WarningMessagesScript warningMessages;
+    private IEnumerator warningMessagesRessources;
     private CharacterScript character;
 
     // Lists to track hovered hexagons and their original materials
@@ -26,19 +29,24 @@ public class BuildMode : MonoBehaviour
 
     void Start()
     {
+        myCamera = Camera.main;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+        warningMessages = GameObject.Find("WarningMessages").GetComponent<WarningMessagesScript>();
+        warningMessagesRessources = warningMessages.warningCoroutine(warningMessages.NotEnoughRessources);
         // Ensure BuildingParameter is on the 'building' object
-        if (building != null && building.GetComponent<Building>() != null)
+        if (building != null && buildingScript != null)
         {
-            bigBuilding = building.GetComponent<Building>().bigBuilding;
+            bigBuilding = buildingScript.bigBuilding;
         }
     }
 
     void OnEnable()
     {
+        buildingScript = building.GetComponent<Building>();
         // Reset building size on each activation
-        if (building != null && building.GetComponent<Building>() != null)
+        if (building != null && buildingScript != null)
         {
-            bigBuilding = building.GetComponent<Building>().bigBuilding;
+            bigBuilding = buildingScript.bigBuilding;
         }
         // Ensure lists are empty upon activation
         lastHexas.Clear();
@@ -208,22 +216,23 @@ public class BuildMode : MonoBehaviour
     {
         building = Building;
     }
-    public bool EnoughRessources(GameObject building, GameObject gameManager)
+    public bool EnoughRessources(GameObject building, GameManagerScript gameManager)
     {
         bool enoughRessources;
-        if (building.GetComponent<Building>().woodCost <= gameManager.GetComponent<GameManagerScript>().nWood &&
-            building.GetComponent<Building>().stoneCost <= gameManager.GetComponent<GameManagerScript>().nStone &&
-            building.GetComponent<Building>().foodCost <= gameManager.GetComponent<GameManagerScript>().nFood)
+        if (buildingScript.woodCost <= gameManager.nWood &&
+            buildingScript.stoneCost <= gameManager.nStone &&
+            buildingScript.foodCost <= gameManager.nFood)
         {
             enoughRessources = true;
-            gameManager.GetComponent<GameManagerScript>().nWood -= building.GetComponent<Building>().woodCost;
-            gameManager.GetComponent<GameManagerScript>().nStone -= building.GetComponent<Building>().stoneCost;
-            gameManager.GetComponent<GameManagerScript>().nFood -= building.GetComponent<Building>().foodCost;
+            gameManager.nWood -= buildingScript.woodCost;
+            gameManager.nStone -= buildingScript.stoneCost;
+            gameManager.nFood -= buildingScript.foodCost;
 
         }
         else
         {
-            enoughRessources= false;
+            enoughRessources = false;
+            StartCoroutine(warningMessages.warningCoroutine(warningMessages.NotEnoughRessources));
         }
         return enoughRessources; 
     }

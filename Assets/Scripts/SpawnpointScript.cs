@@ -11,7 +11,7 @@ public class SpawnpointScript : MonoBehaviour
     public GameObject Woodsman;
     public GameObject Wanderer;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instantiate(Farmer, transform.position, Farmer.transform.rotation);
         Instantiate(Mason, transform.position, Mason.transform.rotation);

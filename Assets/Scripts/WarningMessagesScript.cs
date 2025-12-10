@@ -11,14 +11,11 @@ public class WarningMessagesScript : MonoBehaviour
     {
         NoAvailableMason = GameObject.Find("NoAvailableMasonWarning");
         NotEnoughRessources = GameObject.Find("NotEnoughRessourcesWarning");
+        NoAvailableMason.SetActive(false);
+        NotEnoughRessources.SetActive(false);
     }
 
-    public void NoMasonWarning()
-    {
-
-    }
-
-    IEnumerator waitCoroutine(GameObject Warning)
+    public IEnumerator warningCoroutine(GameObject Warning)
     {
         Warning.SetActive(true);
         yield return new WaitForSeconds(3f);
