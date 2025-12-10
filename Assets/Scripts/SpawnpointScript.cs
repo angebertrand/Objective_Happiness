@@ -10,6 +10,7 @@ public class SpawnpointScript : MonoBehaviour
     public GameObject Miner;
     public GameObject Woodsman;
     public GameObject Wanderer;
+    public bool firstSpawn = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,6 +18,7 @@ public class SpawnpointScript : MonoBehaviour
         Instantiate(Mason, transform.position, Mason.transform.rotation);
         Instantiate(Miner, transform.position, Miner.transform.rotation);
         Instantiate(Woodsman, transform.position, Woodsman.transform.rotation);
+        firstSpawn = true;
     }
 
     // Update is called once per frame
@@ -24,7 +26,8 @@ public class SpawnpointScript : MonoBehaviour
     {
         if (dayCount > 1)
         {
-            Instantiate(Wanderer, transform.position, Wanderer.transform.rotation);
+            Instantiate(Wanderer, this.transform.position, Wanderer.transform.rotation);
+            Debug.Log("CA SPAWNN");
         }
     }
 }

@@ -55,6 +55,16 @@ public class CharacterScript : MonoBehaviour
 
     GameObject newCharacter;
 
+    protected GameObject currentTargetObject = null;
+    protected Vector3 currentTargetPosition = Vector3.zero;
+    protected bool hasTargetPosition = false;
+    protected float positionTolerance = 0.5f;
+
+    protected Vector3 wanderingTarget;
+    protected bool wanderingDestinationSet = false;
+    protected float arriveThreshold = 0.5f; // distance pour considérer qu'on est arrivé
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +84,122 @@ public class CharacterScript : MonoBehaviour
 
     }
 
+    // --- Annule toutes les cibles / ordres de déplacement en cours ---
+    public void StopMovement()
+    {
+        // Supprime la cible logique
+        currentTargetObject = null;
+        hasTargetPosition = false;
+
+        // Stoppe et nettoie l'agent
+        if (agent != null)
+        {
+            agent.isStopped = true;
+            agent.ResetPath();
+        }
+    }
+
+    protected void HandleWandering()
+    {
+        if (!isWandering || isWorking || isLearning)
+            return;
+
+        // Si aucune destination en cours, choisir une nouvelle
+        if (!wanderingDestinationSet)
+        {
+            wanderingTarget = RandomNavmeshLocation(30f);
+            MoveTo(wanderingTarget);
+            wanderingDestinationSet = true;
+        }
+
+        // Vérifie si l'agent est arrivé à la destination
+        if (wanderingDestinationSet && Vector3.Distance(transform.position, wanderingTarget) <= arriveThreshold)
+        {
+            wanderingDestinationSet = false; // prochaine frame, on pourra choisir une nouvelle destination
+        }
+    }
+
+    // --- Méthode centrale pour envoyer vers un GameObject ---
+    public void MoveTo(GameObject target)
+    {
+        if (agent == null || target == null) return;
+
+        // Debug : qui appelle ?
+        Debug.Log($"[MoveTo] {name} demande MoveTo object {target.name}");
+
+        // Si la cible actuelle est déjà le même objet → rien à faire
+        if (currentTargetObject == target)
+            return;
+
+        // Annule les invokes susceptibles d'envoyer ailleurs
+        CancelAllMovementInvokes();
+
+        // Obtenir un point valide sur la NavMesh proche du bâtiment
+        NavMeshHit hit;
+        Vector3 desired = target.transform.position;
+        if (NavMesh.SamplePosition(desired, out hit, 3.0f, NavMesh.AllAreas))
+        {
+            Vector3 validPos = hit.position;
+
+            currentTargetObject = target;
+            hasTargetPosition = false;
+            currentTargetPosition = validPos;
+
+            agent.isStopped = false;
+            agent.ResetPath();
+
+            bool ok = agent.SetDestination(validPos);
+            Debug.Log($"[MoveTo] {name} -> destination validée: {validPos}. SetDestination returned: {ok}");
+        }
+        else
+        {
+            Debug.LogWarning($"[MoveTo] {name} : impossible de trouver point NavMesh proche de {target.name} ({desired}). Abort.");
+        }
+    }
+
+    // --- Méthode centrale pour envoyer vers une position ---
+    public void MoveTo(Vector3 pos)
+    {
+        if (agent == null) return;
+
+        Debug.Log($"[MoveTo] {name} demande MoveTo position {pos}");
+
+        // Si on a déjà une target position très proche -> ignore
+        if (hasTargetPosition && Vector3.Distance(currentTargetPosition, pos) <= positionTolerance)
+            return;
+
+        // Annule les invokes susceptibles d'envoyer ailleurs
+        CancelAllMovementInvokes();
+
+        // Trouver position valide sur NavMesh
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(pos, out hit, 3.0f, NavMesh.AllAreas))
+        {
+            Vector3 validPos = hit.position;
+
+            currentTargetObject = null;
+            hasTargetPosition = true;
+            currentTargetPosition = validPos;
+
+            agent.isStopped = false;
+            agent.ResetPath();
+
+            bool ok = agent.SetDestination(validPos);
+            Debug.Log($"[MoveTo] {name} -> position validée: {validPos}. SetDestination returned: {ok}");
+        }
+        else
+        {
+            Debug.LogWarning($"[MoveTo] {name} : impossible de trouver point NavMesh pour pos {pos}");
+        }
+    }
+
+
+    private void CancelAllMovementInvokes()
+    {
+        // Annule les invokes internes connus (ajoute d'autres noms si tu en as)
+        CancelInvoke(nameof(TryGoToWorkLater));
+        // si tu as d'autres Invoke("Name") utilise CancelInvoke("Name") ici
+    }
     public void Register()
     {
         if (this.ID == -1)
@@ -115,32 +241,37 @@ public class CharacterScript : MonoBehaviour
 
     public void GoToWork()
     {
-        
         if (isLearning || manager.day == false) return;
 
         Building b = buildingManager.GetBuildingForJob(currentJob, this);
 
-
         if (b == null)
         {
-            
             isWorking = false;
             isWandering = true;
-            
-            Invoke("GoToWork", 1f);
-
+            // On réessaie plus tard (mais via Invoke non-spammy)
+            Invoke(nameof(TryGoToWorkLater), 1f);
             return;
         }
+
+        // Important : annule tout invoke qui pourrait renvoyer ailleurs
+        CancelInvoke(nameof(TryGoToWorkLater));
+
         isWandering = false;
         b.isUsed = true;
         JobBuilding = b.gameObject;
-        
-        agent.isStopped = false;
-        agent.ResetPath();
 
-        agent.SetDestination(b.transform.position);
+        // UTILISE la méthode centralisée
+        MoveTo(b.gameObject);
+
         isWorking = true;
         NextBuilding = b.gameObject;
+    }
+
+    private void TryGoToWorkLater()
+    {
+        if (!isLearning && manager != null && manager.day)
+            GoToWork();
     }
 
     public void FinishWork()

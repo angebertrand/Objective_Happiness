@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,6 +7,8 @@ public class MasonScript : CharacterScript
 {
 
     public bool isBuildingSomething = false;
+    
+    private bool wanderingDestinationSet = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,27 +25,40 @@ public class MasonScript : CharacterScript
 
     }
 
-    // Update is called once per frame
+    
+
     void Update()
     {
-        if (isWandering && !isLearning && !isWorking && !isBuildingSomething)
+        // Si le Mason est en train de travailler (building), ne wandere pas
+        if (isBuildingSomething)
+            return; // on ne touche pas à MoveTo
+
+        if (isWandering && !isLearning && !isWorking)
         {
-
-            if (!IsWalking())
+            if (!IsWalking() && !wanderingDestinationSet)
             {
-                Wandering();
+                Vector3 rand = RandomNavmeshLocation(30f);
+                MoveTo(rand);
+                wanderingDestinationSet = true;
             }
-
         }
 
+        if (wanderingDestinationSet && !IsWalking())
+        {
+            wanderingDestinationSet = false;
+        }
     }
 
     public void StartBuilding(GameObject Building)
     {
-        isBuildingSomething = true;
+        if (Building == null) return;
+
         JobBuilding = Building;
+        isBuildingSomething = true;
         isWorking = true;
         isWandering = false;
-        agent.SetDestination(Building.transform.position);
+
+        // Déplacer vers le bâtiment
+        MoveTo(Building);
     }
 }
