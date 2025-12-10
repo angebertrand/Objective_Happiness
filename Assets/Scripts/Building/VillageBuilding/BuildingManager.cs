@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,40 +33,64 @@ public class BuildingManager : MonoBehaviour
     }
 
 
-    public Building GetBuildingForJob(string jobName)
+    public Building GetBuildingForJob(string jobName, CharacterScript requester)
     {
         if (!jobToBuilding.ContainsKey(jobName))
-        {
-            
             return null;
-        }
 
         string buildingType = jobToBuilding[jobName];
 
-        return GetFreeBuilding(buildingType);
+        return GetFreeBuilding(buildingType, requester);
     }
-    public Building GetFreeBuilding(string type)
+
+
+
+
+
+    public Building GetFreeBuilding(string type, CharacterScript requester = null)
     {
-        if (!buildings.ContainsKey(type)) return null;
+        if (!buildings.ContainsKey(type))
+            return null;
+
+        Building closest = null;
+        float closestDist = Mathf.Infinity;
 
         foreach (Building b in buildings[type])
         {
-            if (!b.isUsed)
-            {
-                // Si c'est une maison, v�rifier si elle est occup�e
-                if (type == "House")
-                {
-                    HouseScript hs = b.GetComponent<HouseScript>();
-                    if (hs != null && hs.isOccupied)
-                        continue;
-                }
+            if (b == null || b.isUsed)
+                continue;
 
-                b.isUsed = true;
-                return b;
+            // Si c'est une maison → vérifier si elle est occupée
+            if (type == "House")
+            {
+                HouseScript hs = b.GetComponent<HouseScript>();
+                if (hs != null && hs.isOccupied)
+                    continue;
+            }
+
+            // Si aucun personnage n'est donné, on prend le premier libre
+            if (requester == null)
+            {
+                closest = b;
+                break;
+            }
+
+            // distance du personnage au bâtiment
+            float dist = Vector3.Distance(requester.transform.position, b.transform.position);
+
+            if (dist < closestDist)
+            {
+                closest = b;
+                closestDist = dist;
             }
         }
-        return null;
+
+        if (closest != null)
+            closest.isUsed = true;
+
+        return closest;
     }
+
 
     public void ReleaseBuilding(Building b)
     {

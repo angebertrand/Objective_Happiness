@@ -116,7 +116,7 @@ public class GameManagerScript : MonoBehaviour
 
         day = true;
         dayCount++;
-        spawnpoint.GetComponent<SpawnpointScript>().InstanciateWanderer(dayCount);
+        //spawnpoint.GetComponent<SpawnpointScript>().InstanciateWanderer(dayCount);
         sun.GetComponent<Light>().color = new Color(0.9849057f, 0.8108497f, 0.3400711f);
         Debug.Log("Il fait jour.");
 

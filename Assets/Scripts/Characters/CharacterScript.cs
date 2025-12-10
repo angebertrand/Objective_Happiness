@@ -118,8 +118,8 @@ public class CharacterScript : MonoBehaviour
         
         if (isLearning || manager.day == false) return;
 
-        Building b = buildingManager.GetBuildingForJob(currentJob);
-     
+        Building b = buildingManager.GetBuildingForJob(currentJob, this);
+
 
         if (b == null)
         {
