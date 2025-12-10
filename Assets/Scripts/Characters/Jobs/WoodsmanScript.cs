@@ -25,12 +25,25 @@ public class WoodsmanScript : CharacterScript
     // Update is called once per frame
     void Update()
     {
-        if (isWandering && !isLearning && !isWorking && sleepiness && !isSleeping)
+        // Si le perso travaille ou apprend, ne pas wander
+        if (isWorking || isLearning || isBuildingSomething)
+            return;
+
+        // Wandering
+        if (isWandering)
         {
-            if (!IsWalking())
+            // Si pas de target, on en choisit une
+            if (!hasWanderTarget)
             {
-                Vector3 rand = RandomNavmeshLocation(30f);
-                MoveTo(rand);
+                currentWanderTarget = RandomNavmeshLocation(wanderRadius);
+                agent.SetDestination(currentWanderTarget);
+                hasWanderTarget = true;
+            }
+
+            // Si arrivé à destination, reset pour en choisir une nouvelle
+            if (Vector3.Distance(transform.position, currentWanderTarget) <= arriveThreshold)
+            {
+                hasWanderTarget = false;
             }
         }
 

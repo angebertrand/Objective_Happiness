@@ -62,8 +62,14 @@ public class CharacterScript : MonoBehaviour
 
     protected Vector3 wanderingTarget;
     protected bool wanderingDestinationSet = false;
-    protected float arriveThreshold = 0.5f; // distance pour considérer qu'on est arrivé
+    
+    public bool isBuildingSomething = false;
 
+
+    public Vector3 currentWanderTarget;
+    public bool hasWanderTarget = false;
+    public float wanderRadius = 30f;
+    public float arriveThreshold = 0.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -99,33 +105,15 @@ public class CharacterScript : MonoBehaviour
         }
     }
 
-    protected void HandleWandering()
-    {
-        if (!isWandering || isWorking || isLearning)
-            return;
+    
 
-        // Si aucune destination en cours, choisir une nouvelle
-        if (!wanderingDestinationSet)
-        {
-            wanderingTarget = RandomNavmeshLocation(30f);
-            MoveTo(wanderingTarget);
-            wanderingDestinationSet = true;
-        }
-
-        // Vérifie si l'agent est arrivé à la destination
-        if (wanderingDestinationSet && Vector3.Distance(transform.position, wanderingTarget) <= arriveThreshold)
-        {
-            wanderingDestinationSet = false; // prochaine frame, on pourra choisir une nouvelle destination
-        }
-    }
 
     // --- Méthode centrale pour envoyer vers un GameObject ---
     public void MoveTo(GameObject target)
     {
         if (agent == null || target == null) return;
 
-        // Debug : qui appelle ?
-        Debug.Log($"[MoveTo] {name} demande MoveTo object {target.name}");
+        
 
         // Si la cible actuelle est déjà le même objet → rien à faire
         if (currentTargetObject == target)
@@ -149,7 +137,7 @@ public class CharacterScript : MonoBehaviour
             agent.ResetPath();
 
             bool ok = agent.SetDestination(validPos);
-            Debug.Log($"[MoveTo] {name} -> destination validée: {validPos}. SetDestination returned: {ok}");
+            
         }
         else
         {

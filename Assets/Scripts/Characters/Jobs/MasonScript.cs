@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class MasonScript : CharacterScript
 {
 
-    public bool isBuildingSomething = false;
     
-    private bool wanderingDestinationSet = false;
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -29,23 +29,26 @@ public class MasonScript : CharacterScript
 
     void Update()
     {
-        // Si le Mason est en train de travailler (building), ne wandere pas
-        if (isBuildingSomething)
-            return; // on ne touche pas à MoveTo
+        // Si le perso travaille ou apprend, ne pas wander
+        if (isWorking || isLearning || isBuildingSomething)
+            return;
 
-        if (isWandering && !isLearning && !isWorking)
+        // Wandering
+        if (isWandering)
         {
-            if (!IsWalking() && !wanderingDestinationSet)
+            // Si pas de target, on en choisit une
+            if (!hasWanderTarget)
             {
-                Vector3 rand = RandomNavmeshLocation(30f);
-                MoveTo(rand);
-                wanderingDestinationSet = true;
+                currentWanderTarget = RandomNavmeshLocation(wanderRadius);
+                agent.SetDestination(currentWanderTarget);
+                hasWanderTarget = true;
             }
-        }
 
-        if (wanderingDestinationSet && !IsWalking())
-        {
-            wanderingDestinationSet = false;
+            // Si arrivé à destination, reset pour en choisir une nouvelle
+            if (Vector3.Distance(transform.position, currentWanderTarget) <= arriveThreshold)
+            {
+                hasWanderTarget = false;
+            }
         }
     }
 

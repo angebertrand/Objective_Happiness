@@ -22,7 +22,7 @@ public class PlayerScript : MonoBehaviour
     private void Awake()
     {
         defaultMode = GetComponentInChildren<DefaultMode>();
-        gameManagerScript = GetComponent<GameManagerScript>();
+        gameManagerScript = FindAnyObjectByType<GameManagerScript>();
     }
 
     // Update is called once per frame
