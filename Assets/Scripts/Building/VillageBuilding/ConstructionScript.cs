@@ -67,6 +67,7 @@ public class ConstructionScript : MonoBehaviour
             // Check if learning is complete
             if (percentUntilConstr >= 100f)
             {
+                masonScript.StartWandering();
                 masonScript.isWorking = false;
                 percentUntilConstr = 0f;
                 masonScript.isBuildingSomething = false;

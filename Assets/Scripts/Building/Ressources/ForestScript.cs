@@ -49,8 +49,9 @@ public class ForestScript : MonoBehaviour
         while (isMining)
         {
             // Le character existe toujours ?
-            if (currentCharacter == null)
+            if (currentCharacter == null || currentCharacter.sleepiness)
             {
+                currentCharacter = null;
                 isMining = false;
                 buildingScript.isUsed = false;
                 canvasProgress.SetActive(false);

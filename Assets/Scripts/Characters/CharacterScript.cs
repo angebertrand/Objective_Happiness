@@ -1,5 +1,5 @@
 ﻿
-using JetBrains.Annotations;
+using System.Collections;
 using TMPro;
 using UnityEditor.XR;
 using UnityEngine;
@@ -29,7 +29,7 @@ public class CharacterScript : MonoBehaviour
     public string nextJob;
     public bool isSleeping = false;
     public bool isJobless = false;
-
+    public Coroutine wanderRoutine;
     public int isHappy;
 
     public string currentJob;
@@ -51,7 +51,7 @@ public class CharacterScript : MonoBehaviour
     public GameObject JobBuilding;
 
     public BuildingManager buildingManager;
-    
+    public bool wanderingCoroutineRunning = false;
 
     GameObject newCharacter;
 
@@ -371,6 +371,53 @@ public class CharacterScript : MonoBehaviour
         nameText.gameObject.SetActive(false);
     }
 
+
+    public void StartWandering()
+    {
+        if (wanderRoutine != null)
+            StopCoroutine(wanderRoutine);
+
+        wanderRoutine = StartCoroutine(WanderingLoop());
+    }
+
+    public void StopWandering()
+    {
+        isWandering = false;
+
+        if (wanderRoutine != null)
+            StopCoroutine(wanderRoutine);
+
+        wanderRoutine = null;
+    }
+
+    private IEnumerator WanderingLoop()
+    {
+        isWandering = true;
+
+        while (isWandering)
+        {
+            Vector3 target = RandomNavmeshLocation(30f);
+            agent.SetDestination(target);
+
+            // Attendre d’être vraiment arrivé
+            while (isWandering && !HasArrived(target))
+                yield return null;
+
+            // petite pause
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+    private bool HasArrived(Vector3 target)
+    {
+        if (!agent.hasPath) return false; // permet d'ignorer les fausses fins
+        if (agent.pathPending) return false;
+        if (agent.remainingDistance > agent.stoppingDistance + 0.2f) return false;
+
+        return true;
+    }
+
+
     public void BeSleepy()
     {
         sleepiness = true;
@@ -381,7 +428,6 @@ public class CharacterScript : MonoBehaviour
         
         sleepiness = true;
         Eat();
-
         
 
         if (currentJob != "Wander")
@@ -390,8 +436,11 @@ public class CharacterScript : MonoBehaviour
             Building house = buildingManager.GetFreeBuilding("House");
 
             if (house == null)
-            { 
-                isWandering = true;
+            {
+                agent.isStopped = false;
+                agent.ResetPath();
+
+                StartWandering();
                 isHappy = -1;
                 return;
             }

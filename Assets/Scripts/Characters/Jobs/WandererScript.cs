@@ -19,6 +19,7 @@ public class WandererScript : CharacterScript
         isWandering = true;
         cameraMain = Camera.main;
         Register();
+        StartWandering();
         //NextBuilding = GameObject.FindGameObjectWithTag("School");
         //GoToBuilding(NextBuilding);
     }
@@ -26,19 +27,6 @@ public class WandererScript : CharacterScript
     // Update is called once per frame
     void Update()
     {
-        if (isWandering && !isLearning && !isWorking)
-        {
 
-            if (!IsWalking())
-            {
-                Wandering();
-            }
-
-        }
-
-        if (nameText.gameObject.activeSelf)
-        {
-            StopBeingHover();
-        }
     }
 }

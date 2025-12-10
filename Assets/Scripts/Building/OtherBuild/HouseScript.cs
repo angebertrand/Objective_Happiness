@@ -33,7 +33,7 @@ public class HouseScript : MonoBehaviour
     {
         if (!gameManagerScript.day)
         {
-            if (other.CompareTag("Character"))
+            if (other.CompareTag("Character") || other.CompareTag("Mason"))
             {
                 CharacterScript cs = other.GetComponent<CharacterScript>();
 

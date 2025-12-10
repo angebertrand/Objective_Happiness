@@ -45,6 +45,7 @@ public class GameManagerScript : MonoBehaviour
     public float pauseDuration = 0.6f;
 
     public float Joy = 0;
+    
 
     private SpawnpointScript spawnpointScript;
 
@@ -162,7 +163,7 @@ public class GameManagerScript : MonoBehaviour
             }
             else
             {
-                if (!c.isWorking)
+                if (!c.isWorking && !c.sleepiness)
                 {
                     
                     c.GoToWork();
@@ -173,8 +174,12 @@ public class GameManagerScript : MonoBehaviour
         }
 
         
-        yield return new WaitForSeconds(30f);  // Lenght of a day //////////
+        yield return new WaitForSeconds(15f);  // Lenght of a day //////////
 
+        ///////////////////////////////////////////////////////////////////
+        ///Night Time ///////
+        //////////////////////////////////////////////////////////////////////
+        ///
         day = false;
         sun.GetComponent<Light>().color = new Color(0.1071307f, 0.09558551f, 0.6754716f);
         ResetBuildingsUsage();
@@ -392,10 +397,7 @@ public class GameManagerScript : MonoBehaviour
         return true;
     }
 
-    private void StartDayCicle()
-    {
-        StartCoroutine(dayCoroutine());
-    }
+
 
     private void FinishDay()
     {
