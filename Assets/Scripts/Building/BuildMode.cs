@@ -15,7 +15,6 @@ public class BuildMode : MonoBehaviour
     private GameManagerScript gameManager;
     private WarningMessagesScript warningMessages;
     private CharacterScript character;
-    private PlayerScript playerScript;
 
     // Lists to track hovered hexagons and their original materials
     public List<Material> lastHexaMaterials = new();
@@ -41,7 +40,7 @@ public class BuildMode : MonoBehaviour
 
     void OnEnable()
     {
-        playerScript = GetComponentInParent<PlayerScript>();
+
         buildingScript = building.GetComponent<Building>();
         // Reset building size on each activation
         if (building != null && buildingScript != null)
@@ -166,7 +165,7 @@ public class BuildMode : MonoBehaviour
             }
 
             // --- EXIT BUILDING MODE (Key B) ---
-            if (!playerScript.isBuilding)
+            if (Input.GetKeyDown(KeyCode.B))
             {
                 ExitBuildingMode();
             }

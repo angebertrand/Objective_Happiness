@@ -48,6 +48,7 @@ public class PlayerScript : MonoBehaviour
         else
         {
             isBuilding = false;
+            buildInterface.SetActive(false);
         }
     }
 
