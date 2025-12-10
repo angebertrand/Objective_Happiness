@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public bool isBuilding = false;
-    public GameObject buildInterface;
+    private GameObject buildInterface;
     public DefaultMode defaultMode;
     public GameManagerScript gameManagerScript;
     private WarningMessagesScript warningMessages;
@@ -19,6 +19,8 @@ public class PlayerScript : MonoBehaviour
 
     private void Awake()
     {
+        buildInterface = GameObject.Find("BuildInterface");
+        buildInterface.SetActive(false);
         defaultMode = GetComponentInChildren<DefaultMode>();
         gameManagerScript = FindAnyObjectByType<GameManagerScript>();
     }

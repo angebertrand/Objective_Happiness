@@ -15,6 +15,7 @@ public class BuildMode : MonoBehaviour
     private GameManagerScript gameManager;
     private WarningMessagesScript warningMessages;
     private CharacterScript character;
+    private GameObject PressBText;
 
     // Lists to track hovered hexagons and their original materials
     public List<Material> lastHexaMaterials = new();
@@ -25,7 +26,11 @@ public class BuildMode : MonoBehaviour
 
     // Define the required size for a big building (assuming 4 hexagons)
     private const int BIG_BUILDING_SIZE = 4;
-
+    private void Awake()
+    {
+        PressBText = GameObject.Find("Press B to go back");
+        PressBText.SetActive(false);
+    }
     void Start()
     {
         myCamera = Camera.main;
@@ -40,7 +45,7 @@ public class BuildMode : MonoBehaviour
 
     void OnEnable()
     {
-
+        PressBText.SetActive(true);
         buildingScript = building.GetComponent<Building>();
         // Reset building size on each activation
         if (building != null && buildingScript != null)
@@ -213,6 +218,7 @@ public class BuildMode : MonoBehaviour
         // Disable building mode
         GetComponentInParent<PlayerScript>().isBuilding = false;
         GetComponentInParent<DefaultMode>().enabled = true;
+        PressBText.SetActive(false);
         this.enabled = false;
     }
     public void SelectBuilding(GameObject Building)
