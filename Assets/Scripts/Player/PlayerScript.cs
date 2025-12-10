@@ -8,11 +8,15 @@ public class PlayerScript : MonoBehaviour
     public GameObject buildInterface;
     public DefaultMode defaultMode;
     public GameManagerScript gameManagerScript;
+    private WarningMessagesScript warningMessages;
+    private IEnumerator warningMessagesMason;
+
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        warningMessages = GameObject.Find("WarningMessages").GetComponent<WarningMessagesScript>();
+        warningMessagesMason = warningMessages.warningCoroutine(warningMessages.NoAvailableMason);
     }
 
     private void Awake()
@@ -35,11 +39,10 @@ public class PlayerScript : MonoBehaviour
         {
             isBuilding = true;
             defaultMode.enabled = false;
-            Debug.Log("Input registered");
         }
         else
         {
-            Debug.Log("No available Mason");
+            StartCoroutine(warningMessagesMason);
         }
     }
 

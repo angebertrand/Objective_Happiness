@@ -118,7 +118,6 @@ public class GameManagerScript : MonoBehaviour
         dayCount++;
         //spawnpoint.GetComponent<SpawnpointScript>().InstanciateWanderer(dayCount);
         sun.GetComponent<Light>().color = new Color(0.9849057f, 0.8108497f, 0.3400711f);
-        Debug.Log("Il fait jour.");
 
         // ← AJOUT : réinitialiser toutes les maisons
         foreach (GameObject house in houses)
@@ -158,7 +157,6 @@ public class GameManagerScript : MonoBehaviour
 
         day = false;
         sun.GetComponent<Light>().color = new Color(0.1071307f, 0.09558551f, 0.6754716f);
-        Debug.Log("Il fait nuit.");
         ResetBuildingsUsage();
         FinishDay();
         UpdateJoy();

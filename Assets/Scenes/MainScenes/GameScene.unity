@@ -2125,7 +2125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &788279678
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2760,7 +2760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraSpeed: 100
-  BorderThickness: 100
+  BorderThickness: 50
   CameraLimit: {x: 400, y: 400}
   scrollSpeed: 20
   yLowLimit: 20
@@ -3727,7 +3727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1720819029
 RectTransform:
   m_ObjectHideFlags: 0

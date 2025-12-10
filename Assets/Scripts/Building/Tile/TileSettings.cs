@@ -47,7 +47,6 @@ public class TileSettings : MonoBehaviour
 
             case 1:
                 //Bush
-                Debug.Log("This Tile is a bush!");
                 Instantiate(Bush, position + Bush.transform.position, Bush.transform.rotation);
                 isBuildableOn = false;
                 myMeshRenderer.material = materials[1];

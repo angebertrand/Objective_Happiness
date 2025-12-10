@@ -14,7 +14,8 @@ public class BuildMode : MonoBehaviour
     public GameObject construction;
     private GameManagerScript gameManager;
     private WarningMessagesScript warningMessages;
-    private IEnumerator warningMessagesRessources;
+    private IEnumerator warningMessageRessources;
+    private IEnumerator warningMessageSpace;
     private CharacterScript character;
 
     // Lists to track hovered hexagons and their original materials
@@ -32,7 +33,8 @@ public class BuildMode : MonoBehaviour
         myCamera = Camera.main;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         warningMessages = GameObject.Find("WarningMessages").GetComponent<WarningMessagesScript>();
-        warningMessagesRessources = warningMessages.warningCoroutine(warningMessages.NotEnoughRessources);
+        warningMessageRessources = warningMessages.warningCoroutine(warningMessages.NotEnoughRessources);
+        warningMessageSpace = warningMessages.warningCoroutine(warningMessages.NoSpace);
         // Ensure BuildingParameter is on the 'building' object
         if (building != null && buildingScript != null)
         {
@@ -160,6 +162,10 @@ public class BuildMode : MonoBehaviour
 
                 ExitBuildingMode();
             }
+            else if (!isFullyBuildable)
+            {
+                StartCoroutine(warningMessageSpace);
+            }
 
             // --- EXIT BUILDING MODE (Key B) ---
             if (Input.GetKeyDown(KeyCode.B))
@@ -232,7 +238,7 @@ public class BuildMode : MonoBehaviour
         else
         {
             enoughRessources = false;
-            StartCoroutine(warningMessages.warningCoroutine(warningMessages.NotEnoughRessources));
+            StartCoroutine(warningMessageRessources);
         }
         return enoughRessources; 
     }
