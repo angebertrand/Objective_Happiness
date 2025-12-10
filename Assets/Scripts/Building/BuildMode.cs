@@ -162,8 +162,9 @@ public class BuildMode : MonoBehaviour
 
                 ExitBuildingMode();
             }
-            else if (!isFullyBuildable)
+            else if (Input.GetKeyDown(KeyCode.Mouse0) && !isFullyBuildable)
             {
+                Debug.Log("It reach this point.");
                 StartCoroutine(warningMessageSpace);
             }
 

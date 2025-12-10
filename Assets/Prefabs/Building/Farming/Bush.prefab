@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8408036162327735025}
   - component: {fileID: 4867772474477589071}
   - component: {fileID: 7659131397429179831}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4741685010995082467}
   - component: {fileID: 1620129910300335374}
   - component: {fileID: 9135042458254857056}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 6165206768926507625}
   - component: {fileID: 4615318501026609595}
   - component: {fileID: 7993501308631759144}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Progression
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: -5490760046903961586}
   - component: {fileID: 248045864305459840}
   - component: {fileID: 5944557942743690600}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bush
   m_TagString: Bush
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 2953468433112348737}
   - component: {fileID: 6163563044401529140}
   - component: {fileID: 1939586528014649095}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,6 +545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush.002
       objectReference: {fileID: 0}
+    - target: {fileID: 8044286803560253187, guid: c031871855b678e4b87070a5853c5bd3, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -626,6 +630,10 @@ PrefabInstance:
     - target: {fileID: 8069117961248244321, guid: 977496d4b9ac6704f8f4b0b8b887289e, type: 3}
       propertyPath: m_Name
       value: Bush.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069117961248244321, guid: 977496d4b9ac6704f8f4b0b8b887289e, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -709,6 +717,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bush.003
       objectReference: {fileID: 0}
+    - target: {fileID: 4076174935120788135, guid: 34f62c6df43dc914faea2cd9aa10d845, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -786,6 +798,10 @@ PrefabInstance:
     - target: {fileID: 5154828337092841655, guid: 5c7633fa8f183084a9e1a70d50b354c5, type: 3}
       propertyPath: m_Name
       value: Bush
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154828337092841655, guid: 5c7633fa8f183084a9e1a70d50b354c5, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6520764616599755006, guid: 5c7633fa8f183084a9e1a70d50b354c5, type: 3}
       propertyPath: m_Materials.Array.data[0]

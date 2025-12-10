@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8702897620509286351}
   - component: {fileID: 4620226704072939005}
   - component: {fileID: -8278192321904327474}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Library
   m_TagString: Library
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -187,10 +187,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: bookstore
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc80f4c0e3685234dafab4befec36684, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496244989535260712, guid: bc80f4c0e3685234dafab4befec36684, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3879142677880778733, guid: bc80f4c0e3685234dafab4befec36684, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c58b38f9722763349a4b430e2f7e0679, type: 2}
+    - target: {fileID: 4442140035817723464, guid: bc80f4c0e3685234dafab4befec36684, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4113976119148850418, guid: bc80f4c0e3685234dafab4befec36684, type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 218077573359541556}
   - component: {fileID: 8281099259945032285}
   - component: {fileID: 8058849089849201407}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3241281363931594797}
   - component: {fileID: 7314978238735042109}
   - component: {fileID: 6147238667060297619}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 730092541973329669}
   - component: {fileID: 3236994912221764143}
   - component: {fileID: 6243750139674473397}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: House
   m_TagString: House
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -381,6 +381,18 @@ PrefabInstance:
     - target: {fileID: 3907678163003311309, guid: e986d0616a063d74dae360951b975cf6, type: 3}
       propertyPath: m_Name
       value: House
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907678163003311309, guid: e986d0616a063d74dae360951b975cf6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604183776889534682, guid: e986d0616a063d74dae360951b975cf6, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348480530581440494, guid: e986d0616a063d74dae360951b975cf6, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9093969788284618515, guid: e986d0616a063d74dae360951b975cf6, type: 3}
       propertyPath: m_LocalPosition.x
