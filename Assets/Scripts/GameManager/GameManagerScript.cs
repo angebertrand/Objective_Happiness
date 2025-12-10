@@ -46,6 +46,8 @@ public class GameManagerScript : MonoBehaviour
 
     public float Joy = 0;
 
+    private SpawnpointScript spawnpointScript;
+
     private List<string> names = new List<string>()
     {
         "Zhyr'ka", "Tolmari", "Krexilon", "Veshaar", "Ollivrax",
@@ -74,6 +76,7 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         gameManagerUIScript = FindAnyObjectByType<GameManagerUIScript>();
+        spawnpointScript = spawnpoint.GetComponent<SpawnpointScript>();
         StartCoroutine(CharacterListIntegrityCheck());
         StartCoroutine(dayCoroutine());
     }
@@ -116,7 +119,9 @@ public class GameManagerScript : MonoBehaviour
 
         day = true;
         dayCount++;
-        //spawnpoint.GetComponent<SpawnpointScript>().InstanciateWanderer(dayCount);
+
+        spawnpointScript.InstanciateWanderer(dayCount);
+
         sun.GetComponent<Light>().color = new Color(0.9849057f, 0.8108497f, 0.3400711f);
         Debug.Log("Il fait jour.");
 
@@ -131,13 +136,27 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
+        CleanCharacterList();
+        
+
         List<CharacterScript> charactersCopy = new List<CharacterScript>(characters);
 
         foreach (CharacterScript c in charactersCopy)
         {
-            c.isSleeping = false;
-            c.sleepiness = false;
+            
+            if (c.isSleeping || dayCount <= 1)
+            {
+                c.isSleeping = false;
+                c.sleepiness = false;
+            }
+            else
+            {
+                c.sleepiness = true;
+            }
 
+
+            
+            
             if (c.isJobless)
             {
                 c.GoToSchool(c.JobBuilding, c.nextJob);
@@ -146,6 +165,7 @@ public class GameManagerScript : MonoBehaviour
             {
                 if (!c.isWorking)
                 {
+                    
                     c.GoToWork();
                 }
                 
@@ -153,8 +173,8 @@ public class GameManagerScript : MonoBehaviour
 
         }
 
-
-        yield return new WaitForSeconds(15f);  // Lenght of a day //////////
+        
+        yield return new WaitForSeconds(30f);  // Lenght of a day //////////
 
         day = false;
         sun.GetComponent<Light>().color = new Color(0.1071307f, 0.09558551f, 0.6754716f);

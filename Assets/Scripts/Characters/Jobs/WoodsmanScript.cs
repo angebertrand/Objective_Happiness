@@ -25,14 +25,13 @@ public class WoodsmanScript : CharacterScript
     // Update is called once per frame
     void Update()
     {
-        if (isWandering && !isLearning && !isWorking)
+        if (isWandering && !isLearning && !isWorking && sleepiness && !isSleeping)
         {
-
             if (!IsWalking())
             {
-                Wandering();
+                Vector3 rand = RandomNavmeshLocation(30f);
+                MoveTo(rand);
             }
-
         }
 
     }
