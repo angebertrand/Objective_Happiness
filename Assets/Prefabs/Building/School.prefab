@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 289584341377272119}
   - component: {fileID: 6657068655753217248}
   - component: {fileID: 6148269816499828286}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 7073129994432907462}
   - component: {fileID: 7455919915911304731}
   - component: {fileID: 2979636002309961085}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2100774667993651290}
   - component: {fileID: 6805052036999755367}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SchoolUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 1039356571008714832}
   - component: {fileID: 31015559180283160}
   - component: {fileID: 8196421496008080451}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 6677313840153380125}
   - component: {fileID: 8482972376555003008}
   - component: {fileID: 39941831847003971}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   - component: {fileID: 6810496982667412567}
   - component: {fileID: 5585762447580984688}
   - component: {fileID: 3778592355315473183}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Scrollbar Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 6475973544077822101}
   - component: {fileID: 6392963006665780418}
   - component: {fileID: 1245068781003751272}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 1736066823577243782}
   - component: {fileID: 7787233174692998089}
   - component: {fileID: 9077124256930529010}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 6986848543992508854}
   - component: {fileID: 8407421195643342981}
   - component: {fileID: 2440978274211786757}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +822,7 @@ GameObject:
   - component: {fileID: 5610088664894780107}
   - component: {fileID: 2033102945714319849}
   - component: {fileID: 7105539714870083019}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Scrollbar Vertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -945,7 +945,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2773384057578287336}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Sliding Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +984,7 @@ GameObject:
   - component: {fileID: 7745707551818807504}
   - component: {fileID: 6693188069837868653}
   - component: {fileID: 1364273076632812743}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Progression
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1073,7 +1073,7 @@ GameObject:
   - component: {fileID: 3535214575969918411}
   - component: {fileID: 1230346227977624884}
   - component: {fileID: 6938976651463474503}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1206,7 +1206,7 @@ GameObject:
   - component: {fileID: 8796505991795349573}
   - component: {fileID: 3249298529031322302}
   - component: {fileID: 1284094225819101738}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: CanvasUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1305,7 +1305,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7859800449551600145}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Sliding Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1343,7 +1343,7 @@ GameObject:
   - component: {fileID: 2274338495813786085}
   - component: {fileID: 3927767121282879677}
   - component: {fileID: 7466725228407110447}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1424,7 +1424,7 @@ GameObject:
   - component: {fileID: 6262402293934111998}
   - component: {fileID: 332112380586080216}
   - component: {fileID: 4175131569407336684}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: School
   m_TagString: School
   m_Icon: {fileID: 0}
@@ -1764,7 +1764,7 @@ GameObject:
   - component: {fileID: 1672733162507221253}
   - component: {fileID: 1804882810646359827}
   - component: {fileID: 2824613989861524615}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Scroll View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1879,7 +1879,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 030616b16cff3a442a8ea33dab9b35f8, type: 2}
     - target: {fileID: 815203452787120057, guid: b180576f3d4e03b4fbe4de46393c5d91, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2680964760361943020, guid: b180576f3d4e03b4fbe4de46393c5d91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1927,7 +1927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6935797810366943980, guid: b180576f3d4e03b4fbe4de46393c5d91, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

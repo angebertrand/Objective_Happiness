@@ -168,13 +168,13 @@ public class GameManagerScript : MonoBehaviour
                     
                     c.GoToWork();
                 }
-                
+
             }
 
         }
 
         
-        yield return new WaitForSeconds(15f);  // Lenght of a day //////////
+        yield return new WaitForSeconds(45f);  // Lenght of a day //////////
 
         ///////////////////////////////////////////////////////////////////
         ///Night Time ///////

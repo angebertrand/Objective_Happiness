@@ -29,7 +29,6 @@ public class CharacterScript : MonoBehaviour
     public string nextJob;
     public bool isSleeping = false;
     public bool isJobless = false;
-    public Coroutine wanderRoutine;
     public int isHappy;
 
     public string currentJob;
@@ -49,6 +48,8 @@ public class CharacterScript : MonoBehaviour
     public GameObject Woodsman;
     public GameObject NextBuilding;
     public GameObject JobBuilding;
+
+    public Coroutine wanderRoutine;
 
     public BuildingManager buildingManager;
     public bool wanderingCoroutineRunning = false;
@@ -111,38 +112,21 @@ public class CharacterScript : MonoBehaviour
     // --- Méthode centrale pour envoyer vers un GameObject ---
     public void MoveTo(GameObject target)
     {
-        if (agent == null || target == null) return;
-
-        
-
-        // Si la cible actuelle est déjà le même objet → rien à faire
-        if (currentTargetObject == target)
+        if (agent == null)
             return;
 
-        // Annule les invokes susceptibles d'envoyer ailleurs
-        CancelAllMovementInvokes();
+        // On empêche les spams
+        if (!agent.enabled)
+            return;
 
-        // Obtenir un point valide sur la NavMesh proche du bâtiment
-        NavMeshHit hit;
-        Vector3 desired = target.transform.position;
-        if (NavMesh.SamplePosition(desired, out hit, 3.0f, NavMesh.AllAreas))
-        {
-            Vector3 validPos = hit.position;
+        currentTargetObject = null;
+        hasTargetPosition = true;
+        currentTargetPosition = target.transform.position;
 
-            currentTargetObject = target;
-            hasTargetPosition = false;
-            currentTargetPosition = validPos;
+        agent.isStopped = false;
+        agent.ResetPath();
 
-            agent.isStopped = false;
-            agent.ResetPath();
-
-            bool ok = agent.SetDestination(validPos);
-            
-        }
-        else
-        {
-            Debug.LogWarning($"[MoveTo] {name} : impossible de trouver point NavMesh proche de {target.name} ({desired}). Abort.");
-        }
+        agent.SetDestination(currentTargetPosition);
     }
 
     // --- Méthode centrale pour envoyer vers une position ---
@@ -229,6 +213,8 @@ public class CharacterScript : MonoBehaviour
 
     public void GoToWork()
     {
+        
+
         if (isLearning || manager.day == false) return;
 
         Building b = buildingManager.GetBuildingForJob(currentJob, this);
@@ -250,10 +236,13 @@ public class CharacterScript : MonoBehaviour
         JobBuilding = b.gameObject;
 
         // UTILISE la méthode centralisée
-        MoveTo(b.gameObject);
+        
 
         isWorking = true;
         NextBuilding = b.gameObject;
+        MoveTo(b.gameObject);
+
+        Debug.Log(name + "OKEYYY");
     }
 
     private void TryGoToWorkLater()

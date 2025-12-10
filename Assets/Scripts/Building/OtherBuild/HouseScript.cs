@@ -50,9 +50,9 @@ public class HouseScript : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.CompareTag("Character"))
+        if (other.CompareTag("Character") || other.CompareTag("Mason"))
         {
-            if (currentCharacter != null)
+            if (currentCharacter != null || other.gameObject == currentCharacter.gameObject)
             {
                 isOccupied = false;
                 currentCharacter.isSleeping = false;
