@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8408036162327735025}
   - component: {fileID: 4867772474477589071}
   - component: {fileID: 7659131397429179831}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4741685010995082467}
   - component: {fileID: 1620129910300335374}
   - component: {fileID: 9135042458254857056}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 6165206768926507625}
   - component: {fileID: 4615318501026609595}
   - component: {fileID: 7993501308631759144}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Progression
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: -5490760046903961586}
   - component: {fileID: 4766569498596448126}
   - component: {fileID: 248045864305459840}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Stone
   m_TagString: Stone
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 2953468433112348737}
   - component: {fileID: 6163563044401529140}
   - component: {fileID: 1939586528014649095}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,6 +501,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7312601302647256322}
     m_Modifications:
+    - target: {fileID: 76224961355687735, guid: 298dd160c892c114c931ddb011805286, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3204422605659355850, guid: 298dd160c892c114c931ddb011805286, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -568,6 +572,10 @@ PrefabInstance:
     - target: {fileID: 6590308109041155528, guid: 298dd160c892c114c931ddb011805286, type: 3}
       propertyPath: m_Name
       value: stone tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6590308109041155528, guid: 298dd160c892c114c931ddb011805286, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

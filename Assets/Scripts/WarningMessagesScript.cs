@@ -23,5 +23,6 @@ public class WarningMessagesScript : MonoBehaviour
         Warning.SetActive(true);
         yield return new WaitForSeconds(3f);
         Warning.SetActive(false);
+        yield break;
     }
 }

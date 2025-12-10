@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8702897620509286351}
   - component: {fileID: 4620226704072939005}
   - component: {fileID: -5878264261159234571}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Museum
   m_TagString: Museum
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3847027f6d5cc7a49bb139ad1214188f, type: 2}
+    - target: {fileID: -7019073714794571981, guid: d23d82a8774e309479bbd0839205f185, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -1820934233944551800, guid: d23d82a8774e309479bbd0839205f185, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -200,8 +204,20 @@ PrefabInstance:
       value: museum
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d23d82a8774e309479bbd0839205f185, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d23d82a8774e309479bbd0839205f185, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586139089369703980, guid: d23d82a8774e309479bbd0839205f185, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394963723348225563, guid: d23d82a8774e309479bbd0839205f185, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

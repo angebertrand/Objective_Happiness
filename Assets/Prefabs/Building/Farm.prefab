@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4733095871658125960}
   - component: {fileID: 5043650164392522326}
   - component: {fileID: 1786891195662049576}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Farm.Bush.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2329543759544984694}
   - component: {fileID: 4984025033371611782}
   - component: {fileID: 39609467053172586}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Farm Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 2024720128945820215}
   - component: {fileID: 2401946605861658190}
   - component: {fileID: 1520068908848517536}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Farm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 8702897620509286351}
   - component: {fileID: -7816204496875781936}
   - component: {fileID: 3202648978308723304}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Farm
   m_TagString: Farm
   m_Icon: {fileID: 0}
@@ -449,6 +449,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b9fff29594cc8574d8643788d4dff1d3, type: 3}
       propertyPath: m_Name
       value: farm
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b9fff29594cc8574d8643788d4dff1d3, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

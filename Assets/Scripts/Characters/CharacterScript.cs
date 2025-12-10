@@ -125,7 +125,6 @@ public class CharacterScript : MonoBehaviour
         if (agent == null || target == null) return;
 
         // Debug : qui appelle ?
-        Debug.Log($"[MoveTo] {name} demande MoveTo object {target.name}");
 
         // Si la cible actuelle est déjà le même objet → rien à faire
         if (currentTargetObject == target)
@@ -149,11 +148,9 @@ public class CharacterScript : MonoBehaviour
             agent.ResetPath();
 
             bool ok = agent.SetDestination(validPos);
-            Debug.Log($"[MoveTo] {name} -> destination validée: {validPos}. SetDestination returned: {ok}");
         }
         else
         {
-            Debug.LogWarning($"[MoveTo] {name} : impossible de trouver point NavMesh proche de {target.name} ({desired}). Abort.");
         }
     }
 
@@ -161,8 +158,6 @@ public class CharacterScript : MonoBehaviour
     public void MoveTo(Vector3 pos)
     {
         if (agent == null) return;
-
-        Debug.Log($"[MoveTo] {name} demande MoveTo position {pos}");
 
         // Si on a déjà une target position très proche -> ignore
         if (hasTargetPosition && Vector3.Distance(currentTargetPosition, pos) <= positionTolerance)
@@ -185,7 +180,6 @@ public class CharacterScript : MonoBehaviour
             agent.ResetPath();
 
             bool ok = agent.SetDestination(validPos);
-            Debug.Log($"[MoveTo] {name} -> position validée: {validPos}. SetDestination returned: {ok}");
         }
         else
         {
