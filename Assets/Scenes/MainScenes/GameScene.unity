@@ -368,9 +368,9 @@ MonoBehaviour:
   canGoToNextDay: 0
   PausedSound: {fileID: 38453187}
   UnPausedSound: {fileID: 38453186}
-  nWood: 20
+  nWood: 10
   nFood: 65
-  nStone: 20
+  nStone: 10
   isPaused: 0
   pauseDuration: 0.6
   Joy: 0
@@ -4805,9 +4805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 559e767bc87085e45baf2a501e35a806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoAvailableMason: {fileID: 0}
-  NotEnoughRessources: {fileID: 0}
-  NoSpace: {fileID: 0}
+  warningsMessages: []
 --- !u!1 &2131386339
 GameObject:
   m_ObjectHideFlags: 0

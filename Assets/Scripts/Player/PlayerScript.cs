@@ -9,14 +9,12 @@ public class PlayerScript : MonoBehaviour
     public DefaultMode defaultMode;
     public GameManagerScript gameManagerScript;
     private WarningMessagesScript warningMessages;
-    private IEnumerator warningMessagesMason;
 
     
     // Start is called before the first frame update
     void Start()
     {
         warningMessages = GameObject.Find("WarningMessages").GetComponent<WarningMessagesScript>();
-        warningMessagesMason = warningMessages.warningCoroutine(warningMessages.NoAvailableMason);
     }
 
     private void Awake()
@@ -35,14 +33,21 @@ public class PlayerScript : MonoBehaviour
     }
     public void GetInputs()
     {
-        if (GetAvailableMason() != null)
+        if (!isBuilding)
         {
-            isBuilding = true;
-            defaultMode.enabled = false;
+            if (GetAvailableMason() != null)
+            {
+                isBuilding = true;
+                defaultMode.enabled = false;
+            }
+            else
+            {
+                StartCoroutine(warningMessages.warningCoroutine(0));
+            }
         }
         else
         {
-            StartCoroutine(warningMessagesMason);
+            isBuilding = false;
         }
     }
 

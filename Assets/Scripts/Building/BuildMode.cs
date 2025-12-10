@@ -14,9 +14,8 @@ public class BuildMode : MonoBehaviour
     public GameObject construction;
     private GameManagerScript gameManager;
     private WarningMessagesScript warningMessages;
-    private IEnumerator warningMessageRessources;
-    private IEnumerator warningMessageSpace;
     private CharacterScript character;
+    private PlayerScript playerScript;
 
     // Lists to track hovered hexagons and their original materials
     public List<Material> lastHexaMaterials = new();
@@ -33,8 +32,6 @@ public class BuildMode : MonoBehaviour
         myCamera = Camera.main;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         warningMessages = GameObject.Find("WarningMessages").GetComponent<WarningMessagesScript>();
-        warningMessageRessources = warningMessages.warningCoroutine(warningMessages.NotEnoughRessources);
-        warningMessageSpace = warningMessages.warningCoroutine(warningMessages.NoSpace);
         // Ensure BuildingParameter is on the 'building' object
         if (building != null && buildingScript != null)
         {
@@ -44,6 +41,7 @@ public class BuildMode : MonoBehaviour
 
     void OnEnable()
     {
+        playerScript = GetComponentInParent<PlayerScript>();
         buildingScript = building.GetComponent<Building>();
         // Reset building size on each activation
         if (building != null && buildingScript != null)
@@ -164,12 +162,11 @@ public class BuildMode : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0) && !isFullyBuildable)
             {
-                Debug.Log("It reach this point.");
-                StartCoroutine(warningMessageSpace);
+                StartCoroutine(warningMessages.warningCoroutine(2));
             }
 
             // --- EXIT BUILDING MODE (Key B) ---
-            if (Input.GetKeyDown(KeyCode.B))
+            if (!playerScript.isBuilding)
             {
                 ExitBuildingMode();
             }
@@ -239,7 +236,7 @@ public class BuildMode : MonoBehaviour
         else
         {
             enoughRessources = false;
-            StartCoroutine(warningMessageRessources);
+            StartCoroutine(warningMessages.warningCoroutine(1));
         }
         return enoughRessources; 
     }
