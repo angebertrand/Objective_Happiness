@@ -8,7 +8,6 @@ public class ConstructionScript : MonoBehaviour
     
     public bool buildIsFinished = false;
     public GameObject futureBuilding;
-    private Vector3 position;
     public MasonScript masonScript;
     private bool isBuilding = false;
     public ProgressBarScript progressBar;
@@ -20,14 +19,16 @@ public class ConstructionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Transform thisTransform = this.GetComponent<Transform>();
+        Transform futureBuildingTransform = futureBuilding.GetComponentInChildren<Transform>();
         this.GetComponent<MeshFilter>().mesh = futureBuilding.GetComponent<MeshFilter>().sharedMesh;
+        thisTransform.position += futureBuildingTransform.position;
+        thisTransform.rotation = futureBuildingTransform.rotation;
+        thisTransform.localScale = futureBuildingTransform.localScale;
         if (futureBuilding.GetComponent<Building>().bigBuilding)
         {
             transform.position += new Vector3(0, 0, 10.90681f);
         }
-        this.transform.rotation = futureBuilding.transform.rotation;
-        position = this.transform.position;
-        this.transform.localScale = futureBuilding.transform.localScale;
     }
 
     private void Awake()
@@ -52,7 +53,6 @@ public class ConstructionScript : MonoBehaviour
         }
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -72,7 +72,7 @@ public class ConstructionScript : MonoBehaviour
                 percentUntilConstr = 0f;
                 masonScript.isBuildingSomething = false;
                 progressBar.UpdateProgress(percentUntilConstr / 100);
-                Instantiate(futureBuilding, position, this.transform.rotation);
+                Instantiate(futureBuilding, this.transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }
