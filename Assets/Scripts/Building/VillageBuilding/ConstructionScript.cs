@@ -20,7 +20,7 @@ public class ConstructionScript : MonoBehaviour
     void Start()
     {
         Transform thisTransform = this.GetComponent<Transform>();
-        Transform futureBuildingTransform = futureBuilding.GetComponentInChildren<Transform>();
+        Transform futureBuildingTransform = futureBuilding.transform;
         this.GetComponent<MeshFilter>().mesh = futureBuilding.GetComponent<MeshFilter>().sharedMesh;
         thisTransform.position += futureBuildingTransform.position;
         thisTransform.rotation = futureBuildingTransform.rotation;
