@@ -7,10 +7,13 @@ public class BuildMode : MonoBehaviour
 {
     // Initialize variables
     private Camera myCamera;
+
     public Material buildableMaterial;
     public Material notBuildableMaterial;
+
     public GameObject building;
     private Building buildingScript;
+
     public GameObject construction;
     private GameManagerScript gameManager;
     private WarningMessagesScript warningMessages;
@@ -28,11 +31,13 @@ public class BuildMode : MonoBehaviour
     private const int BIG_BUILDING_SIZE = 4;
     private void Awake()
     {
+        //Link the UI to the code
         PressBText = GameObject.Find("Press B to go back");
         PressBText.SetActive(false);
     }
     void Start()
     {
+        //Link Camera, GameManager and WarningMessages to the code
         myCamera = Camera.main;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
         warningMessages = GameObject.Find("WarningMessages").GetComponent<WarningMessagesScript>();
@@ -45,13 +50,16 @@ public class BuildMode : MonoBehaviour
 
     void OnEnable()
     {
+        //Activate UI and set the new buildingscript
         PressBText.SetActive(true);
         buildingScript = building.GetComponent<Building>();
+
         // Reset building size on each activation
         if (building != null && buildingScript != null)
         {
             bigBuilding = buildingScript.bigBuilding;
         }
+
         // Ensure lists are empty upon activation
         lastHexas.Clear();
         lastHexaMaterials.Clear();
@@ -60,13 +68,16 @@ public class BuildMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Send a ray
         Vector3 mousePosition = Input.mousePosition;
         Ray myRay = myCamera.ScreenPointToRay(mousePosition);
         bool weHitSomething = Physics.Raycast(myRay, out RaycastHit hit);
 
         // --- HOVER MANAGEMENT ON TILES (Hexagons) ---
+        //if the ray hit a tile
         if (weHitSomething && hit.transform.CompareTag("Tile"))
         {
+            //Reset the count of buildable tile for later
             buildableCount = 0;
 
             GameObject currentHitHexa = hit.transform.gameObject;
@@ -74,16 +85,16 @@ public class BuildMode : MonoBehaviour
 
             if (newHexaHovered)
             {
-                // 1. Restore materials of previous hexagons
+                // Restore materials of previous hexagons
                 for (int i = 0; i < lastHexas.Count; i++)
                 {
                     if (lastHexas[i] != null && i < lastHexaMaterials.Count)
                     {
-                        lastHexas[i].transform.GetComponentInChildren<MeshRenderer>().material = lastHexaMaterials[i];
+                        lastHexas[i].GetComponentInChildren<MeshRenderer>().material = lastHexaMaterials[i];
                     }
                 }
 
-                // 2. Populate the new lists
+                // Clear the lists
                 lastHexas.Clear();
                 lastHexaMaterials.Clear();
 
@@ -105,7 +116,7 @@ public class BuildMode : MonoBehaviour
                 }
             }
 
-            // --- 3. Global buildability check AND SIZE CHECK ---
+            // --- Global buildability check AND SIZE CHECK ---
 
             // Count buildable tiles
             foreach (GameObject hexa in lastHexas)
@@ -138,7 +149,7 @@ public class BuildMode : MonoBehaviour
             {
                 if (hexa != null)
                 {
-                    hexa.transform.GetComponentInChildren<MeshRenderer>().material = feedbackMaterial;
+                    hexa.GetComponentInChildren<MeshRenderer>().material = feedbackMaterial;
                 }
             }
 
@@ -195,6 +206,8 @@ public class BuildMode : MonoBehaviour
         }
     }
 
+    // --- Functions ---
+
     private void ExitBuildingMode()
     {
         // Restore original materials of ALL hexagons
@@ -221,6 +234,7 @@ public class BuildMode : MonoBehaviour
         PressBText.SetActive(false);
         this.enabled = false;
     }
+    // SelectBuilding
     public void SelectBuilding(GameObject Building)
     {
         building = Building;
