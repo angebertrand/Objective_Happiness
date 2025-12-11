@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4867772474477589071}
   - component: {fileID: 7659131397429179831}
   m_Layer: 2
-  m_Name: Background
+  m_Name: BackgroundConstruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,8 +394,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.82
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 4
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &7507942583082843009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 6163563044401529140}
   - component: {fileID: 1939586528014649095}
   m_Layer: 2
-  m_Name: Fill
+  m_Name: FillConstruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
