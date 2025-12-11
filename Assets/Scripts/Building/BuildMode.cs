@@ -81,6 +81,7 @@ public class BuildMode : MonoBehaviour
             buildableCount = 0;
 
             GameObject currentHitHexa = hit.transform.gameObject;
+            TileSettings currentHitHexaScript = currentHitHexa.GetComponent<TileSettings>();
             bool newHexaHovered = lastHexas.Count == 0 || lastHexas[0] != currentHitHexa;
 
             if (newHexaHovered)
@@ -103,9 +104,9 @@ public class BuildMode : MonoBehaviour
                 lastHexaMaterials.Add(currentHitHexa.GetComponentInChildren<MeshRenderer>().material);
 
                 // If it's a big building, add "sister tiles" too
-                if (bigBuilding && currentHitHexa.GetComponent<TileSettings>() != null)
+                if (bigBuilding && currentHitHexaScript != null)
                 {
-                    foreach (GameObject sisterTile in currentHitHexa.GetComponent<TileSettings>().sisterTiles)
+                    foreach (GameObject sisterTile in currentHitHexaScript.sisterTiles)
                     {
                         if (sisterTile != null)
                         {
@@ -121,7 +122,8 @@ public class BuildMode : MonoBehaviour
             // Count buildable tiles
             foreach (GameObject hexa in lastHexas)
             {
-                if (hexa != null && hexa.GetComponent<TileSettings>() != null && hexa.GetComponent<TileSettings>().isBuildableOn)
+                TileSettings hexaScript = hexa.GetComponent<TileSettings>();
+                if (hexa != null && hexaScript != null && hexaScript.isBuildableOn)
                 {
                     buildableCount++;
                 }
@@ -144,7 +146,7 @@ public class BuildMode : MonoBehaviour
             bool isFullyBuildable = isSizeCorrect && (buildableCount == lastHexas.Count);
             Material feedbackMaterial = isFullyBuildable ? buildableMaterial : notBuildableMaterial;
 
-            // 4. Apply the feedback material to all selected hexagons (every frame)
+            // Apply the feedback material to all selected hexagons (every frame)
             foreach (GameObject hexa in lastHexas)
             {
                 if (hexa != null)
@@ -186,6 +188,7 @@ public class BuildMode : MonoBehaviour
                 ExitBuildingMode();
             }
         }
+        //Character name appear if hover
         else if (weHitSomething && hit.transform.CompareTag("Character"))
         {
 
