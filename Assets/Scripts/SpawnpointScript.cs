@@ -15,9 +15,9 @@ public class SpawnpointScript : MonoBehaviour
     void Awake()
     {
         Instantiate(Farmer, transform.position, Farmer.transform.rotation);
-        Instantiate(Mason, transform.position, Mason.transform.rotation);
         Instantiate(Miner, transform.position, Miner.transform.rotation);
         Instantiate(Woodsman, transform.position, Woodsman.transform.rotation);
+        Instantiate(Mason, transform.position, Mason.transform.rotation);
         firstSpawn = true;
     }
 
@@ -27,7 +27,7 @@ public class SpawnpointScript : MonoBehaviour
         if (dayCount > 1)
         {
             Instantiate(Wanderer, this.transform.position, Wanderer.transform.rotation);
-            Debug.Log("CA SPAWNN");
+            
         }
     }
 }

@@ -60,7 +60,7 @@ public class BuildingManager : MonoBehaviour
             if (b == null || b.isUsed)
                 continue;
 
-            // Si c'est une maison → vérifier si elle est occupée
+            // If a house -> check if occupied
             if (type == "House")
             {
                 HouseScript hs = b.GetComponent<HouseScript>();
@@ -68,14 +68,14 @@ public class BuildingManager : MonoBehaviour
                     continue;
             }
 
-            // Si aucun personnage n'est donné, on prend le premier libre
+           
             if (requester == null)
             {
                 closest = b;
                 break;
             }
 
-            // distance du personnage au bâtiment
+            
             float dist = Vector3.Distance(requester.transform.position, b.transform.position);
 
             if (dist < closestDist)

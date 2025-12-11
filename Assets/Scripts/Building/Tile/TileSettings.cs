@@ -29,7 +29,7 @@ public class TileSettings : MonoBehaviour
 
     private void OnEnable()
     {
-        // Calcule automatiquement le rayon du mesh attaché
+        // Automatic calcul
         hexRadius = DetectHexRadius();
         position = PlacerHexaDansWorld(xPos, yPos, DetectHexRadius());
         transform.position = position;
@@ -73,12 +73,9 @@ public class TileSettings : MonoBehaviour
     {
         MeshRenderer mr = GetComponentInChildren<MeshRenderer>();
 
-        // taille réelle du mesh rendu
+        // real size 
         Vector3 size = mr.bounds.size;
 
-        // Pour un hex flat-top :
-        // largeur = radius * 2
-        // radius = largeur / 2
         float width = size.x;
 
         float radius = width / 2;

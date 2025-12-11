@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEditor.Animations;
 using UnityEditor.XR;
@@ -64,9 +63,8 @@ public class CharacterScript : MonoBehaviour
 
     protected Vector3 wanderingTarget;
     protected bool wanderingDestinationSet = false;
-    
-    public bool isBuildingSomething = false;
 
+    public bool isBuildingSomething = false;
 
     public Vector3 currentWanderTarget;
     public bool hasWanderTarget = false;
@@ -78,12 +76,11 @@ public class CharacterScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private void Awake()
     {
-        
 
 
     }
@@ -94,14 +91,14 @@ public class CharacterScript : MonoBehaviour
 
     }
 
-    // --- Annule toutes les cibles / ordres de déplacement en cours ---
+
     public void StopMovement()
     {
-        // Supprime la cible logique
+
         currentTargetObject = null;
         hasTargetPosition = false;
 
-        // Stoppe et nettoie l'agent
+
         if (agent != null)
         {
             agent.isStopped = true;
@@ -109,16 +106,13 @@ public class CharacterScript : MonoBehaviour
         }
     }
 
-    
 
-
-    // --- Méthode centrale pour envoyer vers un GameObject ---
     public void MoveTo(GameObject target)
     {
         if (agent == null)
             return;
 
-        // On empêche les spams
+
         if (!agent.enabled)
             return;
 
@@ -130,24 +124,27 @@ public class CharacterScript : MonoBehaviour
         agent.ResetPath();
 
         agent.SetDestination(currentTargetPosition);
-        animator.SetTrigger("Jump");
+        if (agent.velocity.sqrMagnitude > 0.01f)
+        {
+            animator.SetTrigger("Jump");
+        }
     }
 
-    // --- Méthode centrale pour envoyer vers une position ---
+    // --- Central method for sending the agent to a position ---
     public void MoveTo(Vector3 pos)
     {
         if (agent == null) return;
 
-        Debug.Log($"[MoveTo] {name} demande MoveTo position {pos}");
+        Debug.Log($"[MoveTo] {name} requested MoveTo position {pos}");
 
-        // Si on a déjà une target position très proche -> ignore
+        // If we already have a very close target → ignore
         if (hasTargetPosition && Vector3.Distance(currentTargetPosition, pos) <= positionTolerance)
             return;
 
-        // Annule les invokes susceptibles d'envoyer ailleurs
+        // Cancel invokes that could redirect movement
         CancelAllMovementInvokes();
 
-        // Trouver position valide sur NavMesh
+        // Find a valid NavMesh position
         NavMeshHit hit;
         if (NavMesh.SamplePosition(pos, out hit, 3.0f, NavMesh.AllAreas))
         {
@@ -161,22 +158,25 @@ public class CharacterScript : MonoBehaviour
             agent.ResetPath();
 
             bool ok = agent.SetDestination(validPos);
-            animator.SetTrigger("Jump");
-            Debug.Log($"[MoveTo] {name} -> position validée: {validPos}. SetDestination returned: {ok}");
+            if (agent.velocity.sqrMagnitude > 0.01f)
+            {
+                animator.SetTrigger("Jump");
+            }
+            Debug.Log($"[MoveTo] {name} -> validated position: {validPos}. SetDestination returned: {ok}");
         }
         else
         {
-            Debug.LogWarning($"[MoveTo] {name} : impossible de trouver point NavMesh pour pos {pos}");
+            Debug.LogWarning($"[MoveTo] {name}: could not find NavMesh point for pos {pos}");
         }
     }
 
 
     private void CancelAllMovementInvokes()
     {
-        // Annule les invokes internes connus (ajoute d'autres noms si tu en as)
+        // Cancels internal invokes known to influence movement (add more if needed)
         CancelInvoke(nameof(TryGoToWorkLater));
-        // si tu as d'autres Invoke("Name") utilise CancelInvoke("Name") ici
     }
+
     public void Register()
     {
         if (this.ID == -1)
@@ -187,26 +187,23 @@ public class CharacterScript : MonoBehaviour
                 manager.RegisterCharacter(this);
             }
         }
-
     }
 
     // Returns TRUE if the agent is currently moving
     public bool IsWalking()
     {
-        
-        // If the agent is still calculating a path, consider it as walking
+        // If the agent is still calculating a path → consider moving
         if (agent.pathPending)
             return true;
 
-        // If the speed is more than zero → walking
+        // If speed > 0 → walking
         if (agent.velocity.sqrMagnitude > 0.01f)
             return true;
 
-        // If the remaining distance is very small → not walking
+        // If remaining distance small → not walking
         if (agent.remainingDistance <= agent.stoppingDistance)
             return false;
 
-        
         return false;
     }
 
@@ -218,8 +215,6 @@ public class CharacterScript : MonoBehaviour
 
     public void GoToWork()
     {
-        
-
         if (isLearning || manager.day == false) return;
 
         Building b = buildingManager.GetBuildingForJob(currentJob, this);
@@ -228,20 +223,18 @@ public class CharacterScript : MonoBehaviour
         {
             isWorking = false;
             isWandering = true;
-            // On réessaie plus tard (mais via Invoke non-spammy)
+
+            // Retry later (via non-spammy Invoke)
             Invoke(nameof(TryGoToWorkLater), 1f);
             return;
         }
 
-        // Important : annule tout invoke qui pourrait renvoyer ailleurs
+        // Important: cancel any invoke that could redirect elsewhere
         CancelInvoke(nameof(TryGoToWorkLater));
 
         isWandering = false;
         b.isUsed = true;
         JobBuilding = b.gameObject;
-
-        // UTILISE la méthode centralisée
-        
 
         isWorking = true;
         NextBuilding = b.gameObject;
@@ -265,15 +258,10 @@ public class CharacterScript : MonoBehaviour
 
     public void ChangeCharacter(GameObject prefab)
     {
-        
         CharacterScript oldChara = this;
 
-        
         GameObject newObj = Instantiate(prefab);
-
-        
         CharacterScript newChara = newObj.GetComponent<CharacterScript>();
-
 
         // Copy data
         newChara.sleepiness = oldChara.sleepiness;
@@ -290,17 +278,16 @@ public class CharacterScript : MonoBehaviour
         newChara.canLearn = false;
         newChara.name = oldChara.name;
 
-
         newChara.GoToWork();
 
         // Replace old character in the manager
         if (manager != null)
         {
-            manager.UnregisterCharacter(oldChara);   // Remove old character
-            manager.RegisterCharacter(newChara);    // Register new character with same ID
+            manager.UnregisterCharacter(oldChara);
+            manager.RegisterCharacter(newChara);
         }
 
-        // Destroy old "job"
+        // Destroy old job
         CancelInvoke();
         StopAllCoroutines();
         Destroy(gameObject);
@@ -332,7 +319,6 @@ public class CharacterScript : MonoBehaviour
 
     public void GoToSchool(GameObject Building, string NextJob)
     {
-        
         if (NextJob != currentJob)
         {
             isJobless = true;
@@ -346,18 +332,16 @@ public class CharacterScript : MonoBehaviour
             this.nextJob = NextJob;
             this.isLearning = true;
             agent.SetDestination(Building.transform.position);
-            
-        } 
-        
+        }
     }
 
     public void BeingHover()
     {
         nameText.text = this.name;
         nameText.gameObject.SetActive(true);
-        // faire que le texte regarde la camera :
-        nameText.gameObject.transform.LookAt(transform.position + cameraMain.transform.rotation * Vector3.forward, cameraMain.transform.rotation * Vector3.up);
 
+        // Make the name look at the camera:
+        nameText.gameObject.transform.LookAt(transform.position + cameraMain.transform.rotation * Vector3.forward, cameraMain.transform.rotation * Vector3.up);
     }
 
     public void StopBeingHover()
@@ -389,24 +373,28 @@ public class CharacterScript : MonoBehaviour
     private IEnumerator WanderingLoop()
     {
         isWandering = true;
-        animator.SetTrigger("Jump");
+        if (agent.velocity.sqrMagnitude > 0.01f)
+        {
+            animator.SetTrigger("Jump");
+        }
+
         while (isWandering)
         {
             Vector3 target = RandomNavmeshLocation(30f);
             agent.SetDestination(target);
 
-            // Attendre d’être vraiment arrivé
+            // Wait until the character has really arrived
             while (isWandering && !HasArrived(target))
                 yield return null;
 
-            // petite pause
+            // Small pause
             yield return new WaitForSeconds(0.3f);
         }
     }
 
     private bool HasArrived(Vector3 target)
     {
-        if (!agent.hasPath) return false; // permet d'ignorer les fausses fins
+        if (!agent.hasPath) return false; // Avoid false positives
         if (agent.pathPending) return false;
         if (agent.remainingDistance > agent.stoppingDistance + 0.2f) return false;
 
@@ -421,14 +409,11 @@ public class CharacterScript : MonoBehaviour
 
     public void EndOfTheDay()
     {
-        
         sleepiness = true;
         Eat();
-        
 
         if (currentJob != "Wander")
         {
-            
             Building house = buildingManager.GetFreeBuilding("House");
 
             if (house == null)
@@ -441,13 +426,12 @@ public class CharacterScript : MonoBehaviour
                 return;
             }
 
-            agent.isStopped = false;     
+            agent.isStopped = false;
             agent.ResetPath();
             HouseScript houseScript = house.gameObject.GetComponent<HouseScript>();
             if (houseScript == null) return;
             houseScript.currentCharacter = this;
-            
-            
+
             houseScript.currentCharacter = this;
             agent.SetDestination(house.transform.position);
             isWorking = false;
@@ -455,20 +439,18 @@ public class CharacterScript : MonoBehaviour
             isLearning = false;
             NextBuilding = house.gameObject;
             isHappy = 1;
-                
-            
-
         }
         else
         {
             isHappy = 0;
             isSleeping = true;
         }
-
     }
 
+
+
     public void Eat()
-    {  
+    {
         if (!manager.ConsumeFood(1))
         {
             Die();

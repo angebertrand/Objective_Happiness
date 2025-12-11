@@ -38,7 +38,7 @@ public class ConstructionScript : MonoBehaviour
 
         if (availableMason != null)
         {
-            // Il part vers le chantier
+            // Go to work
             availableMason.StartBuilding(this.gameObject);
             availableMason.isWorking = true;
 

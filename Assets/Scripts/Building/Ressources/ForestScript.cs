@@ -48,7 +48,7 @@ public class ForestScript : MonoBehaviour
     {
         while (isMining)
         {
-            // Le character existe toujours ?
+            // Character exists ?
             if (currentCharacter == null || currentCharacter.sleepiness)
             {
                 currentCharacter = null;
@@ -75,6 +75,8 @@ public class ForestScript : MonoBehaviour
             if (currentCharacter.NextBuilding == this.gameObject)
             {
                 isMining = true;
+                currentCharacter.animator.ResetTrigger("Jump");
+                currentCharacter.animator.SetTrigger("ToolUse");
                 StartCoroutine(CheckMiningState());
             }
 

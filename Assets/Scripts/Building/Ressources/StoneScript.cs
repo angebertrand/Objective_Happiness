@@ -58,7 +58,7 @@ public class StoneScript : MonoBehaviour
     {
         while (isMining)
         {
-            // Le character existe toujours ?
+            // Chara exists ?
             if (currentCharacter == null || currentCharacter.sleepiness)
             {
                 currentCharacter = null;
@@ -84,6 +84,8 @@ public class StoneScript : MonoBehaviour
             
             if (currentCharacter.NextBuilding == this.gameObject)
             {
+                currentCharacter.animator.ResetTrigger("Jump");
+                currentCharacter.animator.SetTrigger("ToolUse");
                 isMining = true;
                 StartCoroutine(CheckMiningState());
             }

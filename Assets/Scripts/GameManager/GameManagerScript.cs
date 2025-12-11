@@ -127,7 +127,7 @@ public class GameManagerScript : MonoBehaviour
 
         sun.GetComponent<Light>().color = new Color(0.9849057f, 0.8108497f, 0.3400711f);
 
-        // ← AJOUT : réinitialiser toutes les maisons
+        
         foreach (GameObject house in houses)
         {
             if (house == null) continue;
@@ -180,7 +180,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         
-        yield return new WaitForSeconds(45f);  // Lenght of a day //////////
+        yield return new WaitForSeconds(70f);  // Lenght of a day //////////
 
         ///////////////////////////////////////////////////////////////////
         ///Night Time ///////
@@ -220,7 +220,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         Time.timeScale = 0f;
-        Time.fixedDeltaTime = 0f; // physique complètement arrêtée
+        Time.fixedDeltaTime = 0f; 
     }
 
     // Smooth Resume
@@ -246,7 +246,7 @@ public class GameManagerScript : MonoBehaviour
 
     private void ResetBuildingsUsage()
     {
-        // Toutes les listes de bâtiments sauf maisons
+        
         List<GameObject>[] buildingLists = new List<GameObject>[] { stones, bushes, forests };
 
         foreach (var list in buildingLists)
@@ -291,17 +291,17 @@ public class GameManagerScript : MonoBehaviour
     }
     private void CleanCharacterList()
     {
-        // Liste des personnages réellement présents dans la scène
+        
         CharacterScript[] existingCharacters = FindObjectsOfType<CharacterScript>();
 
-        // 1. Retire les NULL
+       
         characters.RemoveAll(c => c == null);
 
-        // 2. Retire les doublons
+        
         HashSet<CharacterScript> unique = new HashSet<CharacterScript>(characters);
         characters = new List<CharacterScript>(unique);
 
-        // 3. Ajoute les personnages manquants dans la liste
+        
         foreach (var character in existingCharacters)
         {
             if (!characters.Contains(character))
@@ -310,7 +310,7 @@ public class GameManagerScript : MonoBehaviour
             }
         }
 
-        // 4. Réassigner des IDs propres (optionnel mais propre)
+        
         for (int i = 0; i < characters.Count; i++)
         {
             characters[i].ID = i;
@@ -414,7 +414,7 @@ public class GameManagerScript : MonoBehaviour
                 character.EndOfTheDay(); 
         }
 
-        // Ensuite on attend que la condition soit vraie
+        
         StartCoroutine(WaitForSleepingOrHousesFull());
     }
 
@@ -440,7 +440,7 @@ public class GameManagerScript : MonoBehaviour
             
             bool allHousesOccupied = AreAllHousesOccupied();
 
-            // Condition OK ?
+            
             if (everyoneSleeping || allHousesOccupied)
             {
                 Debug.Log("✔ Conditions remplies : passage au jour suivant.");

@@ -6,10 +6,6 @@ using UnityEngine.AI;
 public class MasonScript : CharacterScript
 {
 
-    
-    
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,15 +14,13 @@ public class MasonScript : CharacterScript
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         buildingManager = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingManager>();
         currentJob = "Mason";
         cameraMain = Camera.main;
         Register();
 
     }
-
-    
 
     void Update()
     {
