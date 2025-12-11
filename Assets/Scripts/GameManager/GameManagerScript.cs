@@ -183,7 +183,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
         
-        yield return new WaitForSeconds(10f);  // Lenght of a day //////////
+        yield return new WaitForSeconds(65f);  // Lenght of a day //////////
 
 
         ///////////////////////////////////////////////////////////////////
@@ -283,6 +283,10 @@ public class GameManagerScript : MonoBehaviour
             }
                 
         }
+
+
+        Joy += libraries.Count * 2;
+        Joy += museums.Count * 3;
 
         if (AllDead)
         {
