@@ -14,6 +14,7 @@ public class WandererScript : CharacterScript
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         buildingManager = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingManager>();
         currentJob = "Wander";
         isWandering = true;

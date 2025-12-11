@@ -13,6 +13,7 @@ public class MinerScript : CharacterScript
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         buildingManager = FindObjectOfType<BuildingManager>();
         currentJob = "Miner";
         cameraMain = Camera.main;

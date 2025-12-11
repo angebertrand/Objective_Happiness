@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 57846348049042567}
   - component: {fileID: -1882285257750724621}
   - component: {fileID: 5525248227148155853}
+  - component: {fileID: 7479845195881636273}
   m_Layer: 0
   m_Name: Miner
   m_TagString: Character
@@ -390,6 +391,13 @@ MonoBehaviour:
   NextBuilding: {fileID: 0}
   JobBuilding: {fileID: 8373111937849534192, guid: 634d691d2fa809c4a889c9ae5e44d0f0, type: 3}
   buildingManager: {fileID: 0}
+  wanderingCoroutineRunning: 0
+  isBuildingSomething: 0
+  currentWanderTarget: {x: 0, y: 0, z: 0}
+  hasWanderTarget: 0
+  wanderRadius: 30
+  arriveThreshold: 0.5
+  animator: {fileID: 0}
 --- !u!195 &-1882285257750724621
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -439,6 +447,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &7479845195881636273
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533931857633977052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: fac0834e4010d3047bc967f90f30aa6f, type: 3}
+  m_Controller: {fileID: 9100000, guid: f71a2040724ae5247809dcc5bf93dc67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7262571524472808866
 GameObject:
   m_ObjectHideFlags: 0

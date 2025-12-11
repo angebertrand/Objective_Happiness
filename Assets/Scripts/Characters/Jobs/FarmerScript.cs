@@ -13,6 +13,7 @@ public class FarmerScript : CharacterScript
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>(); 
         buildingManager = FindObjectOfType<BuildingManager>();
         currentJob = "Farmer";
         cameraMain = Camera.main;

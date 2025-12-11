@@ -112,7 +112,9 @@ public class GameManagerScript : MonoBehaviour
 
 
     }
-
+    
+    ////////////////////////
+    
     IEnumerator dayCoroutine()
     {
         
@@ -151,7 +153,11 @@ public class GameManagerScript : MonoBehaviour
             }
             else
             {
-                c.sleepiness = true;
+                if (c.currentJob != "Wander")
+                {
+                    c.sleepiness = true;
+                }
+                
             }
 
 

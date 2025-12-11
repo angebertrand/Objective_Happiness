@@ -1,6 +1,7 @@
 ﻿
 using System.Collections;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.AI;
@@ -72,6 +73,8 @@ public class CharacterScript : MonoBehaviour
     public float wanderRadius = 30f;
     public float arriveThreshold = 0.5f;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,6 +130,7 @@ public class CharacterScript : MonoBehaviour
         agent.ResetPath();
 
         agent.SetDestination(currentTargetPosition);
+        animator.SetTrigger("Jump");
     }
 
     // --- Méthode centrale pour envoyer vers une position ---
@@ -157,6 +161,7 @@ public class CharacterScript : MonoBehaviour
             agent.ResetPath();
 
             bool ok = agent.SetDestination(validPos);
+            animator.SetTrigger("Jump");
             Debug.Log($"[MoveTo] {name} -> position validée: {validPos}. SetDestination returned: {ok}");
         }
         else
@@ -379,10 +384,12 @@ public class CharacterScript : MonoBehaviour
         wanderRoutine = null;
     }
 
+
+
     private IEnumerator WanderingLoop()
     {
         isWandering = true;
-
+        animator.SetTrigger("Jump");
         while (isWandering)
         {
             Vector3 target = RandomNavmeshLocation(30f);

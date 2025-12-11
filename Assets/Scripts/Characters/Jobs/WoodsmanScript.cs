@@ -14,6 +14,7 @@ public class WoodsmanScript : CharacterScript
     {
 
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         buildingManager = FindObjectOfType<BuildingManager>();
         currentJob = "Woods";
         cameraMain = Camera.main;

@@ -18,6 +18,7 @@ public class MasonScript : CharacterScript
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
         buildingManager = GameObject.FindGameObjectWithTag("BuildingManager").GetComponent<BuildingManager>();
         currentJob = "Mason";
         cameraMain = Camera.main;

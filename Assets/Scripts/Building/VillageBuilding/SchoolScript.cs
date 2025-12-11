@@ -27,9 +27,13 @@ public class SchoolScript : MonoBehaviour
             currentCharacter = other.GetComponent<CharacterScript>();
             
             if (currentCharacter.canLearn && currentCharacter.NextBuilding == this.gameObject)
-            {
-                
+            {              
                 isLearning = true;
+
+                if (currentCharacter.isWandering)
+                {
+                    currentCharacter.StopWandering();
+                }
             }
             
         }
@@ -37,7 +41,7 @@ public class SchoolScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Character"))
+        if (other.CompareTag("Character") && other.gameObject == currentCharacter.gameObject)
         {
             
             isLearning = false;
