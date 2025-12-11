@@ -7,6 +7,7 @@ public class GameManagerUIScript : MonoBehaviour
     public TMP_Text woodText;
     public TMP_Text foodText;
     public TMP_Text stoneText;
+    public TMP_Text happinessText;
     public GameManagerScript gameManagerScript;
     public ProgressBarScript happinessBar;
 
@@ -24,6 +25,7 @@ public class GameManagerUIScript : MonoBehaviour
         woodText.text = gameManagerScript.nWood.ToString();
         foodText.text = gameManagerScript.nFood.ToString();
         stoneText.text = gameManagerScript.nStone.ToString();
+        happinessText.text = "Happiness : " + gameManagerScript.Joy.ToString() + " / 100";
     }
 
     public void happinessReset(float newHappiness)

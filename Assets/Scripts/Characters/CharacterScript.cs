@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using TMPro;
-using UnityEditor.Animations;
-using UnityEditor.XR;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.TextCore.Text;
@@ -354,7 +352,7 @@ public class CharacterScript : MonoBehaviour
     {
         if (wanderRoutine != null)
             StopCoroutine(wanderRoutine);
-
+        animator.SetTrigger("Jump");
         wanderRoutine = StartCoroutine(WanderingLoop());
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
@@ -16,6 +17,7 @@ public class GameManagerScript : MonoBehaviour
     public List<GameObject> stones = new List<GameObject>();
     public List<GameObject> bushes = new List<GameObject>();
     public List<GameObject> forests = new List<GameObject>();
+    public Light IntensityLight;
 
     GameManagerUIScript gameManagerUIScript;
 
@@ -121,6 +123,7 @@ public class GameManagerScript : MonoBehaviour
         GameObject sun = GameObject.FindGameObjectWithTag("Sun");
 
         day = true;
+        IntensityLight.intensity = 1.5f;
         dayCount++;
 
         spawnpointScript.InstanciateWanderer(dayCount);
@@ -180,13 +183,16 @@ public class GameManagerScript : MonoBehaviour
         }
 
         
-        yield return new WaitForSeconds(70f);  // Lenght of a day //////////
+        yield return new WaitForSeconds(10f);  // Lenght of a day //////////
+
 
         ///////////////////////////////////////////////////////////////////
         ///Night Time ///////
         //////////////////////////////////////////////////////////////////////
         ///
         day = false;
+        IntensityLight.intensity = 0.3f;
+
         sun.GetComponent<Light>().color = new Color(0.1071307f, 0.09558551f, 0.6754716f);
         ResetBuildingsUsage();
         FinishDay();
