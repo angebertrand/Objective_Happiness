@@ -462,9 +462,9 @@ MonoBehaviour:
   canGoToNextDay: 0
   PausedSound: {fileID: 38453187}
   UnPausedSound: {fileID: 38453186}
-  nWood: 10
-  nFood: 65
-  nStone: 15
+  nWood: 0
+  nFood: 10
+  nStone: 0
   isPaused: 0
   pauseDuration: 0.6
   Joy: 0
