@@ -135,21 +135,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0
-        functionName: StartJumping
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: bc5957a38a57ef8499d4e0dbdb8d41fd, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.44844928
-        functionName: StartFalling
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: bc5957a38a57ef8499d4e0dbdb8d41fd, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
