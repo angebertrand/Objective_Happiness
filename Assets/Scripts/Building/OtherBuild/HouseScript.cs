@@ -52,7 +52,7 @@ public class HouseScript : MonoBehaviour
 
         if (other.CompareTag("Character") || other.CompareTag("Mason"))
         {
-            if (currentCharacter != null || other.gameObject == currentCharacter.gameObject)
+            if (currentCharacter != null && other.gameObject == currentCharacter.gameObject)
             {
                 isOccupied = false;
                 currentCharacter.isSleeping = false;

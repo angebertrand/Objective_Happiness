@@ -8,8 +8,6 @@ public class ProgressBarScript : MonoBehaviour
     public Image progressBar;
     private void Start()
     {
-        //GameObject.Find("BackgroundConstruction").GetComponent<Transform>().rotation = Quaternion.identity;
-        //GameObject.Find("FillConstruction").GetComponent<Transform>().rotation = Quaternion.identity;
         transform.rotation = Quaternion.identity;
     }
     public void UpdateProgress(float number)
