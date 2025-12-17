@@ -16,7 +16,7 @@ public class CharacterScript : MonoBehaviour
     public Sprite icon;
 
     public bool sleepiness;
-    public int age;
+    public int age = 0;
     public bool hasEaten;
     public bool hasAJob;
     public bool enoughFood;
@@ -407,6 +407,12 @@ public class CharacterScript : MonoBehaviour
 
     public void EndOfTheDay()
     {
+        age += 1;
+        if (age == 7)
+        {
+            Die();
+        }
+
         sleepiness = true;
         Eat();
 

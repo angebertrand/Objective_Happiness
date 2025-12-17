@@ -142,7 +142,8 @@ public class GameManagerScript : MonoBehaviour
         }
 
         CleanCharacterList();
-        
+
+        new WaitForSeconds(0.5f);
 
         List<CharacterScript> charactersCopy = new List<CharacterScript>(characters);
 
@@ -162,9 +163,7 @@ public class GameManagerScript : MonoBehaviour
                 }
                 
             }
-
-
-            
+ 
             
             if (c.isJobless)
             {

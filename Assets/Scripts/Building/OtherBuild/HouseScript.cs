@@ -26,7 +26,13 @@ public class HouseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameManagerScript.day && currentCharacter != null)
+        {
+            Vector3 newPos = currentCharacter.transform.position + currentCharacter.transform.right * 3f;
+            currentCharacter.agent.Warp(newPos);
+            currentCharacter.agent.isStopped = false;
+            currentCharacter.agent.ResetPath();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,6 +64,7 @@ public class HouseScript : MonoBehaviour
                 currentCharacter.isSleeping = false;
                 buildingScript.isUsed = false;
                 textZZZ.SetActive(false);
+                currentCharacter = null;
             }
             
         }

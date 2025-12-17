@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerUIScript : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameManagerUIScript : MonoBehaviour
     public TMP_Text foodText;
     public TMP_Text stoneText;
     public TMP_Text happinessText;
+    public Image timeImage;
     public GameManagerScript gameManagerScript;
     public ProgressBarScript happinessBar;
 
@@ -26,6 +28,24 @@ public class GameManagerUIScript : MonoBehaviour
         foodText.text = gameManagerScript.nFood.ToString();
         stoneText.text = gameManagerScript.nStone.ToString();
         happinessText.text = "Happiness : " + gameManagerScript.Joy.ToString() + " / 100";
+
+        if (gameManagerScript.day)
+        {
+            float currentZ = timeImage.rectTransform.localEulerAngles.z;
+            if (currentZ == 0f)
+            {
+                timeImage.rectTransform.localEulerAngles = new Vector3(0, 0, 90f);
+            }
+            if (currentZ < 270f)
+            {
+                timeImage.rectTransform.Rotate(0, 0, 180f / 65f * Time.deltaTime);
+            }
+        }
+        else
+        {
+            timeImage.rectTransform.localEulerAngles = new Vector3(0, 0,0);
+
+        }
     }
 
     public void happinessReset(float newHappiness)

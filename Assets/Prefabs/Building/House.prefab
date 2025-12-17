@@ -27,7 +27,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4403790686076687035}
   m_LocalRotation: {x: 0.07306416, y: -0, z: -0, w: 0.99732727}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.8}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 8.38, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 13.9}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 2.81, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &218077573359541556
@@ -136,7 +136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3, y: -0.19}
+  m_AnchoredPosition: {x: 0.3, y: -0.42}
   m_SizeDelta: {x: 4.56, y: 1.199}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7314978238735042109
@@ -194,8 +194,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
-  m_fontSizeBase: 0.8
+  m_fontSize: 0.64
+  m_fontSizeBase: 0.64
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -337,7 +337,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 3.62
+  m_Radius: 1.23
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6243750139674473397
 MonoBehaviour:
